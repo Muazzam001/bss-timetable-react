@@ -95,7 +95,7 @@ export default function LoginForm({className}) {
                     </div>
 
                     <label htmlFor="remember-me" className="flex items-center ml-4">
-                        <div className="border border-blue-medium1 w-5 h-5 rounded cursor-pointer z-50">
+                        <span className="border border-blue-medium1 w-5 h-5 rounded cursor-pointer z-50">
                             <input
                                 id="remember-me"
                                 name="remember-me"
@@ -105,10 +105,11 @@ export default function LoginForm({className}) {
 
                             <span
                                 className="peer-checked:inline-block hidden w-[12px] h-[7px] border-t-2 border-r-2 rotate-[130deg] translate-x-[3px] -translate-y-[5px] border-blue-dark2 cursor-pointer"></span>
-                        </div>
+                        </span>
+
                         <span className="ml-2 block text-sm text-gray-900 font-primary cursor-pointer">
-              Remember me
-            </span>
+                          Remember me
+                        </span>
                     </label>
 
                     {/* Sign In & Forgot Password Buttons */}

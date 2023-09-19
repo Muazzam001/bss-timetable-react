@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
+import {assets} from '@/src/assets/index.jsx';
 import InputField from '@/src/shared/input/inputField.jsx';
 import MainLayout from '@/src/shared/mainLayout/mainLayout.jsx';
 import InputSelect from '@/src/shared/inputSelect/inputSelect.jsx';
 import Button from '@/src/shared/button/button.jsx';
-import {assets} from '@/src/assets/index.jsx';
 import ManageLesson from '@/src/shared/manageLesson/manageLesson.jsx';
 import Calendar from '@/src/components/timetable/calendar.jsx';
 import SideModal from '@/src/shared/sideModal/sideModal.jsx';
@@ -168,11 +168,11 @@ const Whole = () => {
                 />
 
                 {calendarDisplay ? (
-                    <div>
+                    <>
                         <Calendar/>
-                    </div>
+                    </>
                 ) : (
-                    <div className='flex justify-center pb-20'>
+                    <div className='flex justify-center'>
                         <Processing image={assets.loading} label="Please select timetable above option"
                                     btnColor="bg-warning"/>
                     </div>

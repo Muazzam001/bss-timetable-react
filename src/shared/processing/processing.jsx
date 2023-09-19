@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from '../image/image';
+import Image from "@/src/shared/image/image.jsx";
 
 const Processing = ({image, label, border, btnColor, children}) => {
     return (

@@ -1,7 +1,7 @@
-import React from 'react'
-import Button from '../../shared/button/button'
-import {Link, useNavigate} from 'react-router-dom'
-import './signIn.scss'
+import React from 'react';
+import {Link, useNavigate} from 'react-router-dom';
+import Button from '@/src/shared/button/button.jsx';
+import './signIn.scss';
 
 const ResetCard = ({className}) => {
     const navigate = useNavigate();
