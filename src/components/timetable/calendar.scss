@@ -1,0 +1,43 @@
+.fc-scrollgrid-sync-inner,
+.fc .fc-col-header-cell-cushion,
+.fc .fc-daygrid-day-number {
+    @apply p-0;
+}
+
+.fc-col-header-cell-cushion {
+    @apply w-full h-full;
+}
+
+.fc-dayGridDay-button.fc-button.fc-button-primary {
+    @apply rounded-none;
+}
+
+.fc-customDay-button.fc-button.fc-button-primary {
+    @apply bg-transparent border-0 text-black font-primary font-semibold;
+}
+
+.fc-customYear-button.fc-button.fc-button-primary {
+    @apply bg-transparent border-0 text-black font-primary ml-0;
+}
+
+.fc-prev-button.fc-button.fc-button-primary,
+.fc-next-button.fc-button.fc-button-primary {
+    @apply bg-transparent border-0 text-black font-primary font-semibold p-0;
+}
+
+.centered-text {
+    @apply text-center align-middle bg-lime-300;
+}
+
+.fc-scrollgrid-sync-inner {
+    @apply bg-white border-b-2 border-blue-dark2;
+}
+
+.fc-header-toolbar.fc-toolbar.fc-toolbar-ltr {
+    @apply bg-white mb-0 py-2 px-10 border border-gray-300 border-b-0;
+}
+
+.fc-dayGridDay-button.fc-button.fc-button-primary {
+    @apply bg-blue-dark2;
+}
+
