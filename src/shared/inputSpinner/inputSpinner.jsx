@@ -1,6 +1,5 @@
 import ArrowUp from '@/src/assets/icons/arrowUp.jsx';
 import ArrowDown from '@/src/assets/icons/arrowDown.jsx';
-
 import "./inputSpinner.scss"
 
 const InputSpinner = ({min, max, value, setState, className, label}) => {

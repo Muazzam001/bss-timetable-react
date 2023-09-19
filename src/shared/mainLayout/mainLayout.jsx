@@ -1,7 +1,7 @@
 import React from 'react';
-import Footer from '../footer/footer';
-import Header2 from '../header2/header2';
-import HeaderTop from '../headerTop/headerTop';
+import HeaderTop from '@/src/shared/headerTop/headerTop.jsx';
+import Header2 from '@/src/shared/header2/header2.jsx';
+import Footer from '@/src/shared/footer/footer.jsx';
 
 const MainLayout = ({children, headerItem}) => {
     return (

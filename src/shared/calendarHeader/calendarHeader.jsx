@@ -1,6 +1,6 @@
 import {assets} from "@/src/assets/index.jsx";
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import Image from '@/src/shared/image/image.jsx';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab}) => {
 

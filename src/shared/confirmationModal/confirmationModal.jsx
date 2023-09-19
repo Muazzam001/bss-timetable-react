@@ -1,5 +1,5 @@
-import {Fragment} from 'react'
-import {Dialog, Transition} from '@headlessui/react'
+import {Fragment} from 'react';
+import {Dialog, Transition} from '@headlessui/react';
 import Button from '@/src/shared/button/button.jsx';
 
 const ConfirmationModal = ({open, newValue, oldValue, confirm, setOpen}) => {

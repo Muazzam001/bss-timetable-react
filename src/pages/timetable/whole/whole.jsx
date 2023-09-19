@@ -183,7 +183,7 @@ const Whole = () => {
                 open={open}
                 setOpen={setOpen}
                 image={assets.okbro}
-                label="Duplicated timetable successfully has beed created “Winter”."
+                label={`Duplicated timetable successfully has been created "Winter".`}
                 btnColor="bg-success"
                 border
             >

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {assets} from "@/src/assets/index.jsx";
-import ArrowRight from "@/src/assets/icons/arrowRight.jsx";
 import Image from '@/src/shared/image/image.jsx';
+import ArrowRight from "@/src/assets/icons/arrowRight.jsx";
 import InputSelect from "@/src/shared/inputSelect/inputSelect.jsx";
 
 const ManageLesson = ({options, icon, text, value, setState, setIsOpen}) => {

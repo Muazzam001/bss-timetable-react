@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from '../image/image';
+import Image from "@/src/shared/image/image.jsx";
 
 const Badge = ({bgColor, textColor, text, icon}) => {
     return (

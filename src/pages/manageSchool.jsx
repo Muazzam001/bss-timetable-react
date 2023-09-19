@@ -1,11 +1,11 @@
 import {useState, useEffect} from 'react';
-import Team from '../shared/team/team';
-import Button from '../shared/button/button';
-import SideModal from '../shared/sideModal/sideModal';
-import MainLayout from '../shared/mainLayout/mainLayout';
-import MultiSelectionTeam from '../shared/multiSelectionTeam/multiSelectionTeam';
-import AddSection from '../components/addSection';
-import {stopScroll} from '../utils/utils';
+import Team from '@/src/shared/team/team.jsx';
+import Button from '@/src/shared/button/button.jsx';
+import SideModal from '@/src/shared/sideModal/sideModal.jsx';
+import MainLayout from '@/src/shared/mainLayout/mainLayout.jsx';
+import MultiSelectionTeam from '@/src/shared/multiSelectionTeam/multiSelectionTeam.jsx';
+import AddSection from '@/src/components/addSection.jsx';
+import {stopScroll} from '@/src/utils/utils.js';
 import {useNavigate} from "react-router-dom";
 
 const ManageSchool = () => {

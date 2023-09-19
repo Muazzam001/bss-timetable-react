@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {assets} from "@/src/assets/index.jsx";
-import Image from "../image/image";
+import Image from '@/src/shared/image/image.jsx';
 
 const Sidebar = () => {
     const [open, setOpen] = useState(true);

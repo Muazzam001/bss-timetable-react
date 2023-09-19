@@ -1,9 +1,9 @@
 import React from "react";
-import LoginForm from "@/src/components/auth/loginForm.jsx";
 import { assets } from "@/src/assets/index.jsx";
 import Image from "@/src/shared/image/image.jsx";
-import "./auth.scss";
 import AuthLayout from "../shared/authLayout/authLayout.jsx";
+import LoginForm from "@/src/components/auth/loginForm.jsx";
+import "./auth.scss";
 
 export default function Login() {
   return (
