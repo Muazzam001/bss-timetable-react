@@ -1,9 +1,9 @@
 import React from 'react'
 import Button from '../../shared/button/button'
-import { Link, useNavigate } from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import './signIn.scss'
 
-const ResetCard = ({ className }) => {
+const ResetCard = ({className}) => {
     const navigate = useNavigate();
     return (
         <>
@@ -14,7 +14,8 @@ const ResetCard = ({ className }) => {
                         If it doesn’t show up soon, check your spam folder.</p>
                 </div>
 
-                <Link className="text-blue-dark1 text-sm cursor-pointer text-center mx-auto font-primary">Resend email</Link>
+                <Link className="text-blue-dark1 text-sm cursor-pointer text-center mx-auto font-primary">Resend
+                    email</Link>
 
                 <div className="flex flex-col gap-y-5 w-full">
                     <Button

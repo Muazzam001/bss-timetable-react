@@ -3,15 +3,14 @@ import forms from "@tailwindcss/forms";
 
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  theme: {
-    extend: {},
-  },
+  // prefix: 'bss-',
   darkMode: ["class", '[data-mode="dark"]'],
   i18n: {
     locales: ["en-US"],
     defaultLocale: "en-US",
   },
-  theme: {},
+  theme: {
+  },
   corePlugins: {
     aspectRatio: false,
     container: false,

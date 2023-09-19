@@ -1,7 +1,0 @@
-.masked {
-    background-color: #175088;
-    -webkit-mask-image: url("../../../assets/images/plus.png");
-    mask-image: url("../../../assets/images/plus.png");
-    mask-repeat: no-repeat;
-    mask-size: cover;
-}

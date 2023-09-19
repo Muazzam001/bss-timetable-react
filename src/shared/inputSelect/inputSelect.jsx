@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import InputBase from '@mui/material/InputBase';
-import { styled } from '@mui/material/styles';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import {styled} from '@mui/material/styles';
 
-const InputSelect = ({ options, className, defaultValue, setState, value, width, disabled, label }) => {
+const InputSelect = ({options, className, defaultValue, value, width, disabled, label, onChange}) => {
 
-    const BootstrapInput = styled(InputBase)(({ theme }) => ({
+    const BootstrapInput = styled(InputBase)(({theme}) => ({
 
         'label + &': {
-            marginTop: theme.spacing(3),
             width: `${width}`,
         },
         '& .MuiInputBase-input': {
@@ -30,32 +28,33 @@ const InputSelect = ({ options, className, defaultValue, setState, value, width,
         '& .MuiSelect-select.css-1uwzc1h-MuiSelect-select-MuiInputBase-input': {
             display: "flex",
             alignItems: "center",
-            height: "37px",
-            fontSize: "13px",
+            height: "48px",
+            fontSize: "14px",
         }
     }));
 
-
     const optionItems = options?.map((item, index) => {
         return (
-            <MenuItem key={`${index}`} sx={{ width: `${width}` }} value={item}
-                className='z-50 whitespace-normal'>{item}</MenuItem>
+            <MenuItem key={`${index}`} sx={{width: `${width}`}} value={item}
+                      className='z-50 whitespace-normal'>{item}</MenuItem>
         )
     });
 
-    const handleChange = (event) => {
-        setState(event.target.value)
-    }
-
     return (
         <>
-            <div className="relative max-lg:flex-auto">
+            <div className="relative max-lg:flex-auto flex flex-col gap-2">
+                {label ? (
+                    <label className="text-sm font-medium leading-6 !text-dark-gray-200 font-primary">
+                        {label}
+                    </label>
+                ) : null}
                 <Select
                     value={value}
-                    onChange={handleChange}
+                    onChange={onChange}
                     className={`bg-transparent z-50 border-0 h-10 text-xs ${className}`}
-                    sx={{ width: `${width}` }}
-                    input={<BootstrapInput />}
+                    sx={{width: `${width}`}}
+                    input={<BootstrapInput/>}
+
                     defaultValue={defaultValue ? defaultValue : ""}
                     IconComponent={ExpandMoreIcon}
                     disabled={disabled && disabled}
@@ -64,7 +63,7 @@ const InputSelect = ({ options, className, defaultValue, setState, value, width,
                             sx: {
                                 bgcolor: 'transparent',
                                 boxShadow: "none",
-                                paddingX: "10px",
+                                paddingX: 0,
                                 zIndex: 100000000,
                                 '& .MuiPaper-root': {
                                     left: "0px",
@@ -72,7 +71,7 @@ const InputSelect = ({ options, className, defaultValue, setState, value, width,
                                 '& .MuiList-root': {
                                     padding: 0,
                                     minWidth: "fit-content",
-                                    width: { width },
+                                    width: {width},
                                 },
                                 '& .MuiButtonBase-root': {
                                     whiteSpace: "normal",
@@ -81,10 +80,11 @@ const InputSelect = ({ options, className, defaultValue, setState, value, width,
                                     bgcolor: "#CEE8F5",
                                 },
                                 '& .MuiMenuItem-root': {
-                                    fontSize: "13px",
-                                    whiteSpace: 'whitespace-normal',
+                                    fontSize: "14px",
+                                    whiteSpace: 'normal',
                                     color: "#7D7D92",
-                                    paddingX: 1,
+                                    paddingX: 2,
+                                    paddingY: 1.5,
                                     marginTop: "5px",
                                     marginBottom: "5px",
                                     bgcolor: "#F7F7F6",
@@ -93,25 +93,10 @@ const InputSelect = ({ options, className, defaultValue, setState, value, width,
                                     borderRadius: "6px",
                                     boxShadow: "1px 1px 4px #babac4",
                                     '&:hover': {
-                                        bgcolor: "#175088",
+                                        bgcolor: "#175088 !important",
                                         color: "white"
                                     }
                                 },
-                                '& .MuiMenuItem-root:first-of-type': {
-                                    bgcolor: "#F7F7F6",
-                                    '&:hover': {
-                                        bgcolor: "#175088",
-                                        color: "white"
-                                    }
-                                },
-
-                            },
-                            '& .MuiMenuItem-root:first-of-type': {
-                                bgcolor: "#F7F7F6",
-                                '&:hover': {
-                                    bgcolor: "#175088",
-                                    color: "white"
-                                }
                             },
                         },
                     }}
