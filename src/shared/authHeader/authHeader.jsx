@@ -1,6 +1,6 @@
 import React from "react";
 import {assets} from "@/src/assets/index.jsx";
-import Image from "../image/image";
+import Image from '@/src/shared/image/image.jsx';
 import "./authHeader.scss";
 
 const AuthHeader = () => {
@@ -28,7 +28,7 @@ const AuthHeader = () => {
                         <Image src={assets.logo} alt={"Application Logo"}/>
                     </div>
 
-                    <div className="flex items-center float-right">
+                    <div className="flex items-center">
                         {headerIcons("Contact US", assets.contact)}
                         {headerIcons("FAQ's", assets.FAQs)}
                     </div>
