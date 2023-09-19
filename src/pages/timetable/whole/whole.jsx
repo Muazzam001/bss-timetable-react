@@ -86,7 +86,7 @@ const Whole = () => {
     return (
         <MainLayout headerItem={Menus}>
 
-            <div className='bg-gray-light-yellowish py-10 min-h-[calc(100vh-175px)]'>
+            <div className='py-8 min-h-[calc(100vh-178px)]'>
 
                 <div className='container grid grid-flow-col items-center grid-cols-12 gap-3 '>
 
@@ -118,7 +118,7 @@ const Whole = () => {
                     </div>
 
                     <div className='col-span-6 grid grid-flow-col grid-cols-3 gap-3 items-center'>
-                        <div className='col-span-2 -mt-1'>
+                        <div className='col-span-2'>
                             <InputSelect
                                 width={"100%"}
                                 className="min-w-[200px]"

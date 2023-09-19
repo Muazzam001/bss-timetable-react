@@ -38,7 +38,9 @@ const InputField = ({
                     onChange={onChange}
                     disabled={disabled}
                 />
-                <p className='ml-5 text-red-500 text-xs font-primary'>{error}</p>
+                {error ? (
+                    <p className='ml-5 text-red-500 text-xs font-primary'>{error}</p>
+                ) : null}
             </div>
         </>
     )

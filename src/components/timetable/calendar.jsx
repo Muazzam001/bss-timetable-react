@@ -42,7 +42,6 @@ const Calendar = () => {
 
     return (
         <div className="calendar-container px-4">
-
             <CalendarHeader calendarRef={calendarRef} dayName={dayName} selectedTab={selectedTab}
                             setSelectedTab={setSelectedTab}/>
             <div className='flex'>

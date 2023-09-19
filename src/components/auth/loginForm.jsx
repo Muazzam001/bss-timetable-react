@@ -37,7 +37,10 @@ export default function LoginForm({className}) {
             }));
             hasError = true;
         } else if (!validator.isEmail(form.email)) {
-            setError((prevError) => ({...prevError, email: "Invalid Email"}));
+            setError((prevError) => ({
+                ...prevError,
+                email: "Invalid Email"
+            }));
             hasError = true;
         }
         if (validator.isEmpty(form.password)) {

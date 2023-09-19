@@ -79,9 +79,10 @@ const ForgotPasswordForm = ({className}) => {
                             className="text-gray-dark1 font-primary text-sm">
                             Already have an account?
                         </span>
+
                         <NavLink
                             to="/"
-                            className="text-blue-dark1 font-semibold cursor-pointer font-primary text-sm"
+                            className="text-blue-dark1 font-semibold cursor-pointer pl-1 font-primary text-sm"
                         >
                             Return to Sign In
                         </NavLink>

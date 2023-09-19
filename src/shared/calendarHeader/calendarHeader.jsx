@@ -19,11 +19,11 @@ const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab}) => 
         <>
 
             <div className='flex justify-between items-center bg-white border border-gray-medium border-b-0 mt-5'>
-      
+
                 <div className='flex items-center gap-5 py-2 pl-10'>
 
                     <Image src={assets.calendar1} alt="calendar icon" className="w-8"/>
-      
+
                     <span className='font-primary font-semibold'>Timetable</span>
                     {/* <div className='flex items-center gap-1'>
 
@@ -63,9 +63,28 @@ const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab}) => 
 
                 </div> */}
                 </div>
+                <div className='flex items-center gap-3 max-w-[300px] '>
 
-                <div className='flex items-center gap-8'>
+                    {tabItems.map((tab, index) => (
+                        <div
+                            key={index}
+                            className={`relative flex flex-col items-center font-primary font-semibold text-tny border-t-4 rounded border-gray-medium cursor-pointer hover:bg-blue-light1 ${selectedTab === tab.name ? `border-[#175088]` : ''
+                            }`}
+                            onClick={() => handleTabClick(tab.name)}
+                        >
+                            <span className='-translate-y-8'>{tab.name}</span>
+                            <Image src={tab.imageSrc} alt='' className={`w-8 -translate-y-2`}/>
 
+                            {selectedTab === tab.name && (
+                                <div className='absolute -bottom-6 w-full text-center'>
+                                    <PlayArrowIcon className='text-blue-dark2 rotate-90 !w-5'/>
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                </div>
+
+                {/*<div className='flex items-center gap-8 '>*/}
                     {/* <div className='flex items-center gap-3 pt-2'>
                         <div className='flex flex-col items-center font-primary font-semibold text-tny border-t-4 rounded border-gray-medium'>
                             <span className='-translate-y-8'>Control</span>
@@ -83,30 +102,9 @@ const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab}) => 
                             <span className='-translate-y-8'>Timetable Options</span>
                             <Image src={assets.calendar} alt="" className="w-8 -translate-y-2" />
                         </div>
-
                     </div> */}
+                {/*</div>*/}
 
-                    <div className='flex items-center gap-3 pt-2 '>
-
-                        {tabItems.map((tab, index) => (
-                            <div
-                                key={index}
-                                className={`relative flex flex-col items-center font-primary font-semibold text-tny border-t-4 rounded border-gray-medium cursor-pointer hover:bg-blue-light1 ${selectedTab === tab.name ? `border-[#175088]` : ''
-                                }`}
-                                onClick={() => handleTabClick(tab.name)}
-                            >
-                                <span className='-translate-y-8'>{tab.name}</span>
-                                <Image src={tab.imageSrc} alt='' className={`w-8 -translate-y-2`}/>
-
-                                {selectedTab === tab.name && (
-                                    <div className='absolute -bottom-6 w-full text-center'>
-                                        <PlayArrowIcon className='text-blue-dark2 rotate-90 !w-5'/>
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                </div>
             </div>
         </>
     )
