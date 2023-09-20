@@ -61,10 +61,10 @@ export default function LoginForm({className}) {
 
     return (
         <>
-            <div className="card-wrapper ">
+            <div className="card-wrapper">
                 <div className="flex justify-center mb-5 xl:mb-8">
                     <h4 className="text-dark/80 text-h5 xl:text-h4 font-semibold font-primary">
-                        Sign In To Beaconhouse
+                        Sign In To Beacon house
                     </h4>
                 </div>
 

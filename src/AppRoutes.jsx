@@ -1,12 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from './pages/login';
-import ForgotPassword from './pages/forgotPassword';
-import ResetPassword from './pages/resetPassword';
-import ManageSchool from './pages/manageSchool';
-import Whole from './pages/timetable/whole/whole';
-import SelectTimetable from './pages/timetable/selectTimetable/selectTimetable';
-
+import Login from '@/src/pages/login.jsx';
+import ForgotPassword from '@/src/pages/forgotPassword.jsx';
+import ResetPassword from '@/src/pages/resetPassword.jsx';
+import ManageSchool from '@/src/pages/manageSchool.jsx';
+import Whole from '@/src/pages/timetable/whole/whole.jsx';
+import SelectTimetable from '@/src/pages/timetable/selectTimetable/selectTimetable.jsx';
 
 class AppRoutes extends React.Component {
 	render() {
