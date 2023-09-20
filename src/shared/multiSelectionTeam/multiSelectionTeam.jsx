@@ -24,4 +24,4 @@ const MultiSelectionTeam = ({items, title, name, onChange}) => {
     )
 }
 
-export default MultiSelectionTeam
+export default MultiSelectionTeam;

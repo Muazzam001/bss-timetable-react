@@ -1,10 +1,10 @@
-import React, {useState} from "react";
-import {assets} from "@/src/assets/index.jsx";
-import InputField from "@/src/shared/input/inputField.jsx";
-import Button from "@/src/shared/button/button.jsx";
+import './signIn.scss';
+import {useState} from "react";
 import validator from "validator";
 import {useNavigate} from "react-router-dom";
-import "./signIn.scss";
+import {assets} from "../../assets/index.jsx";
+import InputField from "../../shared/input/inputField.jsx";
+import Button from "../../shared/button/button.jsx";
 
 export default function LoginForm({className}) {
     const navigate = useNavigate();

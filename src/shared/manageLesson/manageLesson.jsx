@@ -1,11 +1,9 @@
-import React, {useState} from "react";
-import {assets} from "@/src/assets/index.jsx";
-import Image from '@/src/shared/image/image.jsx';
-import ArrowRight from "@/src/assets/icons/arrowRight.jsx";
-import InputSelect from "@/src/shared/inputSelect/inputSelect.jsx";
+import {assets} from "../../assets/index.jsx";
+import Image from "../image/image.jsx";
+import InputSelect from "../inputSelect/inputSelect.jsx";
+import ArrowRight from "../../assets/icons/arrowRight.jsx";
 
 const ManageLesson = ({options, icon, text, value, setState, setIsOpen}) => {
-
     return (
         <div className="container flex justify-end xl:px-1">
             <div

@@ -1,5 +1,4 @@
-import React from 'react';
-import Image from "@/src/shared/image/image.jsx";
+import Image from "../image/image.jsx";
 
 const Processing = ({image, label, border, btnColor, children}) => {
     return (
@@ -15,4 +14,4 @@ const Processing = ({image, label, border, btnColor, children}) => {
     )
 }
 
-export default Processing
+export default Processing;

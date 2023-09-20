@@ -1,8 +1,8 @@
-import {assets} from "@/src/assets/index.jsx";
-import ArrowLeft from "@/src/assets/icons/arrowLeft.jsx";
-import Image from '@/src/shared/image/image.jsx';
-import Button from "@/src/shared/button/button.jsx";
-import InputField from "@/src/shared/input/inputField.jsx";
+import {assets} from "../../assets/index.jsx";
+import ArrowLeft from "../../assets/icons/arrowLeft.jsx";
+import Image from "../image/image.jsx";
+import Button from "../button/button.jsx";
+import InputField from "../input/inputField.jsx";
 
 const Modal = ({isOpen, onClose, team}) => {
     return (

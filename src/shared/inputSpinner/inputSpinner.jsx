@@ -1,6 +1,6 @@
-import ArrowUp from '@/src/assets/icons/arrowUp.jsx';
-import ArrowDown from '@/src/assets/icons/arrowDown.jsx';
 import "./inputSpinner.scss"
+import ArrowUp from "../../assets/icons/arrowUp.jsx";
+import ArrowDown from "../../assets/icons/arrowDown.jsx";
 
 const InputSpinner = ({min, max, value, setState, className, label}) => {
 
@@ -58,4 +58,4 @@ const InputSpinner = ({min, max, value, setState, className, label}) => {
     )
 }
 
-export default InputSpinner
+export default InputSpinner;

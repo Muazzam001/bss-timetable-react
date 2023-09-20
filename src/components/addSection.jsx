@@ -1,8 +1,7 @@
-import React from 'react';
-import Image from '@/src/shared/image/image.jsx';
-import {assets} from "@/src/assets/index.jsx";
-import InputField from '@/src/shared/input/inputField.jsx';
-import Button from '@/src/shared/button/button.jsx';
+import {assets} from "../assets/index.jsx";
+import Image from "../shared/image/image.jsx";
+import InputField from "../shared/input/inputField.jsx";
+import Button from "../shared/button/button.jsx";
 
 const AddSection = ({team}) => {
     return (

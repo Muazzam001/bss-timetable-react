@@ -1,5 +1,4 @@
-import React from 'react';
-import Image from "@/src/shared/image/image.jsx";
+import Image from "../image/image.jsx";
 
 const Badge = ({bgColor, textColor, text, icon}) => {
     return (
@@ -12,4 +11,4 @@ const Badge = ({bgColor, textColor, text, icon}) => {
     )
 }
 
-export default Badge
+export default Badge;

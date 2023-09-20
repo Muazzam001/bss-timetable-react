@@ -108,4 +108,4 @@ const InputSelect = ({options, className, defaultValue, value, width, disabled, 
     )
 }
 
-export default InputSelect
+export default InputSelect;

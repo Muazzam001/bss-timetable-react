@@ -1,14 +1,15 @@
-import React, {useState} from 'react';
-import InputField from '@/src/shared/input/inputField.jsx';
-import MainLayout from '@/src/shared/mainLayout/mainLayout.jsx';
-import Button from '@/src/shared/button/button.jsx';
-import InputSelect from '@/src/shared/inputSelect/inputSelect.jsx';
+import {useState} from 'react';
+import MainLayout from "../../../shared/mainLayout/mainLayout.jsx";
+import InputField from "../../../shared/input/inputField.jsx";
+import InputSelect from "../../../shared/inputSelect/inputSelect.jsx";
+import Button from "../../../shared/button/button.jsx";
 
 const SelectTimetable = () => {
     const [teamLevel, setTeamLevel] = useState("")
     const [year, setYear] = useState("")
     const cluster = ["Cluster 1", "Cluster 2", "Cluster 3", "Cluster 4", "Cluster 5", "Cluster 6", "Cluster 7", "Cluster 8", "Cluster 9"]
     const level = ["Early Year - Co-Education", "Early Year - Boys", "Low Primary - Co-Education", "Primary - Co-Education", "Primary - Girls", "Primary - Boys", "IB School - Co-Education", "Secondary School - Co-Education", "Secondary School - Boys", "Secondary School - Girls", "All / Whole"]
+
     return (
         <MainLayout>
             <div className='bg-gray-light-yellowish pt-10'>
@@ -74,7 +75,7 @@ const SelectTimetable = () => {
                 </div>
             </div>
         </MainLayout>
-    )
+    );
 }
 
 export default SelectTimetable;

@@ -1,9 +1,8 @@
-import {Fragment, useEffect} from 'react'
+import {Fragment} from 'react'
 import {Dialog, Transition} from '@headlessui/react'
-import Image from '@/src/shared/image/image.jsx';
+import Image from "../image/image.jsx";
 
 const MainModal = ({open, setOpen, image, label, border, btnColor, children}) => {
-
     return (
         <Transition.Root show={open} as={Fragment}>
             <Dialog as="div" className="relative z-50 " onClose={() => console.log("")}>

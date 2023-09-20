@@ -1,7 +1,6 @@
-import React from "react";
-import Edit from "@/src/assets/icons/edit.jsx";
-import Delete from "@/src/assets/icons/delete.jsx";
-import Badge from "@/src/shared/badge/badge.jsx";
+import Badge from "../badge/badge.jsx";
+import Edit from "../../assets/icons/edit.jsx";
+import Delete from "../../assets/icons/delete.jsx";
 
 const SubjectCard = () => {
     return (

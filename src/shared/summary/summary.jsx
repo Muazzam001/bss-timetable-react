@@ -1,4 +1,3 @@
-import React from 'react';
 import "./summary.scss"
 
 const Summary = () => {
@@ -16,4 +15,4 @@ const Summary = () => {
     )
 }
 
-export default Summary
+export default Summary;

@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Icon = ({className, srcStyle}) => {
     return (
         <>
@@ -8,4 +6,4 @@ const Icon = ({className, srcStyle}) => {
     )
 }
 
-export default Icon
+export default Icon;

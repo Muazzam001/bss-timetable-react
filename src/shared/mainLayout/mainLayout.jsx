@@ -1,7 +1,6 @@
-import React from 'react';
-import HeaderTop from '@/src/shared/headerTop/headerTop.jsx';
-import Header2 from '@/src/shared/header2/header2.jsx';
-import Footer from '@/src/shared/footer/footer.jsx';
+import HeaderTop from "../headerTop/headerTop.jsx";
+import Header2 from "../header2/header2.jsx";
+import Footer from "../footer/footer.jsx";
 
 const MainLayout = ({children, headerItem}) => {
     return (
@@ -16,4 +15,4 @@ const MainLayout = ({children, headerItem}) => {
     )
 }
 
-export default MainLayout
+export default MainLayout;

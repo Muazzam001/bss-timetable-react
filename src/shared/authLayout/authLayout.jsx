@@ -1,5 +1,4 @@
-import React from 'react';
-import AuthHeader from '@/src/shared/authHeader/authHeader.jsx';
+import AuthHeader from "../authHeader/authHeader.jsx";
 
 const AuthLayout = ({children}) => {
     return (
@@ -10,4 +9,4 @@ const AuthLayout = ({children}) => {
     )
 }
 
-export default AuthLayout
+export default AuthLayout;

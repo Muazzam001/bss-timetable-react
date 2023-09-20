@@ -1,7 +1,6 @@
-import React from "react";
-import {assets} from "@/src/assets/index.jsx";
-import Image from '@/src/shared/image/image.jsx';
 import "./authHeader.scss";
+import Image from "../image/image.jsx";
+import {assets} from "../../assets/index.jsx";
 
 const HeaderTop = () => {
     const headerIcons = (title, icon) => {

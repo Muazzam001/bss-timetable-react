@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
-import {assets} from "@/src/assets/index.jsx";
-import Image from '@/src/shared/image/image.jsx';
-import InputField from '@/src/shared/input/inputField.jsx';
-import InputSelect from '@/src/shared/inputSelect/inputSelect.jsx';
-import InputSpinner from '@/src/shared/inputSpinner/inputSpinner.jsx';
-import Checkbox from '@/src/shared/checkbox/checkbox.jsx';
-import ConfirmationModal from '@/src/shared/confirmationModal/confirmationModal.jsx';
+import {useState, useEffect} from 'react'
+import {assets} from "../assets/index.jsx";
+import Image from "../shared/image/image.jsx";
+import InputField from "../shared/input/inputField.jsx";
+import InputSelect from "../shared/inputSelect/inputSelect.jsx";
+import InputSpinner from "../shared/inputSpinner/inputSpinner.jsx";
+import Checkbox from "../shared/checkbox/checkbox.jsx";
+import ConfirmationModal from "../shared/confirmationModal/confirmationModal.jsx";
 
 const DefaultSetting = () => {
     const [lessonPerDay, setLessonPerDay] = useState(0)
@@ -187,4 +187,4 @@ const DefaultSetting = () => {
     )
 }
 
-export default DefaultSetting
+export default DefaultSetting;

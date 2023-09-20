@@ -1,15 +1,15 @@
 .header-wrapper {
-  @apply container flex justify-between items-center max-xl:py-1 xl:py-2 max-xl:gap-x-4 xl:gap-x-6;
+    @apply container flex justify-between items-center max-xl:py-1 xl:py-2 max-xl:gap-x-4 xl:gap-x-6;
 }
 
 .header-logo {
-  @apply w-15 h-15 xl:w-16 xl:h-16;
+    @apply w-15 h-15 xl:w-16 xl:h-16;
 }
 
 .header-icon {
-  @apply flex items-center max-xl:gap-x-2 xl:gap-x-4 max-md:px-4 max-xl:px-6 xl:px-8 border-r border-solid border-r-white;
+    @apply flex items-center max-xl:gap-x-2 xl:gap-x-4 max-md:px-4 max-xl:px-6 xl:px-8 border-r border-solid border-r-white;
 
-  &:last-child {
-    @apply border-none;
-  }
+    &:last-child {
+        @apply border-none;
+    }
 }

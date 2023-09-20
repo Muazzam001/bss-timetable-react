@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Checkbox = ({label, checked}) => {
 
     return (
@@ -28,5 +26,4 @@ const Checkbox = ({label, checked}) => {
     )
 }
 
-export default Checkbox
-
+export default Checkbox;

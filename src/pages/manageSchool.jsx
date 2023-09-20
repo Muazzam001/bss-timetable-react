@@ -1,12 +1,12 @@
 import {useState, useEffect} from 'react';
-import Team from '@/src/shared/team/team.jsx';
-import Button from '@/src/shared/button/button.jsx';
-import SideModal from '@/src/shared/sideModal/sideModal.jsx';
-import MainLayout from '@/src/shared/mainLayout/mainLayout.jsx';
-import MultiSelectionTeam from '@/src/shared/multiSelectionTeam/multiSelectionTeam.jsx';
-import AddSection from '@/src/components/addSection.jsx';
-import {stopScroll} from '@/src/utils/utils.js';
 import {useNavigate} from "react-router-dom";
+import {stopScroll} from '../utils/utils.js';
+import MainLayout from "../shared/mainLayout/mainLayout.jsx";
+import Team from "../shared/team/team.jsx";
+import MultiSelectionTeam from "../shared/multiSelectionTeam/multiSelectionTeam.jsx";
+import Button from "../shared/button/button.jsx";
+import SideModal from "../shared/sideModal/sideModal.jsx";
+import AddSection from "../components/addSection.jsx";
 
 const ManageSchool = () => {
     const navigate = useNavigate();
@@ -144,7 +144,7 @@ const ManageSchool = () => {
             </SideModal>
 
         </MainLayout>
-    )
+    );
 }
 
-export default ManageSchool
+export default ManageSchool;

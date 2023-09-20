@@ -1,4 +1,3 @@
-import React from 'react';
 import "./button.scss";
 
 const Button = ({className, title, type, onClick, color, icon, rounded, hover}) => {
@@ -32,5 +31,4 @@ const Button = ({className, title, type, onClick, color, icon, rounded, hover}) 
 
 }
 
-export default Button
-
+export default Button;

@@ -1,6 +1,5 @@
-import React from 'react';
-import Tooltip from '@mui/material/Tooltip';
 import "./tooltips.scss"
+import Tooltip from '@mui/material/Tooltip';
 
 const Tooltips = ({title, children}) => {
     return (
@@ -28,5 +27,4 @@ const Tooltips = ({title, children}) => {
     )
 }
 
-export default Tooltips
-
+export default Tooltips;

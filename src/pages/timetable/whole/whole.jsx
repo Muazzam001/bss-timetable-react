@@ -1,15 +1,15 @@
-import React, {useState, useEffect} from 'react';
-import {assets} from '@/src/assets/index.jsx';
-import InputField from '@/src/shared/input/inputField.jsx';
-import MainLayout from '@/src/shared/mainLayout/mainLayout.jsx';
-import InputSelect from '@/src/shared/inputSelect/inputSelect.jsx';
-import Button from '@/src/shared/button/button.jsx';
-import ManageLesson from '@/src/shared/manageLesson/manageLesson.jsx';
-import Calendar from '@/src/components/timetable/calendar.jsx';
-import SideModal from '@/src/shared/sideModal/sideModal.jsx';
-import {stopScroll} from '@/src/utils/utils.js';
-import Processing from '@/src/shared/processing/processing.jsx';
-import MainModal from '@/src/shared/mainModal/mainModal.jsx';
+import {useState, useEffect} from 'react';
+import {stopScroll} from "../../../utils/utils.js";
+import {assets} from "../../../assets/index.jsx";
+import MainLayout from "../../../shared/mainLayout/mainLayout.jsx";
+import InputField from "../../../shared/input/inputField.jsx";
+import InputSelect from "../../../shared/inputSelect/inputSelect.jsx";
+import Button from "../../../shared/button/button.jsx";
+import ManageLesson from "../../../shared/manageLesson/manageLesson.jsx";
+import Calendar from "../../../components/timetable/calendar.jsx";
+import Processing from "../../../shared/processing/processing.jsx";
+import MainModal from "../../../shared/mainModal/mainModal.jsx";
+import SideModal from "../../../shared/sideModal/sideModal.jsx";
 
 // import PropTypes from 'prop-types';
 // import Tabs from '@mui/material/Tabs';
@@ -276,7 +276,7 @@ const Whole = () => {
 
             </SideModal>
         </MainLayout>
-    )
+    );
 }
 
-export default Whole
+export default Whole;

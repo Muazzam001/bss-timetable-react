@@ -1,10 +1,10 @@
-import React, {useState} from "react";
-import InputField from "@/src/shared/input/inputField.jsx";
-import Button from "@/src/shared/button/button.jsx";
-import {assets} from "@/src/assets/index.jsx";
-import validator from "validator";
-import {NavLink, useNavigate} from "react-router-dom";
-import "./signIn.scss";
+import './signIn.scss';
+import {useState} from 'react';
+import validator from 'validator';
+import {NavLink, useNavigate} from 'react-router-dom';
+import InputField from "../../shared/input/inputField.jsx";
+import Button from "../../shared/button/button.jsx";
+import {assets} from "../../assets/index.jsx";
 
 const ForgotPasswordForm = ({className}) => {
     const navigate = useNavigate();

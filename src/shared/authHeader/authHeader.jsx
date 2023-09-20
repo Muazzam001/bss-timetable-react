@@ -1,6 +1,5 @@
-import React from "react";
-import {assets} from "@/src/assets/index.jsx";
-import Image from '@/src/shared/image/image.jsx';
+import {assets} from "../../assets/index.jsx";
+import Image from "../image/image.jsx";
 import "./authHeader.scss";
 
 const AuthHeader = () => {

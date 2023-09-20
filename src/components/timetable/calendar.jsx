@@ -1,13 +1,13 @@
+import './calendar.scss';
 import {useEffect, useRef, useState} from 'react';
+import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import FullCalendar from '@fullcalendar/react';
-import CalendarHeader from '@/src/shared/calendarHeader/calendarHeader.jsx';
-import Control from '@/src/components/control.jsx';
-import DefaultSetting from '@/src/components/defaultSetting.jsx';
-import TimetableOptions from '@/src/components/timetableOptions.jsx';
-import Workload from '@/src/components/workload.jsx';
-import './calendar.scss';
+import CalendarHeader from "../../shared/calendarHeader/calendarHeader.jsx";
+import DefaultSetting from "../defaultSetting.jsx";
+import Control from "../control.jsx";
+import Workload from "../workload.jsx";
+import TimetableOptions from "../timetableOptions.jsx";
 
 const Calendar = () => {
     const calendarRef = useRef(null);

@@ -1,6 +1,6 @@
-import {assets} from "@/src/assets/index.jsx";
-import Image from '@/src/shared/image/image.jsx';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import {assets} from "../../assets/index.jsx";
+import Image from "../image/image.jsx";
 
 const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab}) => {
 
@@ -85,7 +85,7 @@ const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab}) => 
                 </div>
 
                 {/*<div className='flex items-center gap-8 '>*/}
-                    {/* <div className='flex items-center gap-3 pt-2'>
+                {/* <div className='flex items-center gap-3 pt-2'>
                         <div className='flex flex-col items-center font-primary font-semibold text-tny border-t-4 rounded border-gray-medium'>
                             <span className='-translate-y-8'>Control</span>
                             <Image src={assets.control} alt="" className="w-8 -translate-y-2" />
@@ -110,4 +110,4 @@ const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab}) => 
     )
 }
 
-export default CalendarHeader
+export default CalendarHeader;

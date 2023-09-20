@@ -1,4 +1,4 @@
-import ArrowLeft from "@/src/assets/icons/arrowLeft.jsx";
+import ArrowLeft from "../../assets/icons/arrowLeft.jsx";
 
 const SideModal = ({isOpen, setIsOpen, children, title}) => {
     return (

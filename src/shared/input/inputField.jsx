@@ -1,20 +1,21 @@
-import React from 'react';
-import Image from '@/src/shared/image/image.jsx';
+import Image from "../image/image.jsx";
 
-const InputField = ({
-                        icon,
-                        type,
-                        name,
-                        placeholder,
-                        className,
-                        value,
-                        onChange,
-                        error,
-                        rounded,
-                        htmlFor,
-                        label,
-                        disabled
-                    }) => {
+const InputField = (
+    {
+        icon,
+        type,
+        name,
+        placeholder,
+        className,
+        value,
+        onChange,
+        error,
+        rounded,
+        htmlFor,
+        label,
+        disabled
+    }
+) => {
     return (
         <>
             <div className="relative max-lg:flex-auto flex flex-col gap-1">
@@ -46,4 +47,4 @@ const InputField = ({
     )
 }
 
-export default InputField
+export default InputField;

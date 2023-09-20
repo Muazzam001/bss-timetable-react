@@ -22,4 +22,4 @@ const Team = ({items, title, name, onChange}) => {
     )
 }
 
-export default Team
+export default Team;

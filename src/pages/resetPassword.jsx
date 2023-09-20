@@ -1,9 +1,8 @@
-import React from "react";
-import {assets} from "@/src/assets/index.jsx";
-import Image from "@/src/shared/image/image.jsx";
+import './auth.scss';
+import {assets} from "../assets/index.jsx";
+import Image from "../shared/image/image.jsx";
 import AuthLayout from "../shared/authLayout/authLayout.jsx";
-import ResetCard from "@/src/components/auth/resetCard.jsx";
-import "./auth.scss";
+import ResetCard from "../components/auth/resetCard.jsx";
 
 const ResetPassword = () => {
     return (

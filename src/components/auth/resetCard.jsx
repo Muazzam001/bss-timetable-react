@@ -1,7 +1,6 @@
-import React from 'react';
-import {Link, useNavigate} from 'react-router-dom';
-import Button from '@/src/shared/button/button.jsx';
 import './signIn.scss';
+import {Link, useNavigate} from 'react-router-dom';
+import Button from '../../shared/button/button';
 
 const ResetCard = ({className}) => {
     const navigate = useNavigate();
@@ -32,4 +31,4 @@ const ResetCard = ({className}) => {
     )
 }
 
-export default ResetCard
+export default ResetCard;
