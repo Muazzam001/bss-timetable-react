@@ -74,8 +74,8 @@ const Whole = () => {
     }, [isModalOpen])
 
 
-    const duplicateOption = ["Lession Setting and Data", "Lession Setting Only"];
-    const duplicateType = ['Default', 'Advance - Tution'];
+    const duplicateOption = ["Lesson Setting and Data", "Lesson Setting Only"];
+    const duplicateType = ['Default', 'Advance - Tuistion'];
 
     // const [value, setValue] = React.useState(0);
 
@@ -128,6 +128,7 @@ const Whole = () => {
                                 onChange={(e) => setYear(e.target.value)}
                             />
                         </div>
+
                         {/*<InputSelect*/}
                         {/*    width={"100%"}*/}
                         {/*    className="min-w-[200px]"*/}
@@ -136,6 +137,7 @@ const Whole = () => {
                         {/*    value={teamLevel}*/}
                         {/* onChange={(e) => setTeamLevel(e.target.value)} */}
                         {/*/>*/}
+
                         <div>
                             <InputField
                                 placeholder="Academic Year 2024"
