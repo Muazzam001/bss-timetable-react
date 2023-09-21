@@ -62,7 +62,7 @@ export default function LoginForm({className}) {
     return (
         <>
             <div className="card-wrapper">
-                <div className="flex justify-center mb-5 xl:mb-8">
+                <div className="flex justify-center mb-3 xl:mb-5">
                     <h4 className="text-dark/80 text-h5 xl:text-h4 font-semibold font-primary">
                         Sign In To Beacon house
                     </h4>
@@ -126,14 +126,14 @@ export default function LoginForm({className}) {
                             className="p-3"
                         />
 
-                        <Button
-                            rounded={true}
-                            type="button"
-                            title="Forgot Password?"
-                            color="blue-dark2"
-                            className="p-3"
-                            onClick={() => navigate("/forgot-password")}
-                        />
+                        {/*<Button*/}
+                        {/*    rounded={true}*/}
+                        {/*    type="button"*/}
+                        {/*    title="Forgot Password?"*/}
+                        {/*    color="blue-dark2"*/}
+                        {/*    className="p-3"*/}
+                        {/*    onClick={() => navigate("/forgot-password")}*/}
+                        {/*/>*/}
                     </div>
                 </div>
             </div>
