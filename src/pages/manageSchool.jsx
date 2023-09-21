@@ -139,9 +139,9 @@ const ManageSchool = () => {
                 </div>
             </div>
 
-            <SideModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} title="Manage School">
-                <AddSection team={team}/>
-            </SideModal>
+            {/*<SideModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} title="Manage School">*/}
+            {/*    <AddSection team={team}/>*/}
+            {/*</SideModal>*/}
 
         </MainLayout>
     );

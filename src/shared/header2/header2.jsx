@@ -38,8 +38,9 @@ const Header2 = ({headerItem}) => {
         <header className="text-gray-600 body-font bg-white">
             <div className="px-10 mx-auto flex flex-wrap flex-col md:flex-row items-center">
                 <NavLink className="flex items-center py-2">
-                    <Image src={assets.logo} alt="" className="w-16"/>
+                    <Image src={assets.logo} alt="Logo" className="w-16"/>
                 </NavLink>
+
                 <nav className="md:ml-auto flex flex-wrap gap-x-10 items-center text-base justify-center">
                     {navigation}
                 </nav>
