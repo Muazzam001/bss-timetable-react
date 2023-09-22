@@ -16,7 +16,7 @@ const Sidebar = () => {
     };
 
     return (
-        <div className="flex sticky top-0">
+        <div className="flex sticky -top-2">
             <div
                 className={`bg-dark-purple p-5 pt-8 relative duration-300 ${open ? "w-72" : "w-24"}`}
             >
@@ -48,7 +48,8 @@ const Sidebar = () => {
                             key={index}
                             className={`flex ${!open ? "justify-center" : ""} rounded-md p-2 cursor-pointer hover:bg-blue-dark2 hover:text-white font-primary bg-white text-sm items-center gap-x-4`}
                         >
-                            <Image src={menu.src} className="w-[25px]" alt={"sidebar icon"}/>
+                            <Image src={menu.src} className="w-6 h-6" alt={"sidebar icon"}/>
+
                             {open && (
                             <span className={`origin-left duration-100 inline-block`}>
                                 {menu.title}
