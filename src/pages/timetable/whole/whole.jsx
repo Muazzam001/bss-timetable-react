@@ -10,6 +10,7 @@ import Calendar from "../../../components/timetable/calendar.jsx";
 import Processing from "../../../shared/processing/processing.jsx";
 import MainModal from "../../../shared/mainModal/mainModal.jsx";
 import SideModal from "../../../shared/sideModal/sideModal.jsx";
+import Sidebar from '../../../shared/sidebar/sidebar.jsx';
 
 // import PropTypes from 'prop-types';
 // import Tabs from '@mui/material/Tabs';
@@ -168,6 +169,10 @@ const Whole = () => {
                     setState={setLesson}
                     setIsOpen={setIsModalOpen}
                 />
+
+                <div className='absolute top-[120px] z-50'>
+                    <Sidebar />
+                </div>
 
                 {calendarDisplay ? (
                     <>
