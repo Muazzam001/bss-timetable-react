@@ -9,8 +9,6 @@ const Sidebar = () => {
         {title: "Teachers", src: assets.teacher},
         {title: "Classrooms", src: assets.classroom},
         {title: "Subjects", src: assets.textBooks},
-        {title: "Room Supervision", src: assets.facilitator},
-        {title: "Settings", src: assets.settings},
     ];
 
     const handleSideBar = () => {
@@ -27,10 +25,10 @@ const Sidebar = () => {
                 <ul className="pt-6 flex flex-col gap-2">
                     <div
                         onClick={handleSideBar}
-                        className="flex justify-end rounded-md py-2 cursor-pointer font-primary items-center"
+                        className="flex rounded-md py-2 cursor-pointer font-primary items-center"
                     >
                         {open ? (
-                            <div className="bg-lightsky-blue rounded-md p-1">
+                            <div className="bg-blue-light2 rounded-md p-1">
                                 <Image
                                     src={assets.hamburger}
                                     alt="hamburger sidebar icon"
@@ -38,7 +36,7 @@ const Sidebar = () => {
                                 />
                             </div>
                         ) : (
-                            <div className="bg-lightsky-blue rounded-md p-1">
+                            <div className="bg-blue-light2 rounded-md p-1">
                                 <Image
                                     src={assets.close}
                                     alt="close sidebar icon"
@@ -50,7 +48,7 @@ const Sidebar = () => {
                     {Menus.map((menu, index) => (
                         <li
                             key={index}
-                            className={`flex rounded-md p-2 cursor-pointer hover:bg-sky-blue hover:text-white font-primary bg-blue-300 text-sm items-center gap-x-4`}
+                            className={`flex rounded-md p-2 cursor-pointer shadow hover:bg-blue-dark2 hover:text-white font-primary bg-white text-sm items-center gap-x-4`}
                         >
                             <Image src={menu.src} className="w-[25px]" alt={"sidebar icon"}/>
                             <span className={`${!open && "hidden"} origin-left duration-200`}>
