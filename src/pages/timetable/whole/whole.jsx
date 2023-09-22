@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { stopScroll } from "../../../utils/utils.js";
-import { assets } from "../../../assets/index.jsx";
+import {useState, useEffect} from 'react';
+import {stopScroll} from "../../../utils/utils.js";
+import {assets} from "../../../assets/index.jsx";
 import MainLayout from "../../../shared/mainLayout/mainLayout.jsx";
 import InputField from "../../../shared/input/inputField.jsx";
 import InputSelect from "../../../shared/inputSelect/inputSelect.jsx";
@@ -62,12 +62,12 @@ const Whole = () => {
     // const cluster = ["Cluster 1", "Cluster 2", "Cluster 3", "Cluster 4", "Cluster 5", "Cluster 6", "Cluster 7", "Cluster 8", "Cluster 9"];
 
     const Menus = [
-        { title: "Home", src: assets.home },
-        { title: "Subjects", src: assets.subject },
-        { title: "Classes", src: assets.classes },
-        { title: "Classrooms", src: assets.classroom },
-        { title: "Teachers", src: assets.teacher2 },
-        { title: "Modules", src: assets.modules },
+        {title: "Home", src: assets.home},
+        {title: "Subjects", src: assets.subject},
+        {title: "Classes", src: assets.classes},
+        {title: "Classrooms", src: assets.classroom},
+        {title: "Teachers", src: assets.teacher2},
+        {title: "Modules", src: assets.modules},
     ];
 
     useEffect(() => {
@@ -101,10 +101,10 @@ const Whole = () => {
 
             <div className='relative py-8 min-h-[calc(100vh-178px)]'>
 
-                <div className='container grid items-center grid-cols-12 gap-3'>
+                <div className='container grid items-center max-xl:grid-cols-1 max-xl:gap-y-4 xl:grid-cols-12 xl:gap-3'>
 
-                    <div className='col-span-11 grid grid-flow-col grid-cols-12 gap-3 items-center'>
-                        <div className='col-span-2'>
+                    <div className='xl:col-span-11 grid max-md:grid-cols-1 max-md:gap-y-4 md:grid-flow-col md:grid-cols-12 md:gap-3 md:items-center'>
+                        <div className='xl:col-span-2'>
                             <InputField
                                 placeholder="ROC"
                                 className="w-full"
@@ -112,7 +112,7 @@ const Whole = () => {
                             />
                         </div>
 
-                        <div className='col-span-2'>
+                        <div className='xl:col-span-2'>
                             <InputField
                                 placeholder="Cluster 5"
                                 className="w-full"
@@ -120,7 +120,7 @@ const Whole = () => {
                             />
                         </div>
 
-                        <div className='col-span-3'>
+                        <div className='xl:col-span-3'>
                             <InputField
                                 placeholder="TNS Defence, Lahore"
                                 className="w-full"
@@ -128,10 +128,10 @@ const Whole = () => {
                             />
                         </div>
 
-                        <div className='col-span-3'>
+                        <div className='xl:col-span-3'>
                             <InputSelect
                                 width={"100%"}
-                                className="min-w-[200px]"
+                                className="xl:min-w-[100px] 2xl:min-w-[150px] 3xl:min-w-[200px]"
                                 options={level}
                                 defaultValue="year"
                                 value={year}
@@ -139,7 +139,7 @@ const Whole = () => {
                             />
                         </div>
 
-                        <div className='col-span-2'>
+                        <div className='xl:col-span-2'>
                             <InputField
                                 placeholder="Academic Year 2024"
                                 className="w-full"
@@ -158,7 +158,7 @@ const Whole = () => {
 
                     </div>
 
-                    <div className='col-span-1 flex items-center'>
+                    <div className='xl:col-span-1 flex items-center max-xl:ml-auto'>
                         <Button
                             rounded={false}
                             type="button"
@@ -181,18 +181,18 @@ const Whole = () => {
                     setProcessing={calendarDisplay}
                 />
 
-                <div className='absolute top-4 -left-1 z-50'>
-                    <Sidebar />
-                </div>
-
                 {calendarDisplay ? (
                     <>
-                        <Calendar />
+                        <div className='absolute top-4 -left-1 z-50'>
+                            <Sidebar/>
+                        </div>
+
+                        <Calendar/>
                     </>
                 ) : (
                     <div className='flex justify-center'>
                         <Processing image={assets.loading} label="Please select timetable above option"
-                            btnColor="bg-warning" />
+                                    btnColor="bg-warning"/>
                     </div>
                 )}
             </div>

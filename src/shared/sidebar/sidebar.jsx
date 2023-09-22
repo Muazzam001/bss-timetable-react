@@ -3,7 +3,7 @@ import Image from "../image/image.jsx";
 import {assets} from "../../assets/index.jsx";
 
 const Sidebar = () => {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
 
     const Menus = [
         {title: "Whole", src: assets.whole},
