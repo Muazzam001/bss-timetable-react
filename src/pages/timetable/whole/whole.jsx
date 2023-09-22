@@ -181,7 +181,7 @@ const Whole = () => {
                     setProcessing={calendarDisplay}
                 />
 
-                <div className='absolute top-0 -left-1 z-50'>
+                <div className='absolute top-4 -left-1 z-50'>
                     <Sidebar />
                 </div>
 
