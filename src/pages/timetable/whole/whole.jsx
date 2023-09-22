@@ -89,10 +89,10 @@ const Whole = () => {
 
             <div className='relative py-8 min-h-[calc(100vh-178px)]'>
 
-                <div className='container grid grid-flow-col items-center grid-cols-12 gap-3 '>
+                <div className='container grid items-center grid-cols-12 gap-3'>
 
-                    <div className='col-span-5 grid grid-flow-col gap-3 items-center'>
-                        <div>
+                    <div className='col-span-11 grid grid-flow-col grid-cols-12 gap-3 items-center'>
+                        <div className='col-span-2'>
                             <InputField
                                 placeholder="ROC"
                                 className="w-full"
@@ -100,7 +100,7 @@ const Whole = () => {
                             />
                         </div>
 
-                        <div>
+                        <div className='col-span-2'>
                             <InputField
                                 placeholder="Cluster 5"
                                 className="w-full"
@@ -108,7 +108,7 @@ const Whole = () => {
                             />
                         </div>
 
-                        <div>
+                        <div className='col-span-3'>
                             <InputField
                                 placeholder="TNS Defence, Lahore"
                                 className="w-full"
@@ -116,10 +116,7 @@ const Whole = () => {
                             />
                         </div>
 
-                    </div>
-
-                    <div className='col-span-6 grid grid-flow-col grid-cols-3 gap-3 items-center'>
-                        <div className='col-span-2'>
+                        <div className='col-span-3'>
                             <InputSelect
                                 width={"100%"}
                                 className="min-w-[200px]"
@@ -129,6 +126,15 @@ const Whole = () => {
                                 onChange={(e) => setYear(e.target.value)}
                             />
                         </div>
+
+                        <div className='col-span-2'>
+                            <InputField
+                                placeholder="Academic Year 2024"
+                                className="w-full"
+                                disabled
+                            />
+                        </div>
+
                         {/*<InputSelect*/}
                         {/*    width={"100%"}*/}
                         {/*    className="min-w-[200px]"*/}
@@ -137,13 +143,7 @@ const Whole = () => {
                         {/*    value={teamLevel}*/}
                         {/* onChange={(e) => setTeamLevel(e.target.value)} */}
                         {/*/>*/}
-                        <div>
-                            <InputField
-                                placeholder="Academic Year 2024"
-                                className="w-full"
-                                disabled
-                            />
-                        </div>
+
                     </div>
 
                     <div className='col-span-1 flex items-center'>

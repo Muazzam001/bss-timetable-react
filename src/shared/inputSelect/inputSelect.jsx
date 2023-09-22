@@ -61,17 +61,17 @@ const InputSelect = ({options, className, defaultValue, value, width, disabled, 
                     MenuProps={{
                         PaperProps: {
                             sx: {
-                                // bgcolor: 'transparent',
-                                boxShadow: "none",
                                 paddingX: 0,
+                                boxShadow: "none",
                                 zIndex: 100000000,
+                                // bgcolor: 'transparent',
                                 '& .MuiPaper-root': {
                                     left: "0px",
                                 },
                                 '& .MuiList-root': {
                                     padding: 0,
-                                    minWidth: "fit-content",
                                     width: {width},
+                                    minWidth: "fit-content",
                                 },
                                 '& .MuiButtonBase-root': {
                                     whiteSpace: "normal",
@@ -82,16 +82,16 @@ const InputSelect = ({options, className, defaultValue, value, width, disabled, 
                                 '& .MuiMenuItem-root': {
                                     fontSize: "14px",
                                     whiteSpace: 'normal',
-                                    color: "#7D7D92",
                                     paddingX: 2,
                                     paddingY: 1.5,
                                     marginTop: "5px",
                                     marginBottom: "5px",
+                                    color: "#7D7D92",
+                                    borderRadius: "6px",
                                     bgcolor: "#F7F7F6",
                                     border: 1,
                                     borderColor: "#E8E8E8",
-                                    borderRadius: "6px",
-                                    boxShadow: "1px 1px 4px #babac4",
+                                    boxShadow: "1px 1px 2px #babac4",
                                     '&:hover': {
                                         bgcolor: "#175088 !important",
                                         color: "white"
