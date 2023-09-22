@@ -63,13 +63,13 @@ const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab}) => 
 
                 </div> */}
                 </div>
-                <div className='flex items-center gap-3 max-w-[300px] '>
+
+                <div className='flex items-center gap-3 max-w-[300px] w-full'>
 
                     {tabItems.map((tab, index) => (
                         <div
                             key={index}
-                            className={`relative flex flex-col items-center font-primary font-semibold text-tny border-t-4 rounded border-gray-medium cursor-pointer hover:bg-blue-light1 ${selectedTab === tab.name ? `border-[#175088]` : ''
-                            }`}
+                            className={`relative flex flex-col items-center font-primary font-semibold text-tny border-t-4 rounded border-gray-medium cursor-pointer hover:bg-blue-light1 ${selectedTab === tab.name ? `border-[#175088]` : ''}`}
                             onClick={() => handleTabClick(tab.name)}
                         >
                             <span className='-translate-y-8'>{tab.name}</span>
