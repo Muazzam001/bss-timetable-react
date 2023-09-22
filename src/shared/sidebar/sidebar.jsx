@@ -20,9 +20,11 @@ const Sidebar = () => {
     return (
         <div className="flex">
             <div
-                className={`${
+                className={`bg-dark-purple p-5 pt-8 relative duration-300 
+                ${
                     open ? "w-72" : "w-24"
-                } bg-dark-purple h-screen p-5 pt-8 relative duration-300`}
+                }
+                `}
             >
                 <ul className="pt-6 flex flex-col gap-2">
                     <div
@@ -53,9 +55,10 @@ const Sidebar = () => {
                             className={`flex rounded-md p-2 cursor-pointer hover:bg-sky-blue hover:text-white font-primary bg-blue-300 text-sm items-center gap-x-4`}
                         >
                             <Image src={menu.src} className="w-[25px]" alt={"sidebar icon"}/>
+
                             <span className={`${!open && "hidden"} origin-left duration-200`}>
-                {menu.title}
-              </span>
+                                {menu.title}
+                            </span>
                         </li>
                     ))}
                 </ul>

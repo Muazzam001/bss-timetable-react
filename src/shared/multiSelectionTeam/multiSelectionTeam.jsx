@@ -6,13 +6,13 @@ const MultiSelectionTeam = ({items, title, name, onChange}) => {
                 <input type="checkbox" name={name} id={teamName} className='peer hidden' value={teamName}
                        onChange={(e) => onChange(e.target)}/>
                 <label htmlFor={teamName}
-                       className="peer-checked:bg-blue-light1 min-w-[110px] rounded-lg w-full p-3 font-primary text-center text-sm text-navy-dark-blue bg-gray-light cursor-pointer">{teamName}</label>
+                       className="peer-checked:bg-blue-light1 min-w-[110px] rounded-lg w-full p-3 font-primary text-center text-sm text-navy-dark-blue bg-gray-light-yellowish cursor-pointer">{teamName}</label>
             </div>
         )
     })
 
     return (
-        <div className='rounded-md border-[1.5px] border-gray-medium bg-white'>
+        <div className='w-full rounded-md border-[1.5px] border-gray-medium bg-white'>
             <h2 className='font-primary p-3'>
                 {title}
             </h2>

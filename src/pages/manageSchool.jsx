@@ -12,30 +12,31 @@ const ManageSchool = () => {
     const navigate = useNavigate();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [disabled, setDisabled] = useState(false);
 
     const [team, setTeam] = useState({
         region: "",
         cluster: "",
-        city: "",
-        branch: ""
+        // city: "",
+        branch: "",
+        teamLevel: [],
     });
-
-    const [teamLevel, setTeamLevel] = useState([]);
 
     useEffect(() => {
         stopScroll(isModalOpen)
-    }, [isModalOpen])
+        handleDisable()
+    }, [isModalOpen, team])
 
 
     const handleLevelChange = (target) => {
         const {value} = target;
 
         if (target.checked) {
-            if (!teamLevel.includes(value)) {
-                setTeamLevel([...teamLevel, value]);
+            if (!team?.teamLevel?.includes(value)) {
+                setTeam((prevTeam) => ({...prevTeam, teamLevel: [...prevTeam.teamLevel, value]}));
             }
         } else {
-            setTeamLevel(teamLevel.filter((item) => item !== value));
+            setTeam((prevTeam) => ({...prevTeam, teamLevel: prevTeam.teamLevel.filter((item) => item !== value)}));
         }
     }
 
@@ -43,15 +44,27 @@ const ManageSchool = () => {
     const openModal = () => {
         setIsModalOpen(true);
     };
+
     // Handle Change team value
     const handleChange = (target) => {
         const {name, value} = target;
         setTeam((prevTeam) => ({...prevTeam, [name]: value}))
     }
 
+    const handleDisable = () => {
+        const isEveryKeyEmpty = Object.values(team).some(value => {
+            if (Array.isArray(value)) {
+                return value.length === 0;
+            } else {
+                return value === "";
+            }
+        });
+        setDisabled(isEveryKeyEmpty);
+    }
+
     const region = ["ROC", "RON", "ROS"]
     const cluster = ["Cluster 1", "Cluster 2", "Cluster 3", "Cluster 4", "Cluster 5", "Cluster 6", "Cluster 7", "Cluster 8", "Cluster 9"]
-    const city = ["Lahore", "Islamabad", "Peshawar", "Rawalpindi", "Kashmir", "Rawalakot"]
+    // const city = ["Lahore", "Islamabad", "Peshawar", "Rawalpindi", "Kashmir", "Rawalakot"]
     const branch = ["Gulberg", "Shadman", "Johar Town", "Zaman Park", "Azadi Chowk", "Badshahi Masjid Lahore"]
     const level = ["Early Year - Co-Education", "Early Year - Boys", "Low Primary - Co-Education", "Primary - Co-Education", "Primary - Girls", "Primary - Boys", "IB School - Co-Education", "Secondary School - Co-Education", "Secondary School - Boys", "Secondary School - Girls", "All / Whole"]
 
@@ -69,59 +82,41 @@ const ManageSchool = () => {
                     </div>
 
                     <div
-                        className={`grid grid-flow-row gap-y-8 lg:gap-y-12 gap-x-5 md:gap-x-10 lg:gap-x-15 3xl:gap-x-20 ${team.region !== "" ? "lg:grid-cols-2 grid-cols-1" : "grid-cols-1"}`}>
-                        <div className="w-full">
-                            <Team
-                                items={region}
-                                title="Select Region"
-                                name="region"
-                                onChange={handleChange}
-                            />
-                        </div>
+                        className={`grid grid-flow-row gap-y-8 lg:gap-y-12 gap-x-5 md:gap-x-10 lg:gap-x-15 3xl:gap-x-20 lg:grid-cols-2 grid-cols-1`}>
+                        <Team
+                            items={region}
+                            title="Select Region"
+                            name="region"
+                            onChange={handleChange}
+                        />
 
-                        {team.region !== "" ? (
-                            <div className="w-full">
-                                <Team
-                                    items={cluster}
-                                    title="Select Cluster"
-                                    name="cluster"
-                                    onChange={handleChange}
-                                />
-                            </div>
-                        ) : null}
+                        <Team
+                            items={cluster}
+                            title="Select Cluster"
+                            name="cluster"
+                            onChange={handleChange}
+                        />
 
-                        {team.cluster !== "" ? (
-                            <div className="w-full">
-                                <Team
-                                    items={city}
-                                    title="Select City"
-                                    name="city"
-                                    onChange={handleChange}
-                                />
-                            </div>
-                        ) : null}
+                        {/*<Team*/}
+                        {/*    items={city}*/}
+                        {/*    title="Select City"*/}
+                        {/*    name="city"*/}
+                        {/*    onChange={handleChange}*/}
+                        {/*/>*/}
 
-                        {team.city !== "" ? (
-                            <div className="w-full">
-                                <Team
-                                    items={branch}
-                                    title="Select Branch"
-                                    name="branch"
-                                    onChange={handleChange}
-                                />
-                            </div>
-                        ) : null}
+                        <Team
+                            items={branch}
+                            title="Select Branch"
+                            name="branch"
+                            onChange={handleChange}
+                        />
 
-                        {team.branch !== "" ? (
-                            <div className="w-full">
-                                <MultiSelectionTeam
-                                    items={level}
-                                    title="Select Level"
-                                    name="level"
-                                    onChange={handleLevelChange}
-                                />
-                            </div>
-                        ) : null}
+                        <MultiSelectionTeam
+                            items={level}
+                            title="Select Level"
+                            name="level"
+                            onChange={handleLevelChange}
+                        />
 
                     </div>
 
@@ -132,6 +127,7 @@ const ManageSchool = () => {
                             title="Next"
                             color={"blue-dark2"}
                             className="px-18 py-3"
+                            disabled={disabled}
                             onClick={() => navigate("/timetable-whole")}
                         />
                     </div>
@@ -140,7 +136,7 @@ const ManageSchool = () => {
             </div>
 
             {/*<SideModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} title="Manage School">*/}
-            {/*    <AddSection team={team}/>*/}
+            {/*    <AddSection/>*/}
             {/*</SideModal>*/}
 
         </MainLayout>
