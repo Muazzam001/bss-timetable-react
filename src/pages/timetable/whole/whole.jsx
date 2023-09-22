@@ -53,13 +53,13 @@ const Whole = () => {
     const [calendarDisplay, setCalendarDisplay] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [duplicateName, setDuplicateName] = useState("");
-    const [open, setOpen] = useState(false)
-    const [year, setYear] = useState("")
-    const [lesson, setLesson] = useState("")
-    const [option, setOption] = useState("")
-    const [type, setType] = useState("")
-    // const cluster = ["Cluster 1", "Cluster 2", "Cluster 3", "Cluster 4", "Cluster 5", "Cluster 6", "Cluster 7", "Cluster 8", "Cluster 9"]
-    const level = ["Default", "Winter - Default"]
+    const [open, setOpen] = useState(false);
+    const [year, setYear] = useState("");
+    const [lesson, setLesson] = useState("");
+    const [option, setOption] = useState("");
+    const [type, setType] = useState("");
+    const level = ["Default", "Winter - Default"];
+    // const cluster = ["Cluster 1", "Cluster 2", "Cluster 3", "Cluster 4", "Cluster 5", "Cluster 6", "Cluster 7", "Cluster 8", "Cluster 9"];
 
     const Menus = [
         { title: "Home", src: assets.home },
@@ -75,8 +75,8 @@ const Whole = () => {
     }, [isModalOpen])
 
 
-    const duplicateOption = ["Lession Setting and Data", "Lession Setting Only"];
-    const duplicateType = ['Default', 'Advance - Tution'];
+    const duplicateOption = ["Lesson Setting & Data", "Lesson Setting Only"];
+    const duplicateType = ['Default', 'Advance - Tuition'];
 
     // const [value, setValue] = React.useState(0);
 
@@ -84,15 +84,27 @@ const Whole = () => {
     //     setValue(newValue);
     // };
 
+    useEffect(() => {
+        // After 3 seconds, hide the processing modal
+        const timer = setTimeout(() => {
+            setCalendarDisplay(true);
+        }, 4000);
+
+        return () => {
+            clearTimeout(timer);
+        };
+
+    }, [calendarDisplay]);
+
     return (
-        <MainLayout headerItem={Menus}>
+        <MainLayout headerItem={calendarDisplay ? Menus : ''}>
 
             <div className='relative py-8 min-h-[calc(100vh-178px)]'>
 
-                <div className='container grid grid-flow-col items-center grid-cols-12 gap-3 '>
+                <div className='container grid items-center grid-cols-12 gap-3'>
 
-                    <div className='col-span-5 grid grid-flow-col gap-3 items-center'>
-                        <div>
+                    <div className='col-span-11 grid grid-flow-col grid-cols-12 gap-3 items-center'>
+                        <div className='col-span-2'>
                             <InputField
                                 placeholder="ROC"
                                 className="w-full"
@@ -100,7 +112,7 @@ const Whole = () => {
                             />
                         </div>
 
-                        <div>
+                        <div className='col-span-2'>
                             <InputField
                                 placeholder="Cluster 5"
                                 className="w-full"
@@ -108,7 +120,7 @@ const Whole = () => {
                             />
                         </div>
 
-                        <div>
+                        <div className='col-span-3'>
                             <InputField
                                 placeholder="TNS Defence, Lahore"
                                 className="w-full"
@@ -116,10 +128,7 @@ const Whole = () => {
                             />
                         </div>
 
-                    </div>
-
-                    <div className='col-span-6 grid grid-flow-col grid-cols-3 gap-3 items-center'>
-                        <div className='col-span-2'>
+                        <div className='col-span-3'>
                             <InputSelect
                                 width={"100%"}
                                 className="min-w-[200px]"
@@ -129,6 +138,15 @@ const Whole = () => {
                                 onChange={(e) => setYear(e.target.value)}
                             />
                         </div>
+
+                        <div className='col-span-2'>
+                            <InputField
+                                placeholder="Academic Year 2024"
+                                className="w-full"
+                                disabled
+                            />
+                        </div>
+
                         {/*<InputSelect*/}
                         {/*    width={"100%"}*/}
                         {/*    className="min-w-[200px]"*/}
@@ -137,13 +155,7 @@ const Whole = () => {
                         {/*    value={teamLevel}*/}
                         {/* onChange={(e) => setTeamLevel(e.target.value)} */}
                         {/*/>*/}
-                        <div>
-                            <InputField
-                                placeholder="Academic Year 2024"
-                                className="w-full"
-                                disabled
-                            />
-                        </div>
+
                     </div>
 
                     <div className='col-span-1 flex items-center'>
@@ -166,9 +178,10 @@ const Whole = () => {
                     value={lesson}
                     setState={setLesson}
                     setIsOpen={setIsModalOpen}
+                    setProcessing={calendarDisplay}
                 />
 
-                <div className='absolute top-0 -left-1 z-50'>
+                <div className='absolute top-4 -left-1 z-50'>
                     <Sidebar />
                 </div>
 

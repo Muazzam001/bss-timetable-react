@@ -78,7 +78,7 @@ const ManageSchool = () => {
                     <div>
                         <h3 className='text-h3 font-primary text-center text-blue-dark1'>Welcome to Beaconhouse</h3>
                         <p className='text-center font-primary text-sm text-blue-dark1'>Please provide content from
-                            beacon house team</p>
+                            Beacon house team</p>
                     </div>
 
                     <div
