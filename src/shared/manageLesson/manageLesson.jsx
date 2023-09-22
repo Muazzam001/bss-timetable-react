@@ -13,20 +13,23 @@ const ManageLesson = ({options, icon, text, value, setState, setIsOpen}) => {
                     <Image src={assets.calendar2} alt="calendar icon" className="w-4"/>
                     <span>Duplicate Calendar</span>
                 </button>
+                {setState && (
+                    <>
+                        <InputSelect
+                            width={"200px"}
+                            options={options}
+                            defaultValue="year"
+                            value={value}
+                            onChange={(e) => setState(e.target.value)}
+                        />
 
-                <InputSelect
-                    width={"200px"}
-                    options={options}
-                    defaultValue="year"
-                    value={value}
-                    onChange={(e) => setState(e.target.value)}
-                />
-
-                <div className="flex items-center gap-2">
-                    <span className="font-primary text-md font-semibold">{text}</span>
-                    <ArrowRight className="!w-4 !h-4"/>
-                    <Image src={icon} alt="Setting Icon" className="w-7 h-7"/>
-                </div>
+                        <div className="flex items-center gap-2">
+                            <span className="font-primary text-md font-semibold">{text}</span>
+                            <ArrowRight className="!w-4 !h-4"/>
+                            <Image src={icon} alt="Setting Icon" className="w-7 h-7"/>
+                        </div>
+                    </>
+                )}
             </div>
         </div>
     );

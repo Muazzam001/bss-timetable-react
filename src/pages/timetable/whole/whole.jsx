@@ -53,13 +53,13 @@ const Whole = () => {
     const [calendarDisplay, setCalendarDisplay] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [duplicateName, setDuplicateName] = useState("");
-    const [open, setOpen] = useState(false)
-    const [year, setYear] = useState("")
-    const [lesson, setLesson] = useState("")
-    const [option, setOption] = useState("")
-    const [type, setType] = useState("")
-    // const cluster = ["Cluster 1", "Cluster 2", "Cluster 3", "Cluster 4", "Cluster 5", "Cluster 6", "Cluster 7", "Cluster 8", "Cluster 9"]
-    const level = ["Default", "Winter - Default"]
+    const [open, setOpen] = useState(false);
+    const [year, setYear] = useState("");
+    const [lesson, setLesson] = useState("");
+    const [option, setOption] = useState("");
+    const [type, setType] = useState("");
+    const level = ["Default", "Winter - Default"];
+    // const cluster = ["Cluster 1", "Cluster 2", "Cluster 3", "Cluster 4", "Cluster 5", "Cluster 6", "Cluster 7", "Cluster 8", "Cluster 9"];
 
     const Menus = [
         { title: "Home", src: assets.home },
@@ -75,8 +75,8 @@ const Whole = () => {
     }, [isModalOpen])
 
 
-    const duplicateOption = ["Lession Setting and Data", "Lession Setting Only"];
-    const duplicateType = ['Default', 'Advance - Tution'];
+    const duplicateOption = ["Lesson Setting & Data", "Lesson Setting Only"];
+    const duplicateType = ['Default', 'Advance - Tuition'];
 
     // const [value, setValue] = React.useState(0);
 
@@ -84,8 +84,20 @@ const Whole = () => {
     //     setValue(newValue);
     // };
 
+    useEffect(() => {
+        // After 3 seconds, hide the processing modal
+        const timer = setTimeout(() => {
+            setCalendarDisplay(true);
+        }, 5000);
+
+        return () => {
+            clearTimeout(timer);
+        };
+
+    }, [calendarDisplay]);
+
     return (
-        <MainLayout headerItem={Menus}>
+        <MainLayout headerItem={calendarDisplay ? Menus : ''}>
 
             <div className='relative py-8 min-h-[calc(100vh-178px)]'>
 
@@ -164,7 +176,7 @@ const Whole = () => {
                     icon={assets.settings}
                     text={"Manage Lesson Slots"}
                     value={lesson}
-                    setState={setLesson}
+                    setState={calendarDisplay}
                     setIsOpen={setIsModalOpen}
                 />
 
