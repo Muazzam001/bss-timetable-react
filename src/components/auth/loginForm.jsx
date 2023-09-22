@@ -126,14 +126,14 @@ export default function LoginForm({className}) {
                             className="p-3"
                         />
 
-                        <Button
-                            rounded={true}
-                            type="button"
-                            title="Forgot Password?"
-                            color="blue-dark2"
-                            className="p-3"
-                            onClick={() => navigate("/forgot-password")}
-                        />
+                        {/*<Button*/}
+                        {/*    rounded={true}*/}
+                        {/*    type="button"*/}
+                        {/*    title="Forgot Password?"*/}
+                        {/*    color="blue-dark2"*/}
+                        {/*    className="p-3"*/}
+                        {/*    onClick={() => navigate("/forgot-password")}*/}
+                        {/*/>*/}
                     </div>
                 </div>
             </div>

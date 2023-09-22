@@ -129,7 +129,7 @@ const ManageSchool = () => {
                             color={"blue-dark2"}
                             className="px-18 py-3"
                             disabled={disabled}
-                            onClick={() => navigate("/timetable-whole")}
+                            onClick={() => {!disabled && navigate("/timetable-whole")}}
                         />
                     </div>
 
