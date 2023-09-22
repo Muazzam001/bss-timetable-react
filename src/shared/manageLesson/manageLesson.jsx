@@ -3,7 +3,7 @@ import Image from "../image/image.jsx";
 import InputSelect from "../inputSelect/inputSelect.jsx";
 import ArrowRight from "../../assets/icons/arrowRight.jsx";
 
-const ManageLesson = ({options, icon, text, value, setState, setIsOpen}) => {
+const ManageLesson = ({options, icon, text, value, setState, setIsOpen, setProcessing}) => {
     return (
         <div className="container flex justify-end xl:px-1">
             <div className="bg-white w-fit flex items-center gap-12 px-5 py-2 border border-gray-medium rounded-sm my-5">
@@ -13,7 +13,7 @@ const ManageLesson = ({options, icon, text, value, setState, setIsOpen}) => {
                     <span>Duplicate Calendar</span>
                 </button>
 
-                {setState && (
+                {setProcessing && (
                     <>
                         <InputSelect
                             width={"200px"}

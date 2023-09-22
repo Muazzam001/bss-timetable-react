@@ -88,7 +88,7 @@ const Whole = () => {
         // After 3 seconds, hide the processing modal
         const timer = setTimeout(() => {
             setCalendarDisplay(true);
-        }, 5000);
+        }, 4000);
 
         return () => {
             clearTimeout(timer);
@@ -176,8 +176,9 @@ const Whole = () => {
                     icon={assets.settings}
                     text={"Manage Lesson Slots"}
                     value={lesson}
-                    setState={calendarDisplay}
+                    setState={setLesson}
                     setIsOpen={setIsModalOpen}
+                    setProcessing={calendarDisplay}
                 />
 
                 <div className='absolute top-0 -left-1 z-50'>
