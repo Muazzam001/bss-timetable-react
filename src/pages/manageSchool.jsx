@@ -83,6 +83,7 @@ const ManageSchool = () => {
 
                     <div
                         className={`grid grid-flow-row gap-y-8 lg:gap-y-12 gap-x-5 md:gap-x-10 lg:gap-x-15 3xl:gap-x-20 lg:grid-cols-2 grid-cols-1`}>
+
                         <Team
                             items={region}
                             title="Select Region"

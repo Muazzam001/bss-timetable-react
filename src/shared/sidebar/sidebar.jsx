@@ -9,8 +9,6 @@ const Sidebar = () => {
         {title: "Teachers", src: assets.teacher},
         {title: "Classrooms", src: assets.classroom},
         {title: "Subjects", src: assets.textBooks},
-        {title: "Room Supervision", src: assets.facilitator},
-        {title: "Settings", src: assets.settings},
     ];
 
     const handleSideBar = () => {
@@ -28,7 +26,7 @@ const Sidebar = () => {
                         className="flex items-center justify-start rounded-md py-2 cursor-pointer font-primary"
                     >
                         {open ? (
-                            <div className="bg-lightsky-blue rounded-md p-1">
+                            <div className="bg-blue-light2 rounded-md p-1">
                                 <Image
                                     src={assets.hamburger}
                                     alt="hamburger sidebar icon"
@@ -36,7 +34,7 @@ const Sidebar = () => {
                                 />
                             </div>
                         ) : (
-                            <div className="bg-lightsky-blue rounded-md p-1">
+                            <div className="bg-blue-light2 rounded-md p-1">
                                 <Image
                                     src={assets.close}
                                     alt="close sidebar icon"
