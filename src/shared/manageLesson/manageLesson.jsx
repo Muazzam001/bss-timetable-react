@@ -6,13 +6,13 @@ import ArrowRight from "../../assets/icons/arrowRight.jsx";
 const ManageLesson = ({options, icon, text, value, setState, setIsOpen}) => {
     return (
         <div className="container flex justify-end xl:px-1">
-            <div
-                className="bg-white w-fit flex items-center gap-12 px-5 py-2 border border-gray-medium rounded-sm my-5">
+            <div className="bg-white w-fit flex items-center gap-12 px-5 py-2 border border-gray-medium rounded-sm my-5">
                 <button className="bg-blue-dark2 text-white px-4 py-3 flex gap-2 items-center font-primary rounded-lg"
                         onClick={() => setIsOpen(true)}>
                     <Image src={assets.calendar2} alt="calendar icon" className="w-4"/>
                     <span>Duplicate Calendar</span>
                 </button>
+
                 {setState && (
                     <>
                         <InputSelect
