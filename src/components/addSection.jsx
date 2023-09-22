@@ -21,13 +21,11 @@ const AddSection = ({team}) => {
                         label="Select Region"
                         className="!p-3"
                         placeholder="Select Region..."
-                        disabled={team.region !== ""}
                         // value={}
                         // onChange={}
                     />
                 </div>
 
-                {team.region !== "" ? (
                     <div className="sm:col-span-3">
                         <InputField
                             type="text"
@@ -37,14 +35,11 @@ const AddSection = ({team}) => {
                             label="Select Cluster"
                             placeholder="Select Cluster..."
                             className="!p-3"
-                            disabled={team.region !== "" && team.cluster !== ""}
                             // value={ }
                             // onChange={ }
                         />
                     </div>
-                ) : null}
 
-                {team.region !== "" && team.cluster !== "" ? (
                     <div className="sm:col-span-3">
                         <InputField
                             type="text"
@@ -54,14 +49,11 @@ const AddSection = ({team}) => {
                             label="Select City"
                             placeholder="Select City..."
                             className="!p-3"
-                            disabled={team.region !== "" && team.cluster !== "" && team.city !== ""}
                             // value={ }
                             // onChange={ }
                         />
                     </div>
-                ) : null}
 
-                {team.region !== "" && team.cluster !== "" && team.city !== "" ? (
                     <div className="sm:col-span-3">
                         <InputField
                             type="text"
@@ -71,12 +63,10 @@ const AddSection = ({team}) => {
                             label="Select Section"
                             placeholder="Select Section..."
                             className="!p-3"
-                            disabled={team.region !== "" && team.cluster !== "" && team.city !== "" && team.branch !== ""}
                             // value={ }
                             // onChange={ }
                         />
                     </div>
-                ) : null}
             </div>
 
             <div className='flex flex-wrap gap-5 justify-end mt-6'>

@@ -5,7 +5,6 @@ import ForgotPassword from './pages/forgotPassword';
 import ResetPassword from './pages/resetPassword';
 import ManageSchool from './pages/manageSchool';
 import Whole from './pages/timetable/whole/whole';
-import SelectTimetable from './pages/timetable/selectTimetable/selectTimetable';
 
 class AppRoutes extends React.Component {
     render() {
@@ -17,7 +16,6 @@ class AppRoutes extends React.Component {
                     <Route path={`/reset-password`} element={<ResetPassword/>}/>
                     <Route path={`/manage-school`} element={<ManageSchool/>}/>
                     <Route path={`/timetable-whole`} element={<Whole/>}/>
-                    <Route path={`/select-timetable`} element={<SelectTimetable/>}/>
                 </Routes>
             </BrowserRouter>
         );

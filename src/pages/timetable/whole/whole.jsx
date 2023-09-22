@@ -1,6 +1,6 @@
-import {useState, useEffect} from 'react';
-import {stopScroll} from "../../../utils/utils.js";
-import {assets} from "../../../assets/index.jsx";
+import { useState, useEffect } from 'react';
+import { stopScroll } from "../../../utils/utils.js";
+import { assets } from "../../../assets/index.jsx";
 import MainLayout from "../../../shared/mainLayout/mainLayout.jsx";
 import InputField from "../../../shared/input/inputField.jsx";
 import InputSelect from "../../../shared/inputSelect/inputSelect.jsx";
@@ -10,6 +10,7 @@ import Calendar from "../../../components/timetable/calendar.jsx";
 import Processing from "../../../shared/processing/processing.jsx";
 import MainModal from "../../../shared/mainModal/mainModal.jsx";
 import SideModal from "../../../shared/sideModal/sideModal.jsx";
+import Sidebar from '../../../shared/sidebar/sidebar.jsx';
 
 // import PropTypes from 'prop-types';
 // import Tabs from '@mui/material/Tabs';
@@ -61,12 +62,12 @@ const Whole = () => {
     const level = ["Default", "Winter - Default"]
 
     const Menus = [
-        {title: "Home", src: assets.home},
-        {title: "Subjects", src: assets.subject},
-        {title: "Classes", src: assets.classes},
-        {title: "Classrooms", src: assets.classroom},
-        {title: "Teachers", src: assets.teacher2},
-        {title: "Modules", src: assets.modules},
+        { title: "Home", src: assets.home },
+        { title: "Subjects", src: assets.subject },
+        { title: "Classes", src: assets.classes },
+        { title: "Classrooms", src: assets.classroom },
+        { title: "Teachers", src: assets.teacher2 },
+        { title: "Modules", src: assets.modules },
     ];
 
     useEffect(() => {
@@ -74,8 +75,8 @@ const Whole = () => {
     }, [isModalOpen])
 
 
-    const duplicateOption = ["Lesson Setting and Data", "Lesson Setting Only"];
-    const duplicateType = ['Default', 'Advance - Tuistion'];
+    const duplicateOption = ["Lession Setting and Data", "Lession Setting Only"];
+    const duplicateType = ['Default', 'Advance - Tution'];
 
     // const [value, setValue] = React.useState(0);
 
@@ -86,7 +87,7 @@ const Whole = () => {
     return (
         <MainLayout headerItem={Menus}>
 
-            <div className='py-8 min-h-[calc(100vh-178px)]'>
+            <div className='relative py-8 min-h-[calc(100vh-178px)]'>
 
                 <div className='container grid grid-flow-col items-center grid-cols-12 gap-3 '>
 
@@ -128,7 +129,6 @@ const Whole = () => {
                                 onChange={(e) => setYear(e.target.value)}
                             />
                         </div>
-
                         {/*<InputSelect*/}
                         {/*    width={"100%"}*/}
                         {/*    className="min-w-[200px]"*/}
@@ -137,7 +137,6 @@ const Whole = () => {
                         {/*    value={teamLevel}*/}
                         {/* onChange={(e) => setTeamLevel(e.target.value)} */}
                         {/*/>*/}
-
                         <div>
                             <InputField
                                 placeholder="Academic Year 2024"
@@ -169,14 +168,18 @@ const Whole = () => {
                     setIsOpen={setIsModalOpen}
                 />
 
+                <div className='absolute top-16 z-50'>
+                    <Sidebar />
+                </div>
+
                 {calendarDisplay ? (
                     <>
-                        <Calendar/>
+                        <Calendar />
                     </>
                 ) : (
                     <div className='flex justify-center'>
                         <Processing image={assets.loading} label="Please select timetable above option"
-                                    btnColor="bg-warning"/>
+                            btnColor="bg-warning" />
                     </div>
                 )}
             </div>

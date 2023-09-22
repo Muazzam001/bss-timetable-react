@@ -70,7 +70,7 @@ const ForgotPasswordForm = ({className}) => {
                             title="Reset Password"
                             color="blue-dark2"
                             className="p-3"
-                            onClick={handleResetPassword}
+                            onClick={() => navigate("/reset-password")}
                         />
                     </>
 
