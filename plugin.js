@@ -117,7 +117,6 @@ export default plugin(
                     'subheading': '#3B3B3B',
                     'detailed': '#516888',
                     'label': '#A7B3C3',
-                    'success': '#3BC171',
                     'hyperlink': '#192649',
                     'gradient-a1': '#0D4AF9',
                     'gradient-a2': '#244DC1',

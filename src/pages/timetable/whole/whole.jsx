@@ -168,7 +168,7 @@ const Whole = () => {
                     setIsOpen={setIsModalOpen}
                 />
 
-                <div className='absolute top-16 z-50'>
+                <div className='absolute top-[120px] z-50'>
                     <Sidebar />
                 </div>
 

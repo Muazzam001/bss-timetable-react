@@ -61,7 +61,7 @@ const InputSelect = ({options, className, defaultValue, value, width, disabled, 
                     MenuProps={{
                         PaperProps: {
                             sx: {
-                                bgcolor: 'transparent',
+                                // bgcolor: 'transparent',
                                 boxShadow: "none",
                                 paddingX: 0,
                                 zIndex: 100000000,

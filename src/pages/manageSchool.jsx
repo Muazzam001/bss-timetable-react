@@ -44,6 +44,7 @@ const ManageSchool = () => {
     const openModal = () => {
         setIsModalOpen(true);
     };
+
     // Handle Change team value
     const handleChange = (target) => {
         const {name, value} = target;
@@ -82,49 +83,41 @@ const ManageSchool = () => {
 
                     <div
                         className={`grid grid-flow-row gap-y-8 lg:gap-y-12 gap-x-5 md:gap-x-10 lg:gap-x-15 3xl:gap-x-20 lg:grid-cols-2 grid-cols-1`}>
-                        <div className="w-full">
-                            <Team
-                                items={region}
-                                title="Select Region"
-                                name="region"
-                                onChange={handleChange}
-                            />
-                        </div>
 
-                            <div className="w-full">
-                                <Team
-                                    items={cluster}
-                                    title="Select Cluster"
-                                    name="cluster"
-                                    onChange={handleChange}
-                                />
-                            </div>
+                        <Team
+                            items={region}
+                            title="Select Region"
+                            name="region"
+                            onChange={handleChange}
+                        />
 
-                            {/* <div className="w-full">
-                                <Team
-                                    items={city}
-                                    title="Select City"
-                                    name="city"
-                                    onChange={handleChange}
-                                />
-                            </div> */}
+                        <Team
+                            items={cluster}
+                            title="Select Cluster"
+                            name="cluster"
+                            onChange={handleChange}
+                        />
 
-                            <div className="w-full">
-                                <Team
-                                    items={branch}
-                                    title="Select Branch"
-                                    name="branch"
-                                    onChange={handleChange}
-                                />
-                            </div>
-                            <div className="w-full">
-                                <MultiSelectionTeam
-                                    items={level}
-                                    title="Select Level"
-                                    name="level"
-                                    onChange={handleLevelChange}
-                                />
-                            </div>
+                        {/*<Team*/}
+                        {/*    items={city}*/}
+                        {/*    title="Select City"*/}
+                        {/*    name="city"*/}
+                        {/*    onChange={handleChange}*/}
+                        {/*/>*/}
+
+                        <Team
+                            items={branch}
+                            title="Select Branch"
+                            name="branch"
+                            onChange={handleChange}
+                        />
+
+                        <MultiSelectionTeam
+                            items={level}
+                            title="Select Level"
+                            name="level"
+                            onChange={handleLevelChange}
+                        />
 
                     </div>
 
@@ -143,9 +136,9 @@ const ManageSchool = () => {
                 </div>
             </div>
 
-            <SideModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} title="Manage School">
-                <AddSection />
-            </SideModal>
+            {/*<SideModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} title="Manage School">*/}
+            {/*    <AddSection/>*/}
+            {/*</SideModal>*/}
 
         </MainLayout>
     );

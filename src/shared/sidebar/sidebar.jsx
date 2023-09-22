@@ -16,16 +16,14 @@ const Sidebar = () => {
     };
 
     return (
-        <div className="flex">
+        <div className="flex sticky top-0">
             <div
-                className={`${
-                    open ? "w-72" : "w-24"
-                } bg-dark-purple h-screen p-5 pt-8 relative duration-300`}
+                className={`bg-dark-purple p-5 pt-8 relative duration-300 ${open ? "w-72" : "w-24"}`}
             >
-                <ul className="pt-6 flex flex-col gap-2">
+                <ul className="pt-4 flex flex-col gap-2">
                     <div
                         onClick={handleSideBar}
-                        className="flex rounded-md py-2 cursor-pointer font-primary items-center"
+                        className="flex items-center justify-start rounded-md py-2 cursor-pointer font-primary"
                     >
                         {open ? (
                             <div className="bg-blue-light2 rounded-md p-1">
@@ -48,12 +46,14 @@ const Sidebar = () => {
                     {Menus.map((menu, index) => (
                         <li
                             key={index}
-                            className={`flex rounded-md p-2 cursor-pointer shadow hover:bg-blue-dark2 hover:text-white font-primary bg-white text-sm items-center gap-x-4`}
+                            className={`flex ${!open ? "justify-center" : ""} rounded-md p-2 cursor-pointer hover:bg-blue-dark2 hover:text-white font-primary bg-white text-sm items-center gap-x-4`}
                         >
                             <Image src={menu.src} className="w-[25px]" alt={"sidebar icon"}/>
-                            <span className={`${!open && "hidden"} origin-left duration-200`}>
-                {menu.title}
-              </span>
+                            {open && (
+                            <span className={`origin-left duration-100 inline-block`}>
+                                {menu.title}
+                            </span>)
+                            }
                         </li>
                     ))}
                 </ul>
