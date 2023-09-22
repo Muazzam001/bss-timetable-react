@@ -103,7 +103,7 @@ const Whole = () => {
 
                 <div className='container grid items-center max-xl:grid-cols-1 max-xl:gap-y-4 xl:grid-cols-12 xl:gap-3'>
 
-                    <div className='xl:col-span-11 grid max-md:grid-cols-1 max-md:gap-y-4 md:grid-flow-col md:grid-cols-12 md:gap-3 md:items-center'>
+                    <div className='xl:col-span-11 grid max-lg:grid-cols-1 max-lg:gap-y-4 lg:grid-flow-col lg:grid-cols-12 lg:gap-3 lg:items-center'>
                         <div className='xl:col-span-2'>
                             <InputField
                                 placeholder="ROC"
