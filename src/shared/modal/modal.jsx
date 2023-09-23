@@ -31,13 +31,13 @@ const Modal = ({isOpen, onClose, team}) => {
                 <div
                     className="flex flex-col gap-y-14 bg-white my-8 lg:mx-8 mx-2 border rounded-md border-gray-300 p-4 pt-10 overflow-y-auto">
                     <div className="flex gap-x-3 items-center">
-            <span>
-              <Image
-                  src={assets.section}
-                  alt="Input field icon"
-                  className="h-9 w-9"
-              />
-            </span>
+                        <span>
+                          <Image
+                              src={assets.section}
+                              alt="Input field icon"
+                              className="h-9 w-9"
+                          />
+                        </span>
                         <h2 className="leading-7 text-2xl font-primary">Add Section</h2>
                     </div>
                     <div className="grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-6">

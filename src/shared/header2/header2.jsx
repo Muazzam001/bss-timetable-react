@@ -37,7 +37,7 @@ const Header2 = ({headerItem}) => {
     return (
         <header className="text-gray-600 body-font bg-white">
             <div className="px-4 xl:px-10 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-                <NavLink className="flex items-center py-2">
+                <NavLink className="flex items-center py-2" to={''}>
                     <Image src={assets.logo} alt="" className="w-16"/>
                 </NavLink>
 
