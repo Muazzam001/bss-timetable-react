@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import {stopScroll} from "../../../utils/utils.js";
 import {assets} from "../../../assets/index.jsx";
+import {useNavigate} from "react-router-dom";
 import MainLayout from "../../../shared/mainLayout/mainLayout.jsx";
 import InputField from "../../../shared/input/inputField.jsx";
 import InputSelect from "../../../shared/inputSelect/inputSelect.jsx";
@@ -50,6 +51,7 @@ import Sidebar from '../../../shared/sidebar/sidebar.jsx';
 // }
 
 const Whole = () => {
+    const navigate = useNavigate();
     const [calendarDisplay, setCalendarDisplay] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [duplicateName, setDuplicateName] = useState("");
@@ -165,7 +167,7 @@ const Whole = () => {
                             title="Reset & Manage"
                             color={"blue-dark2"}
                             className="font-medium text-sm h-12 min-w-[150px] justify-start"
-                            onClick={() => setCalendarDisplay(true)}
+                            onClick={() => navigate("/manage-school")}
                         />
                     </div>
 

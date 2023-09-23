@@ -25,6 +25,7 @@ const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab}) => 
                     <Image src={assets.calendar1} alt="calendar icon" className="w-8"/>
 
                     <span className='font-primary font-semibold'>Timetable</span>
+
                     {/* <div className='flex items-center gap-1'>
 
                     <span className='font-primary font-semibold'>{dayName}</span>
@@ -76,7 +77,7 @@ const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab}) => 
                             <Image src={tab.imageSrc} alt='' className={`w-8 -translate-y-2`}/>
 
                             {selectedTab === tab.name && (
-                                <div className='absolute -bottom-6 w-full text-center'>
+                                <div className='absolute -bottom-4 w-full text-center'>
                                     <PlayArrowIcon className='text-blue-dark2 rotate-90 !w-5'/>
                                 </div>
                             )}
