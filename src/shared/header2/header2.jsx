@@ -19,9 +19,9 @@ const Header2 = ({headerItem}) => {
                 <NavLink
                     to="#"
                     key={`${index}`}
-                    className="flex flex-col items-center justify-center gap-y-1 hover:bg-blue-light2 w-20 h-20"
+                    className="flex flex-col items-center justify-center gap-y-1 hover:bg-blue-light2 w-16 h-16 xl:w-20 xl:h-20"
                 >
-                    <div className="w-6 h-6 flex justify-center items-center">
+                    <div className="w-5 h-5 md:w-6 md:h-6 flex justify-center items-center">
                         <Image
                             src={navItem?.src}
                             alt=""
@@ -36,10 +36,11 @@ const Header2 = ({headerItem}) => {
 
     return (
         <header className="text-gray-600 body-font bg-white">
-            <div className="px-10 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+            <div className="px-4 xl:px-10 mx-auto flex flex-wrap flex-col md:flex-row items-center">
                 <NavLink className="flex items-center py-2">
                     <Image src={assets.logo} alt="" className="w-16"/>
                 </NavLink>
+
                 <nav className="md:ml-auto flex flex-wrap gap-x-10 items-center text-base justify-center">
                     {navigation}
                 </nav>

@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import {stopScroll} from "../../../utils/utils.js";
 import {assets} from "../../../assets/index.jsx";
+import {useNavigate} from "react-router-dom";
 import MainLayout from "../../../shared/mainLayout/mainLayout.jsx";
 import InputField from "../../../shared/input/inputField.jsx";
 import InputSelect from "../../../shared/inputSelect/inputSelect.jsx";
@@ -50,6 +51,7 @@ import Sidebar from '../../../shared/sidebar/sidebar.jsx';
 // }
 
 const Whole = () => {
+    const navigate = useNavigate();
     const [calendarDisplay, setCalendarDisplay] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [duplicateName, setDuplicateName] = useState("");
@@ -103,7 +105,7 @@ const Whole = () => {
 
                 <div className='container grid items-center max-xl:grid-cols-1 max-xl:gap-y-4 xl:grid-cols-12 xl:gap-3'>
 
-                    <div className='xl:col-span-11 grid max-md:grid-cols-1 max-md:gap-y-4 md:grid-flow-col md:grid-cols-12 md:gap-3 md:items-center'>
+                    <div className='xl:col-span-11 grid max-lg:grid-cols-1 max-lg:gap-y-4 lg:grid-flow-col lg:grid-cols-12 lg:gap-3 lg:items-center'>
                         <div className='xl:col-span-2'>
                             <InputField
                                 placeholder="ROC"
@@ -165,7 +167,7 @@ const Whole = () => {
                             title="Reset & Manage"
                             color={"blue-dark2"}
                             className="font-medium text-sm h-12 min-w-[150px] justify-start"
-                            onClick={() => setCalendarDisplay(true)}
+                            onClick={() => navigate("/manage-school")}
                         />
                     </div>
 
