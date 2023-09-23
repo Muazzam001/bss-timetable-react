@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import {styled} from '@mui/material/styles';
 
-const InputSelect = ({options, className, defaultValue, value, width, disabled, label, onChange}) => {
+const InputSelect = ({options, className, defaultValue, value, width, disabled, label, onChange, name}) => {
 
     const BootstrapInput = styled(InputBase)(({theme}) => ({
 
@@ -54,24 +54,24 @@ const InputSelect = ({options, className, defaultValue, value, width, disabled, 
                     className={`bg-transparent z-50 border-0 h-10 text-xs ${className}`}
                     sx={{width: `${width}`}}
                     input={<BootstrapInput/>}
-
+                    name={name}
                     defaultValue={defaultValue ? defaultValue : ""}
                     IconComponent={ExpandMoreIcon}
                     disabled={disabled && disabled}
                     MenuProps={{
                         PaperProps: {
                             sx: {
-                                paddingX: 0,
-                                boxShadow: "none",
-                                zIndex: 100000000,
                                 // bgcolor: 'transparent',
+                                boxShadow: "none",
+                                paddingX: 0,
+                                zIndex: 100000000,
                                 '& .MuiPaper-root': {
                                     left: "0px",
                                 },
                                 '& .MuiList-root': {
                                     padding: 0,
-                                    width: {width},
                                     minWidth: "fit-content",
+                                    width: {width},
                                 },
                                 '& .MuiButtonBase-root': {
                                     whiteSpace: "normal",
@@ -82,16 +82,16 @@ const InputSelect = ({options, className, defaultValue, value, width, disabled, 
                                 '& .MuiMenuItem-root': {
                                     fontSize: "14px",
                                     whiteSpace: 'normal',
+                                    color: "#7D7D92",
                                     paddingX: 2,
                                     paddingY: 1.5,
                                     marginTop: "5px",
                                     marginBottom: "5px",
-                                    color: "#7D7D92",
-                                    borderRadius: "6px",
                                     bgcolor: "#F7F7F6",
                                     border: 1,
                                     borderColor: "#E8E8E8",
-                                    boxShadow: "1px 1px 2px #babac4",
+                                    borderRadius: "6px",
+                                    boxShadow: "1px 1px 4px #babac4",
                                     '&:hover': {
                                         bgcolor: "#175088 !important",
                                         color: "white"
