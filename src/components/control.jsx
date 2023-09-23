@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { assets } from "../assets/index.jsx";
+import React, {useState} from "react";
+import {assets} from "../assets/index.jsx";
 import Image from "../shared/image/image.jsx";
 import SearchControls from "../shared/searchControls/searchControls.jsx";
 
@@ -10,10 +10,10 @@ const Control = () => {
     const [checkedClassrooms, setCheckedClassrooms] = useState([]);
     const [checkedTeachers, setCheckedTeachers] = useState([]);
     const controlsData = [
-        { src: assets.subjects, title: "Subjects" },
-        { src: assets.classBW, title: "Classes" },
-        { src: assets.classroomBW, title: "Classrooms" },
-        { src: assets.teacherBW, title: "Teachers" },
+        {src: assets.subjects, title: "Subjects"},
+        {src: assets.classBW, title: "Classes"},
+        {src: assets.classroomBW, title: "Classrooms"},
+        {src: assets.teacherBW, title: "Teachers"},
     ]
     const [findSubjects, setFindSubjects] = useState([
         {
@@ -127,7 +127,8 @@ const Control = () => {
             short: "9th",
             check: false,
         },
-    ])
+    ]);
+
     const [findClassrooms, setFindClassrooms] = useState([
         {
             id: 1,
@@ -183,7 +184,8 @@ const Control = () => {
             short: "10C",
             check: true,
         },
-    ])
+    ]);
+
     const [findTeachers, setFindTeachers] = useState([
         {
             id: 1,
@@ -239,7 +241,7 @@ const Control = () => {
             short: "Aliya",
             check: true,
         },
-    ])
+    ]);
 
     const subjectsData = [
         {
@@ -260,19 +262,19 @@ const Control = () => {
         {
             id: 4,
             subjectShort: "MTH",
-            subjectFull: "Mathimatics",
+            subjectFull: "Mathematics",
         },
         {
             id: 5,
             subjectShort: "PST",
-            subjectFull: "Pakisatn Studies",
+            subjectFull: "Pakistan Studies",
         },
         {
             id: 6,
             subjectShort: "ISL",
-            subjectFull: "Islamiat",
+            subjectFull: "Islamiyat",
         }
-    ]
+    ];
 
     const subjects = subjectsData?.map((subject, index) => {
         const colors = {
@@ -282,10 +284,13 @@ const Control = () => {
             PHY: "bg-[#DA86BB]",
             MTH: "bg-[#BEAD2E]",
             PST: "bg-[#5BCB5A]",
-        }
+        };
+
         const cellColor = colors[subject.subjectShort] || 'bg-blue-dark2';
+
         return (
-            <span key={`${index}`} className={`flex flex-auto items-center justify-center font-primary hover:bg-transparent font-semibold text-xs border border-black p-1 ${cellColor} cursor-pointer`}>
+            <span key={`${index}`}
+                  className={`flex flex-auto items-center justify-center font-primary hover:bg-transparent font-semibold text-xs border border-black p-1 ${cellColor} cursor-pointer`}>
                 {subject.subjectShort}
             </span>
         )
@@ -294,88 +299,95 @@ const Control = () => {
     const handleControls = (title) => {
         setControl((prevControl) => {
             if (prevControl === title) {
-                return ""
+                return "";
             }
-            return title
-        })
-    }
 
+            return title;
+        });
+    }
 
 
     const controls = controlsData?.map((module) => {
         const selectedItems = (findModules) => {
-
             return findModules?.filter((item) => item.check === true)
                 .map((item) => item.short);
         }
+
         return (
-            <>
-                <div>
-                    <div className={`flex gap-1 items-center cursor-pointer group ${control === module?.title ? "bg-blue-dark2 hover:bg-blue-dark2" : "hover:bg-blue-light1"} p-2 rounded`} onClick={() => handleControls(module?.title)}>
-                        <Image src={module?.src} alt={module.title} className={`w-12 ${control === module?.title ? "invert" : ""}`} />
-                        <span className={`font-primary text-xs font-semibold ${control === module?.title ? "text-white" : ""}`}>{`Find ${module.title}`}</span>
-                    </div>
-                    <div className="font-primary text-blue-dark2 text-xs font-semibold">
-                        {module?.title === "Subjects" ? (
-                            selectedItems(findSubjects).join(", ")
-                        ) : module?.title === "Classes" ? (
-                            selectedItems(findClasses).join(", ")
-                        ) : module?.title === "Classrooms" ? (
-                            selectedItems(findClassrooms).join(", ")
-                        ) : module?.title === "Teachers" ? (
-                            selectedItems(findTeachers).join(", ")
-                        ) : null
-                        }
-                    </div>
+            <div>
+                <div
+                    className={`flex gap-1 items-center cursor-pointer group ${control === module?.title ? "bg-blue-dark2 hover:bg-blue-dark2" : "hover:bg-blue-light1"} p-2 rounded`}
+                    onClick={() => handleControls(module?.title)}>
+                    <Image src={module?.src} alt={module.title}
+                           className={`w-12 ${control === module?.title ? "invert" : ""}`}/>
+                    <span
+                        className={`font-primary text-xs font-semibold ${control === module?.title ? "text-white" : ""}`}>{`Find ${module.title}`}</span>
                 </div>
-            </>
-        )
-    })
+                <div className="font-primary text-blue-dark2 text-xs font-semibold">
+                    {module?.title === "Subjects" ? (
+                        selectedItems(findSubjects).join(", ")
+                    ) : module?.title === "Classes" ? (
+                        selectedItems(findClasses).join(", ")
+                    ) : module?.title === "Classrooms" ? (
+                        selectedItems(findClassrooms).join(", ")
+                    ) : module?.title === "Teachers" ? (
+                        selectedItems(findTeachers).join(", ")
+                    ) : null
+                    }
+                </div>
+            </div>
+        );
+    });
+
     return (
         <div>
             <div>
                 <div className="flex py-5 bg-gray-medium">
                     <div className="w-[30%] flex justify-center">
-                        <span className={`flex h-8 w-12 mt-2 items-center justify-center font-primary text-sm border border-black p-1 bg-lime-200`}>MTH</span>
+                        <span
+                            className={`flex h-8 w-12 mt-2 items-center justify-center font-primary text-sm border border-black p-1 bg-lime-200`}>MTH</span>
                     </div>
+
                     <div className="w-[70%] pr-5">
                         <p className="font-primary">
-                            MTH - Mathematic
+                            MTH - Mathematics
                             Muhammad Tauseef
                             CA. 9M Blue
                         </p>
                     </div>
                 </div>
-                <div className="flex gap-1 flex-auto px-2 py-1">
-                    {subjects}
-                </div>
+
+                <div className="flex gap-1 flex-auto px-2 py-1">{subjects}</div>
             </div>
+
             <div className="relative">
-                <div className="flex flex-col gap-y-6 mt-10 px-4">
-                    {React.Children.toArray(controls)}
-                </div>
-                <div className="absolute -top-18 right-full z-50 ">
+                <div className="flex flex-col gap-y-6 mt-10 px-4">{React.Children.toArray(controls)}</div>
+
+                <div className="absolute -top-18 right-full z-50">
                     {control === "Subjects" ? (
-                        <div>
-                            <SearchControls header="Subjects" data={findSubjects} setData={setFindSubjects} />
-                        </div>
-                    )
-                        : control === "Classes" ? (
-                            <div>
-                                <SearchControls header="Classes" data={findClasses} setData={setFindClasses} />
-                            </div>
+                            <>
+                                <SearchControls header="Subjects" data={findSubjects} setData={setFindSubjects}/>
+                            </>
                         )
-                            : control === "Classrooms" ? (
-                                <div>
-                                    <SearchControls header="Classrooms" data={findClassrooms} setData={setFindClassrooms} />
-                                </div>
+                        : control === "Classes" ? (
+                                <>
+                                    <SearchControls header="Classes" data={findClasses} setData={setFindClasses}/>
+                                </>
                             )
-                                : control === "Teachers" ? (
-                                    <div>
-                                        <SearchControls header="Teachers" data={findTeachers} setData={setFindTeachers} />
-                                    </div>
+                            : control === "Classrooms" ? (
+                                    <>
+                                        <SearchControls header="Classrooms" data={findClassrooms}
+                                                        setData={setFindClassrooms}/>
+                                    </>
                                 )
-                                    : null}
+                                : control === "Teachers" ? (
+                                        <>
+                                            <SearchControls header="Teachers" data={findTeachers}
+                                                            setData={setFindTeachers}/>
+                                        </>
+                                    )
+                                    : null
+                    }
                 </div>
             </div>
         </div>

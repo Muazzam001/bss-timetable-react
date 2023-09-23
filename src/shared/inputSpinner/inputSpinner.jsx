@@ -31,26 +31,17 @@ const InputSpinner = ({min, max, value, setState, className, label}) => {
 
     return (
         <div className={`w-50 ${className}`}>
-            {label ? (
-                <label className="text-xs font-medium leading-6 !text-dark-gray-200 font-primary">
-                    {label}
-                </label>
-            ) : null}
+            {label ? (<label className="text-xs font-medium leading-6 font-primary">{label}</label>) : null}
+
             <div className='relative'>
-                <input
-                    type="number"
-                    name="age"
-                    id="age"
-                    min={min}
-                    max={max}
-                    step="1"
-                    value={value}
-                    onChange={handleAgeChange}
-                    className={`w-full border border-medium-gray bg-gray-light rounded-md bg-light-gray`}
-                />
+                <input onChange={handleAgeChange}
+                       id="age" step="1" name="age" min={min} max={max} type="number" value={value}
+                       className={`w-full border border-medium-gray bg-gray-light rounded-md bg-light-gray`}/>
+
                 <div className='absolute top-0 right-2 h-full w-4 flex flex-col justify-center'>
-                    <ArrowUp className="w-[15px] h-[15px] cursor-pointer" onClick={increaseValue}/>
-                    <ArrowDown className="w-[15px] h-[15px] cursor-pointer" onClick={decreaseValue}/>
+                    <ArrowUp className="w-4 h-4 cursor-pointer" onClick={increaseValue}/>
+
+                    <ArrowDown className="w-4 h-4 cursor-pointer" onClick={decreaseValue}/>
                 </div>
             </div>
         </div>

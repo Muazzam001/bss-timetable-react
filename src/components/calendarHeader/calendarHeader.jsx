@@ -63,20 +63,21 @@ const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab}) => 
 
                 </div> */}
                 </div>
-                <div className='flex items-center gap-3 max-w-[300px] '>
+
+                <div className='flex items-center gap-3 max-w-[300px] w-full'>
 
                     {tabItems.map((tab, index) => (
                         <div
-                            key={index}
-                            className={`relative flex flex-col items-center font-primary font-semibold text-tny border-t-4 rounded border-gray-medium cursor-pointer hover:bg-blue-light1 ${selectedTab === tab.name ? `border-[#175088]` : ''
-                            }`}
+                            className={`relative flex flex-col items-center font-primary font-semibold text-tny border-b-4 rounded border-gray-medium cursor-pointer hover:bg-blue-light1 ${selectedTab === tab.name ? `border-[#175088]` : ''}`}
                             onClick={() => handleTabClick(tab.name)}
+                            key={index}
                         >
-                            <span className='-translate-y-8'>{tab.name}</span>
+                            <span className='-translate-y-5'>{tab.name}</span>
+
                             <Image src={tab.imageSrc} alt='' className={`w-8 -translate-y-2`}/>
 
                             {selectedTab === tab.name && (
-                                <div className='absolute -bottom-6 w-full text-center'>
+                                <div className='absolute -bottom-5 w-full text-center'>
                                     <PlayArrowIcon className='text-blue-dark2 rotate-90 !w-5'/>
                                 </div>
                             )}

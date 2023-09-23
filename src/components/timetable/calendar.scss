@@ -72,3 +72,11 @@
 .fc-col-header-cell-cushion {
     padding-block: 14px !important;
 }
+
+.item-p {
+    @apply text-xs font-primary font-normal text-white px-5 border-r border-white text-center w-full;
+
+    &:last-child {
+        @apply  border-r-0;
+    }
+}

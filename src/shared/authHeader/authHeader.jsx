@@ -8,7 +8,7 @@ const AuthHeader = () => {
             <>
                 <div className="header-icon">
                     <div className="max-xl:w-5 max-xl:h-5 xl:w-7 xl:h-7">
-                        <Image src={icon} alt="faqs icon"/>
+                        <Image src={icon} alt={title}/>
                     </div>
 
                     <p className="text-white text-sm font-secondary font-semibold">

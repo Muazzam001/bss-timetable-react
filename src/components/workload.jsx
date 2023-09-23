@@ -1,6 +1,6 @@
 const Workload = () => {
     return (
-        <div>Workload</div>
+        <div className='p-4'>Workload</div>
     )
 }
 
