@@ -32,7 +32,7 @@ const InputSpinner = ({min, max, value, setState, className, label}) => {
     return (
         <div className={`w-50 ${className}`}>
             {label ? (
-                <label className="text-xs font-medium leading-6 !text-dark-gray-200 font-primary">
+                <label className="text-xs font-medium leading-6 font-primary">
                     {label}
                 </label>
             ) : null}
