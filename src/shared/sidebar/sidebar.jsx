@@ -17,41 +17,27 @@ const Sidebar = () => {
 
     return (
         <div className="flex sticky top-0">
-            <div
-                className={`bg-dark-purple p-5 pt-8 relative duration-300 ${open ? "w-72" : "w-24"}`}
-            >
-                <ul className="pt-4 flex flex-col gap-2">
-                    <div
-                        className="flex items-center justify-start rounded-md py-2 cursor-pointer font-primary"
-                    >
-                        {open ? (
-                            <div className="bg-blue-light2 rounded-md p-1" onClick={handleSideBar}>
-                                <Image
-                                    src={assets.hamburger}
-                                    alt="hamburger sidebar icon"
-                                    className="w-[25px] rounded-md"
-                                />
-                            </div>
-                        ) : (
-                                <div className="bg-blue-light2 rounded-md p-1" onClick={handleSideBar}>
-                                <Image
-                                    src={assets.close}
-                                    alt="close sidebar icon"
-                                    className="w-[25px] rounded-md"
-                                />
-                            </div>
-                        )}
+            <div className={`bg-dark-purple p-4 relative duration-300 ${open ? "w-72" : "w-20"}`}>
+                <div className="flex items-center justify-start rounded-md py-2 cursor-pointer font-primary">
+                    <div className="bg-blue-light2 rounded-md p-1" onClick={handleSideBar}>
+                        <Image
+                            src={open ? (assets.hamburger) : (assets.close)}
+                            alt="hamburger sidebar icon"
+                            className="w-[25px] rounded-md"
+                        />
                     </div>
+                </div>
+
+                <ul className="pt-3 flex flex-col gap-y-2">
                     {Menus.map((menu, index) => (
                         <li
                             key={index}
                             className={`flex ${!open ? "justify-center" : ""} rounded-md p-2 cursor-pointer hover:bg-blue-dark2 hover:text-white font-primary bg-white text-sm items-center gap-x-4`}
                         >
-                            <Image src={menu.src} className="w-[25px]" alt={"sidebar icon"}/>
-                            {open && (
-                            <span className={`origin-left duration-100 inline-block`}>
-                                {menu.title}
-                            </span>)
+                            <Image src={menu.src} className="w-6 h-6" alt={"sidebar icon"}/>
+
+                            {
+                                open && (<span className={`origin-left duration-100 inline-block`}>{menu.title}</span>)
                             }
                         </li>
                     ))}

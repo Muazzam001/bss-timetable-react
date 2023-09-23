@@ -4,13 +4,13 @@ import Image from '../image/image'
 const Tickbox = ({ htmlFor, label, id, name, isChecked, handleTickboxChange }) => {
     return (
         <label htmlFor={htmlFor} className="flex items-center w-fit">
-            <span className=" w-5 h-5 rounded cursor-pointer z-50">
+            <span className="w-5 h-5 rounded cursor-pointer z-50">
                 <input
                     id={id}
                     name={name}
                     type="checkbox"
-                    className="peer hidden"
                     checked={isChecked}
+                    className="peer hidden"
                     onChange={handleTickboxChange}
                 />
 

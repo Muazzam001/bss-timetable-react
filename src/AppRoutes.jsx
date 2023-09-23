@@ -4,7 +4,7 @@ import Login from './pages/login';
 import ForgotPassword from './pages/forgotPassword';
 import ResetPassword from './pages/resetPassword';
 import ManageSchool from './pages/manageSchool';
-import Whole from './pages/timetable/whole/whole';
+import Whole from './pages/whole.jsx';
 
 class AppRoutes extends React.Component {
     render() {

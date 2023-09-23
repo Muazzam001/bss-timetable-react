@@ -44,20 +44,18 @@ const InputSelect = ({options, className, defaultValue, value, width, disabled, 
         <>
             <div className="relative max-lg:flex-auto flex flex-col gap-2">
                 {label ? (
-                    <label className="text-sm font-medium leading-6 !text-dark-gray-200 font-primary">
-                        {label}
-                    </label>
+                    <label className="text-sm font-medium leading-6 !text-dark-gray-200 font-primary">{label}</label>
                 ) : null}
                 <Select
+                    name={name}
                     value={value}
                     onChange={onChange}
-                    className={`bg-transparent z-50 border-0 h-10 text-xs ${className}`}
                     sx={{width: `${width}`}}
                     input={<BootstrapInput/>}
-                    name={name}
-                    defaultValue={defaultValue ? defaultValue : ""}
                     IconComponent={ExpandMoreIcon}
                     disabled={disabled && disabled}
+                    defaultValue={defaultValue ? defaultValue : ""}
+                    className={`bg-transparent z-50 border-0 h-10 text-xs ${className}`}
                     MenuProps={{
                         PaperProps: {
                             sx: {

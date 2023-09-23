@@ -1,16 +1,17 @@
-import { useState, useEffect } from 'react';
-import { stopScroll } from "../../../utils/utils.js";
-import { assets } from "../../../assets/index.jsx";
-import MainLayout from "../../../shared/mainLayout/mainLayout.jsx";
-import InputField from "../../../shared/input/inputField.jsx";
-import InputSelect from "../../../shared/inputSelect/inputSelect.jsx";
-import Button from "../../../shared/button/button.jsx";
-import ManageLesson from "../../../shared/manageLesson/manageLesson.jsx";
-import Calendar from "../../../components/timetable/calendar.jsx";
-import Processing from "../../../components/processing/processing.jsx";
-import MainModal from "../../../shared/mainModal/mainModal.jsx";
-import SideModal from "../../../shared/sideModal/sideModal.jsx";
-import Sidebar from '../../../shared/sidebar/sidebar.jsx';
+import {useState, useEffect} from 'react';
+import {stopScroll} from "../utils/utils.js";
+import {assets} from "../assets/index.jsx";
+import {useNavigate} from "react-router-dom";
+import MainLayout from "../shared/mainLayout/mainLayout.jsx";
+import InputField from "../shared/input/inputField.jsx";
+import InputSelect from "../shared/inputSelect/inputSelect.jsx";
+import Button from "../shared/button/button.jsx";
+import ManageLesson from "../shared/manageLesson/manageLesson.jsx";
+import Calendar from "../components/timetable/calendar.jsx";
+import Processing from "../components/processing/processing.jsx";
+import MainModal from "../shared/mainModal/mainModal.jsx";
+import SideModal from "../shared/sideModal/sideModal.jsx";
+import Sidebar from '../shared/sidebar/sidebar.jsx';
 
 // import PropTypes from 'prop-types';
 // import Tabs from '@mui/material/Tabs';
@@ -50,6 +51,7 @@ import Sidebar from '../../../shared/sidebar/sidebar.jsx';
 // }
 
 const Whole = () => {
+    const navigate = useNavigate();
     const [calendarDisplay, setCalendarDisplay] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [duplicateName, setDuplicateName] = useState("");
@@ -62,12 +64,12 @@ const Whole = () => {
     const level = ["Default", "Winter - Default"]
 
     const Menus = [
-        { title: "Home", src: assets.home },
-        { title: "Subjects", src: assets.subject },
-        { title: "Classes", src: assets.classes },
-        { title: "Classrooms", src: assets.classroom },
-        { title: "Teachers", src: assets.teacher2 },
-        { title: "Modules", src: assets.modules },
+        {title: "Home", src: assets.home},
+        {title: "Subjects", src: assets.subject},
+        {title: "Classes", src: assets.classes},
+        {title: "Classrooms", src: assets.classroom},
+        {title: "Teachers", src: assets.teacher2},
+        {title: "Modules", src: assets.modules},
     ];
 
     useEffect(() => {
@@ -75,8 +77,8 @@ const Whole = () => {
     }, [isModalOpen])
 
 
-    const duplicateOption = ["Lession Setting and Data", "Lession Setting Only"];
-    const duplicateType = ['Default', 'Advance - Tution'];
+    const duplicateOption = ["Lesson Setting and Data", "Lesson Setting Only"];
+    const duplicateType = ['Default', 'Advance - Tuition'];
 
     // const [value, setValue] = React.useState(0);
 
@@ -84,13 +86,26 @@ const Whole = () => {
     //     setValue(newValue);
     // };
 
-    return (
-        <MainLayout headerItem={Menus}>
+    useEffect(() => {
+        // After 3 seconds, hide the processing modal
+        const timer = setTimeout(() => {
+            setCalendarDisplay(true);
+        }, 4000);
 
-            <div className='relative py-8 min-h-[calc(100vh-178px)]'>
-                <div className='container grid grid-flow-col items-center grid-cols-12 gap-3 '>
-                    <div className='col-span-5 grid grid-flow-col gap-3 items-center'>
-                        <div>
+        return () => {
+            clearTimeout(timer);
+        };
+
+    }, [calendarDisplay]);
+
+    return (
+
+        <MainLayout headerItem={calendarDisplay && Menus}>
+
+            <div className='relative py-8 min-h-[calc(100vh-175px)]'>
+                <div className='container grid items-center max-xl:grid-cols-1 max-xl:gap-y-4 xl:grid-cols-12 xl:gap-3'>
+                    <div className='xl:col-span-11 grid max-lg:grid-cols-1 max-lg:gap-y-4 lg:grid-flow-col lg:grid-cols-12 lg:gap-3 lg:items-center'>
+                        <div className='xl:col-span-2'>
                             <InputField
                                 placeholder="ROC"
                                 className="w-full"
@@ -98,7 +113,7 @@ const Whole = () => {
                             />
                         </div>
 
-                        <div>
+                        <div className='xl:col-span-2'>
                             <InputField
                                 placeholder="Cluster 5"
                                 className="w-full"
@@ -106,7 +121,7 @@ const Whole = () => {
                             />
                         </div>
 
-                        <div>
+                        <div className='xl:col-span-3'>
                             <InputField
                                 placeholder="TNS Defence, Lahore"
                                 className="w-full"
@@ -114,9 +129,7 @@ const Whole = () => {
                             />
                         </div>
 
-                    </div>
-                    <div className='col-span-6 grid grid-flow-col grid-cols-3 gap-3 items-center'>
-                        <div className='col-span-2'>
+                        <div className='xl:col-span-3'>
                             <InputSelect
                                 width={"100%"}
                                 className="min-w-[200px]"
@@ -126,6 +139,15 @@ const Whole = () => {
                                 onChange={(e) => setYear(e.target.value)}
                             />
                         </div>
+
+                        <div className='xl:col-span-2'>
+                            <InputField
+                                placeholder="Academic Year 2024"
+                                className="w-full"
+                                disabled
+                            />
+                        </div>
+
                         {/*<InputSelect*/}
                         {/*    width={"100%"}*/}
                         {/*    className="min-w-[200px]"*/}
@@ -134,25 +156,21 @@ const Whole = () => {
                         {/*    value={teamLevel}*/}
                         {/* onChange={(e) => setTeamLevel(e.target.value)} */}
                         {/*/>*/}
-                        <div>
-                            <InputField
-                                placeholder="Academic Year 2024"
-                                className="w-full"
-                                disabled
-                            />
-                        </div>
+
                     </div>
-                    <div className='col-span-1 flex items-center'>
+
+                    <div className='xl:col-span-1 flex items-center max-xl:ml-auto'>
                         <Button
                             rounded={false}
                             type="button"
                             title="Reset & Manage"
                             color={"blue-dark2"}
                             className="font-medium text-sm h-12 min-w-[150px] justify-start"
-                            onClick={() => setCalendarDisplay(true)}
+                            onClick={() => navigate("/manage-school")}
                         />
                     </div>
                 </div>
+
                 <ManageLesson
                     options={level}
                     icon={assets.settings}
@@ -163,36 +181,38 @@ const Whole = () => {
                     calendarOpen={calendarDisplay}
                 />
 
-                <div className='absolute top-[120px] z-50'>
-                    <Sidebar />
-                </div>
-
                 {calendarDisplay ? (
                     <>
-                        <Calendar />
+                        <div className='absolute top-4 -left-1 z-50'>
+                            <Sidebar/>
+                        </div>
+
+                        <Calendar/>
                     </>
                 ) : (
-                    <div className='flex justify-center'>
-                        <Processing image={assets.loading} label="Please select timetable above option"
-                            btnColor="bg-warning" />
-                    </div>
+                    <>
+                        <div className='flex justify-center'>
+                            <Processing image={assets.loading} label="Please select timetable above option"
+                                        btnColor="bg-warning"/>
+                        </div>
+                    </>
                 )}
             </div>
 
             <MainModal
+                border
                 open={open}
                 setOpen={setOpen}
                 image={assets.okbro}
-                label={`Duplicated timetable successfully has been created "Winter".`}
                 btnColor="bg-success"
-                border
+                label={`Duplicated timetable successfully has been created "Winter".`}
             >
                 <Button
                     rounded={true}
                     type="button"
                     title="Ok"
                     color={"blue-dark2"}
-                    className="px-18 py-3"
+                    className="px-10 py-3"
                     onClick={() => setOpen(false)}
                 />
             </MainModal>
@@ -231,7 +251,7 @@ const Whole = () => {
 
                     </div>
 
-                    <div className='flex gap-5 justify-end mt-10'>
+                    <div className='flex gap-x-5 justify-end mt-10'>
                         <Button
                             title="Cancel"
                             rounded={true}
