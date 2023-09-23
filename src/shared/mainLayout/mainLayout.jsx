@@ -6,13 +6,10 @@ const MainLayout = ({children, headerItem}) => {
     return (
         <>
             <HeaderTop/>
-
             <Header2 headerItem={headerItem}/>
-
             <main className='bg-gray-light-yellowish'>
                 {children}
             </main>
-
             <Footer/>
         </>
     )

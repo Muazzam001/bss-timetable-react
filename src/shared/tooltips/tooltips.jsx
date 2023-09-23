@@ -6,13 +6,12 @@ const Tooltips = ({title, children}) => {
         <>
             <Tooltip
                 title={title}
-                arrow
                 componentsProps={{
                     tooltip: {
                         sx: {
                             bgColor: '#C8C8C8',
                             border: 1,
-                            color: "black",
+                            color: "white",
                             borderColor: "black",
                             '& .MuiTooltip-arrow': {
                                 color: '#C8C8C8',

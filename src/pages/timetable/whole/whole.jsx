@@ -1,14 +1,13 @@
-import {useState, useEffect} from 'react';
-import {stopScroll} from "../../../utils/utils.js";
-import {assets} from "../../../assets/index.jsx";
-import {useNavigate} from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { stopScroll } from "../../../utils/utils.js";
+import { assets } from "../../../assets/index.jsx";
 import MainLayout from "../../../shared/mainLayout/mainLayout.jsx";
 import InputField from "../../../shared/input/inputField.jsx";
 import InputSelect from "../../../shared/inputSelect/inputSelect.jsx";
 import Button from "../../../shared/button/button.jsx";
 import ManageLesson from "../../../shared/manageLesson/manageLesson.jsx";
 import Calendar from "../../../components/timetable/calendar.jsx";
-import Processing from "../../../shared/processing/processing.jsx";
+import Processing from "../../../components/processing/processing.jsx";
 import MainModal from "../../../shared/mainModal/mainModal.jsx";
 import SideModal from "../../../shared/sideModal/sideModal.jsx";
 import Sidebar from '../../../shared/sidebar/sidebar.jsx';
@@ -51,25 +50,24 @@ import Sidebar from '../../../shared/sidebar/sidebar.jsx';
 // }
 
 const Whole = () => {
-    const navigate = useNavigate();
     const [calendarDisplay, setCalendarDisplay] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [duplicateName, setDuplicateName] = useState("");
-    const [open, setOpen] = useState(false);
-    const [year, setYear] = useState("");
-    const [lesson, setLesson] = useState("");
-    const [option, setOption] = useState("");
-    const [type, setType] = useState("");
-    const level = ["Default", "Winter - Default"];
-    // const cluster = ["Cluster 1", "Cluster 2", "Cluster 3", "Cluster 4", "Cluster 5", "Cluster 6", "Cluster 7", "Cluster 8", "Cluster 9"];
+    const [open, setOpen] = useState(false)
+    const [year, setYear] = useState("")
+    const [lesson, setLesson] = useState("")
+    const [option, setOption] = useState("")
+    const [type, setType] = useState("")
+    // const cluster = ["Cluster 1", "Cluster 2", "Cluster 3", "Cluster 4", "Cluster 5", "Cluster 6", "Cluster 7", "Cluster 8", "Cluster 9"]
+    const level = ["Default", "Winter - Default"]
 
     const Menus = [
-        {title: "Home", src: assets.home},
-        {title: "Subjects", src: assets.subject},
-        {title: "Classes", src: assets.classes},
-        {title: "Classrooms", src: assets.classroom},
-        {title: "Teachers", src: assets.teacher2},
-        {title: "Modules", src: assets.modules},
+        { title: "Home", src: assets.home },
+        { title: "Subjects", src: assets.subject },
+        { title: "Classes", src: assets.classes },
+        { title: "Classrooms", src: assets.classroom },
+        { title: "Teachers", src: assets.teacher2 },
+        { title: "Modules", src: assets.modules },
     ];
 
     useEffect(() => {
@@ -77,8 +75,8 @@ const Whole = () => {
     }, [isModalOpen])
 
 
-    const duplicateOption = ["Lesson Setting & Data", "Lesson Setting Only"];
-    const duplicateType = ['Default', 'Advance - Tuition'];
+    const duplicateOption = ["Lession Setting and Data", "Lession Setting Only"];
+    const duplicateType = ['Default', 'Advance - Tution'];
 
     // const [value, setValue] = React.useState(0);
 
@@ -86,27 +84,13 @@ const Whole = () => {
     //     setValue(newValue);
     // };
 
-    useEffect(() => {
-        // After 3 seconds, hide the processing modal
-        const timer = setTimeout(() => {
-            setCalendarDisplay(true);
-        }, 4000);
-
-        return () => {
-            clearTimeout(timer);
-        };
-
-    }, [calendarDisplay]);
-
     return (
-        <MainLayout headerItem={calendarDisplay ? Menus : ''}>
+        <MainLayout headerItem={Menus}>
 
             <div className='relative py-8 min-h-[calc(100vh-178px)]'>
-
-                <div className='container grid items-center max-xl:grid-cols-1 max-xl:gap-y-4 xl:grid-cols-12 xl:gap-3'>
-
-                    <div className='xl:col-span-11 grid max-lg:grid-cols-1 max-lg:gap-y-4 lg:grid-flow-col lg:grid-cols-12 lg:gap-3 lg:items-center'>
-                        <div className='xl:col-span-2'>
+                <div className='container grid grid-flow-col items-center grid-cols-12 gap-3 '>
+                    <div className='col-span-5 grid grid-flow-col gap-3 items-center'>
+                        <div>
                             <InputField
                                 placeholder="ROC"
                                 className="w-full"
@@ -114,7 +98,7 @@ const Whole = () => {
                             />
                         </div>
 
-                        <div className='xl:col-span-2'>
+                        <div>
                             <InputField
                                 placeholder="Cluster 5"
                                 className="w-full"
@@ -122,7 +106,7 @@ const Whole = () => {
                             />
                         </div>
 
-                        <div className='xl:col-span-3'>
+                        <div>
                             <InputField
                                 placeholder="TNS Defence, Lahore"
                                 className="w-full"
@@ -130,25 +114,18 @@ const Whole = () => {
                             />
                         </div>
 
-                        <div className='xl:col-span-3'>
+                    </div>
+                    <div className='col-span-6 grid grid-flow-col grid-cols-3 gap-3 items-center'>
+                        <div className='col-span-2'>
                             <InputSelect
                                 width={"100%"}
-                                className="xl:min-w-[100px] 2xl:min-w-[150px] 3xl:min-w-[200px]"
+                                className="min-w-[200px]"
                                 options={level}
                                 defaultValue="year"
                                 value={year}
                                 onChange={(e) => setYear(e.target.value)}
                             />
                         </div>
-
-                        <div className='xl:col-span-2'>
-                            <InputField
-                                placeholder="Academic Year 2024"
-                                className="w-full"
-                                disabled
-                            />
-                        </div>
-
                         {/*<InputSelect*/}
                         {/*    width={"100%"}*/}
                         {/*    className="min-w-[200px]"*/}
@@ -157,22 +134,25 @@ const Whole = () => {
                         {/*    value={teamLevel}*/}
                         {/* onChange={(e) => setTeamLevel(e.target.value)} */}
                         {/*/>*/}
-
+                        <div>
+                            <InputField
+                                placeholder="Academic Year 2024"
+                                className="w-full"
+                                disabled
+                            />
+                        </div>
                     </div>
-
-                    <div className='xl:col-span-1 flex items-center max-xl:ml-auto'>
+                    <div className='col-span-1 flex items-center'>
                         <Button
                             rounded={false}
                             type="button"
                             title="Reset & Manage"
                             color={"blue-dark2"}
                             className="font-medium text-sm h-12 min-w-[150px] justify-start"
-                            onClick={() => navigate("/manage-school")}
+                            onClick={() => setCalendarDisplay(true)}
                         />
                     </div>
-
                 </div>
-
                 <ManageLesson
                     options={level}
                     icon={assets.settings}
@@ -180,21 +160,21 @@ const Whole = () => {
                     value={lesson}
                     setState={setLesson}
                     setIsOpen={setIsModalOpen}
-                    setProcessing={calendarDisplay}
+                    calendarOpen={calendarDisplay}
                 />
+
+                <div className='absolute top-[120px] z-50'>
+                    <Sidebar />
+                </div>
 
                 {calendarDisplay ? (
                     <>
-                        <div className='absolute top-4 -left-1 z-50'>
-                            <Sidebar/>
-                        </div>
-
-                        <Calendar/>
+                        <Calendar />
                     </>
                 ) : (
                     <div className='flex justify-center'>
                         <Processing image={assets.loading} label="Please select timetable above option"
-                                    btnColor="bg-warning"/>
+                            btnColor="bg-warning" />
                     </div>
                 )}
             </div>

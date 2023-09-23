@@ -73,12 +73,12 @@ const ManageSchool = () => {
 
             <div className='container min-h-[calc(100vh-178px)]'>
 
-                <div className='flex flex-col gap-10 p-8'>
+                <div className='flex flex-col gap-10 pb-10 pt-6'>
 
                     <div>
                         <h3 className='text-h3 font-primary text-center text-blue-dark1'>Welcome to Beaconhouse</h3>
                         <p className='text-center font-primary text-sm text-blue-dark1'>Please provide content from
-                            Beacon house team</p>
+                            beacon house team</p>
                     </div>
 
                     <div
@@ -121,7 +121,7 @@ const ManageSchool = () => {
 
                     </div>
 
-                    <div className='flex justify-end'>
+                    <div className='flex justify-end mt-20'>
                         <Button
                             rounded={true}
                             type="button"
@@ -129,7 +129,7 @@ const ManageSchool = () => {
                             color={"blue-dark2"}
                             className="px-18 py-3"
                             disabled={disabled}
-                            onClick={() => {!disabled && navigate("/timetable-whole")}}
+                            onClick={() => navigate("/timetable-whole")}
                         />
                     </div>
 
