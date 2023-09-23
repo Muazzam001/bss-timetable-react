@@ -32,7 +32,7 @@ const InputSpinner = ({min, max, value, setState, className, label}) => {
     return (
         <div className={`w-50 ${className}`}>
             {label ? (
-                <label className="text-xs font-medium leading-6 !text-dark-gray-200 font-primary">
+                <label className="text-xs font-medium leading-6 font-primary">
                     {label}
                 </label>
             ) : null}
@@ -48,10 +48,11 @@ const InputSpinner = ({min, max, value, setState, className, label}) => {
                     onChange={handleAgeChange}
                     className={`w-full border border-medium-gray bg-gray-light rounded-md bg-light-gray`}
                 />
-                <div className='absolute top-0 right-2 h-full w-4 flex flex-col justify-center'>
+
+                <span className='absolute top-0 right-2 h-full w-4 flex flex-col justify-center'>
                     <ArrowUp className="w-[15px] h-[15px] cursor-pointer" onClick={increaseValue}/>
                     <ArrowDown className="w-[15px] h-[15px] cursor-pointer" onClick={decreaseValue}/>
-                </div>
+                </span>
             </div>
         </div>
 

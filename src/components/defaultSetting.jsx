@@ -47,7 +47,7 @@ const DefaultSetting = () => {
             />
 
             <div className='border-b-2 border-blue-dark2 mt-5'>
-                <p className='font-medium text-sm pb-3 font-primary'>Lesson default settings</p>
+                <p className='font-medium text-sm pb-3 font-primary text-gray-dark1'>Lesson default settings</p>
             </div>
 
             <div className='mt-5'>
@@ -63,13 +63,14 @@ const DefaultSetting = () => {
             </div>
 
             <div className='flex gap-1 items-center mt-5'>
-                <p className='text-sm font-primary'>Default Lesson time</p>
+                <p className='text-sm font-medium font-primary'>Default Lesson time</p>
                 <Image src={assets.tooltip} className="w-4 h-4"/>
             </div>
 
-            <div className='flex gap-x-2 items-end mt-5'>
+            <div className='flex gap-x-2 items-end mt-2'>
                 <InputSpinner
                     label="Start Time"
+                    className="text-sm text-gray-dark1"
                     min={0}
                     max={12}
                     value={hours}
@@ -78,7 +79,7 @@ const DefaultSetting = () => {
 
                 <InputSpinner
                     label=""
-                    className="mt-[25px]"
+                    className="mt-[25px] text-gray-dark1"
                     min={0}
                     max={60}
                     value={minutes}
@@ -88,7 +89,7 @@ const DefaultSetting = () => {
 
             <InputSpinner
                 label="Lesson Length"
-                className="mt-[25px] w-full"
+                className="mt-2 w-full text-gray-dark1"
                 min={0}
                 max={60}
                 value={lessonLength}
@@ -96,7 +97,7 @@ const DefaultSetting = () => {
             />
 
             <div className='flex gap-1 items-center mt-5'>
-                <p className='text-sm font-primary'>Weekend</p>
+                <p className='text-sm font-medium font-primary'>Weekend</p>
                 <Image src={assets.tooltip} className="w-4 h-4"/>
             </div>
 
@@ -118,19 +119,24 @@ const DefaultSetting = () => {
                     options={numOfDays}
                     defaultValue="year"
                     value={numDay}
-                    onChange={(e) => setNumDay(e.target.value)}
+                    onChange={(e) => {
+                        handleChange(e);
+                        setNumDay(e.target.value);
+                        }
+                    }
                 />
             </div>
 
 
             <div className='flex gap-1 items-center mt-5'>
-                <p className='text-sm font-primary'>Break Between Lesson</p>
+                <p className='text-sm font-medium font-primary'>Break Between Lesson</p>
                 <Image src={assets.tooltip} className="w-4 h-4"/>
             </div>
 
-            <div className='flex gap-x-2 mt-5'>
+            <div className='flex gap-x-2 mt-3'>
                 <InputSpinner
                     label="Break After Lesson"
+                    className="text-sm text-gray-dark1"
                     min={0}
                     value={break1}
                     setState={setBreak1}
@@ -138,7 +144,7 @@ const DefaultSetting = () => {
 
                 <InputSpinner
                     label="Break Length"
-                    className=""
+                    className="text-sm text-gray-dark1"
                     min={0}
                     value={break2}
                     setState={setBreak2}
@@ -160,22 +166,22 @@ const DefaultSetting = () => {
                 />
             </div>
 
-            <div className='flex gap-1 items-center mt-5'>
-                <p className='text-sm font-primary'>Work With Zero Lesson</p>
+            <div className='flex gap-1 items-center mt-4'>
+                <p className='text-sm font-medium font-primary'>Work With Zero Lesson</p>
                 <Image src={assets.tooltip} className="w-4 h-4"/>
                 <Checkbox/>
             </div>
 
             <InputSpinner
                 label="Length"
-                className="w-full mt-5"
+                className="w-full mt-2"
                 min={0}
                 value={length}
                 setState={setLength}
             />
 
             <button
-                className='bg-blue-dark2 text-white px-4 py-2 flex gap-2 items-center font-primary rounded-sm mt-5 w-full'>
+                className='bg-blue-dark2 text-white px-4 py-3 flex gap-2 items-center font-primary rounded-lg mt-5 w-full'>
                 <Image src={assets.calendar2} alt="calendar icon"
                        className="w-4"/><span>Customize Default Setting</span>
             </button>
