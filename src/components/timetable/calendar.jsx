@@ -3,11 +3,11 @@ import {useEffect, useRef, useState} from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import CalendarHeader from "../../shared/calendarHeader/calendarHeader.jsx";
 import DefaultSetting from "../defaultSetting.jsx";
 import Control from "../control.jsx";
 import Workload from "../workload.jsx";
 import TimetableOptions from "../timetableOptions.jsx";
+import CalendarHeader from '../calendarHeader/calendarHeader';
 
 const Calendar = () => {
     const calendarRef = useRef(null);
@@ -120,8 +120,8 @@ const Calendar = () => {
                             customYear: {
                                 text: `${year}`,
                             },
-                        }}
 
+                        }}
                         dayHeaderContent={(info) => {
 
                             const currentDate = info.date
@@ -130,8 +130,8 @@ const Calendar = () => {
                             const dayName = currentDate.toLocaleDateString('en-US', options);
                             return (
                                 <span className='font-primary'>{dayName}</span>
-                            )
 
+                            )
                             // return (
                             //     <div className='flex justify-between items-center w-full !m-0'>
                             //         <div className='flex items-center gap-5'>
@@ -156,7 +156,6 @@ const Calendar = () => {
                         }}
                     />
                 </div>
-
                 <div className='bg-white border-l border-t border-gray-dark2'>
                     <div className='w-[300px]'>
                         <div className='flex items-end h-[56px]'>

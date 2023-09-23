@@ -1,4 +1,4 @@
-import Image from "../image/image.jsx";
+import Image from "../../shared/image/image.jsx";
 
 const Processing = ({image, label, border, btnColor, children}) => {
     return (

@@ -1,11 +1,12 @@
-import {useState, useEffect} from 'react'
-import {assets} from "../assets/index.jsx";
+import { useState, useEffect } from 'react'
+import { assets } from "../assets/index.jsx";
 import Image from "../shared/image/image.jsx";
 import InputField from "../shared/input/inputField.jsx";
 import InputSelect from "../shared/inputSelect/inputSelect.jsx";
 import InputSpinner from "../shared/inputSpinner/inputSpinner.jsx";
 import Checkbox from "../shared/checkbox/checkbox.jsx";
 import ConfirmationModal from "../shared/confirmationModal/confirmationModal.jsx";
+import Tooltips from '../shared/tooltips/tooltips.jsx';
 
 const DefaultSetting = () => {
     const [lessonPerDay, setLessonPerDay] = useState(0)
@@ -19,9 +20,12 @@ const DefaultSetting = () => {
     const [breakLength2, setBreakLength2] = useState(0)
     const [length, setLength] = useState(0)
     const [lessonLength, setLessonLength] = useState(0)
-    const [confirmModal, setConfirmModal] = useState(false)
-    const [newValue, setNewValue] = useState(0)
-    const [confirm, setConfirm] = useState(false)
+    const [lessonModal, setLessonModal] = useState(false)
+    const [daysModal, setDaysModal] = useState(false)
+    const [newLessonValue, setNewLessonValue] = useState(0)
+    const [newDaysValue, setNewDaysValue] = useState(0)
+    const [lessonConfirm, setLessonConfirm] = useState(false)
+    const [daysConfirm, setDaysConfirm] = useState(false)
 
     const lessonOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     const numOfDays = [1, 2, 3, 4, 5, 6, 7]
@@ -29,15 +33,24 @@ const DefaultSetting = () => {
     const weekendOptions = ["Saturday - Sunday", "Friday - Saturday", "Sunday", "None"]
 
     const handleChange = (e) => {
-        setNewValue(e.target.value)
-        setConfirmModal(true)
+        if (e.target.name === "lessonPerDay") {
+            setNewLessonValue(e.target.value)
+            setLessonModal(true)
+        } else if (e.target.name === "numberOfDays") {
+            setNewDaysValue(e.target.value)
+            setDaysModal(true)
+        }
     }
 
     useEffect(() => {
-        if (confirm) {
-            setLessonPerDay(newValue)
+        if (lessonConfirm) {
+            setLessonPerDay(newLessonValue)
         }
-    }, [confirm])
+
+        if (daysConfirm) {
+            setNumDay(newDaysValue)
+        }
+    }, [lessonConfirm, daysConfirm])
 
     return (
         <div className='px-4'>
@@ -47,7 +60,7 @@ const DefaultSetting = () => {
             />
 
             <div className='border-b-2 border-blue-dark2 mt-5'>
-                <p className='font-medium text-sm pb-3 font-primary text-gray-dark1'>Lesson default settings</p>
+                <p className='font-medium text-sm pb-3 font-primary'>Lesson default settings</p>
             </div>
 
             <div className='mt-5'>
@@ -56,21 +69,23 @@ const DefaultSetting = () => {
                     width={"100%"}
                     className="min-w-[200px]"
                     options={lessonOptions}
-                    defaultValue="year"
+                    defaultValue="lessonPerDay"
+                    name="lessonPerDay"
                     value={lessonPerDay}
                     onChange={(e) => handleChange(e)}
                 />
             </div>
 
             <div className='flex gap-1 items-center mt-5'>
-                <p className='text-sm font-medium font-primary'>Default Lesson time</p>
-                <Image src={assets.tooltip} className="w-4 h-4"/>
+                <p className='text-sm font-primary'>Default Lesson time</p>
+                <Tooltips title="Default lesson time">
+                    <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer" />
+                </Tooltips>
             </div>
 
-            <div className='flex gap-x-2 items-end mt-2'>
+            <div className='flex gap-x-2 items-end mt-5'>
                 <InputSpinner
                     label="Start Time"
-                    className="text-sm text-gray-dark1"
                     min={0}
                     max={12}
                     value={hours}
@@ -79,7 +94,7 @@ const DefaultSetting = () => {
 
                 <InputSpinner
                     label=""
-                    className="mt-[25px] text-gray-dark1"
+                    className="mt-[25px]"
                     min={0}
                     max={60}
                     value={minutes}
@@ -89,7 +104,7 @@ const DefaultSetting = () => {
 
             <InputSpinner
                 label="Lesson Length"
-                className="mt-2 w-full text-gray-dark1"
+                className="mt-[25px] w-full"
                 min={0}
                 max={60}
                 value={lessonLength}
@@ -97,8 +112,10 @@ const DefaultSetting = () => {
             />
 
             <div className='flex gap-1 items-center mt-5'>
-                <p className='text-sm font-medium font-primary'>Weekend</p>
-                <Image src={assets.tooltip} className="w-4 h-4"/>
+                <p className='text-sm font-primary'>Weekend</p>
+                <Tooltips title="Weekend">
+                    <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer" />
+                </Tooltips>
             </div>
 
             <div className='mt-3'>
@@ -117,26 +134,24 @@ const DefaultSetting = () => {
                     label="Number of Days"
                     className="w-full"
                     options={numOfDays}
-                    defaultValue="year"
+                    defaultValue="numberOfDays"
+                    name="numberOfDays"
                     value={numDay}
-                    onChange={(e) => {
-                        handleChange(e);
-                        setNumDay(e.target.value);
-                        }
-                    }
+                    onChange={(e) => handleChange(e)}
                 />
             </div>
 
 
             <div className='flex gap-1 items-center mt-5'>
-                <p className='text-sm font-medium font-primary'>Break Between Lesson</p>
-                <Image src={assets.tooltip} className="w-4 h-4"/>
+                <p className='text-sm font-primary'>Break Between Lesson</p>
+                <Tooltips title="Break between lesson">
+                    <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer" />
+                </Tooltips>
             </div>
 
-            <div className='flex gap-x-2 mt-3'>
+            <div className='flex gap-x-2 mt-5'>
                 <InputSpinner
                     label="Break After Lesson"
-                    className="text-sm text-gray-dark1"
                     min={0}
                     value={break1}
                     setState={setBreak1}
@@ -144,7 +159,7 @@ const DefaultSetting = () => {
 
                 <InputSpinner
                     label="Break Length"
-                    className="text-sm text-gray-dark1"
+                    className=""
                     min={0}
                     value={break2}
                     setState={setBreak2}
@@ -166,28 +181,33 @@ const DefaultSetting = () => {
                 />
             </div>
 
-            <div className='flex gap-1 items-center mt-4'>
-                <p className='text-sm font-medium font-primary'>Work With Zero Lesson</p>
-                <Image src={assets.tooltip} className="w-4 h-4"/>
-                <Checkbox/>
+            <div className='flex gap-1 items-center mt-5'>
+                <p className='text-sm font-primary'>Work With Zero Lesson</p>
+                <Tooltips title="Work with zero lesson">
+                    <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer" />
+                </Tooltips>
+                <Checkbox />
             </div>
 
             <InputSpinner
                 label="Length"
-                className="w-full mt-2"
+                className="w-full mt-5"
                 min={0}
                 value={length}
                 setState={setLength}
             />
 
             <button
-                className='bg-blue-dark2 text-white px-4 py-3 flex gap-2 items-center font-primary rounded-lg mt-5 w-full'>
+                className='bg-blue-dark2 text-white px-4 py-2 flex gap-2 items-center font-primary rounded-sm mt-5 w-full'>
                 <Image src={assets.calendar2} alt="calendar icon"
-                       className="w-4"/><span>Customize Default Setting</span>
+                    className="w-4" /><span>Customize Default Setting</span>
             </button>
 
-            <ConfirmationModal open={confirmModal} setOpen={setConfirmModal} newValue={newValue} oldValue={lessonPerDay}
-                               confirm={setConfirm}/>
+            <ConfirmationModal open={lessonModal} setOpen={setLessonModal} newValue={newLessonValue} oldValue={lessonPerDay}
+                confirm={setLessonConfirm} />
+
+            <ConfirmationModal open={daysModal} setOpen={setDaysModal} newValue={newDaysValue} oldValue={numDay}
+                confirm={setDaysConfirm} />
 
         </div>
     )
