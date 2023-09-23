@@ -36,7 +36,6 @@ const ConfirmationModal = ({open, newValue, oldValue, confirm, setOpen}) => {
                                                 setOpen(false)
                                             }}
                                         />
-
                                         <Button
                                             rounded={true}
                                             type="button"
