@@ -42,23 +42,23 @@
 }
 
 .fc.fc-media-screen.fc-direction-ltr.fc-theme-standard {
-    @apply w-[calc(100vw-32px)]
+    @apply w-[calc(100vw-32px)];
 }
 
 .fc-col-header-cell-cushion {
-    @apply py-3
+    @apply py-3;
 }
 
 .fc-dayGridDay-button.fc-button.fc-button-primary,
 .fc-customCalenderButton-button.fc-button.fc-button-primary {
     background-color: #175088 !important;
     border: 1px solid rgb(92, 89, 89);
-    padding: 2px 30px;
-    text-transform: capitalize;
+    @apply capitalize py-0.5 px-7;
+
 }
 
 .fc-dayGridDay-button.fc-button.fc-button-primary {
-    border-radius: 0;
+    @apply rounded-none;
 }
 
 .fc-scrollgrid-sync-inner {
@@ -74,7 +74,7 @@
 }
 
 .item-p {
-    @apply text-xs font-primary font-normal text-white px-5 border-r border-white text-center w-full;
+    @apply text-xs font-primary font-normal text-white px-4 border-r border-white text-center w-full;
 
     &:last-child {
         @apply  border-r-0;

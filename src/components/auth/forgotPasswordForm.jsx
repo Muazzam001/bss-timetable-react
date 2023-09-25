@@ -18,6 +18,8 @@ const ForgotPasswordForm = ({className}) => {
     };
 
     const handleResetPassword = () => {
+
+        // Check Validations
         setError("");
         let hasError = false;
         if (validator.isEmpty(email)) {

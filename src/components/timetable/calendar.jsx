@@ -11,21 +11,21 @@ import CalendarHeader from '../calendarHeader/calendarHeader';
 
 const Calendar = () => {
     const calendarRef = useRef(null);
-    const [dayName, setDayName] = useState("")
-    const [year, setYear] = useState("")
-
-    const [selectedTab, setSelectedTab] = useState('Default Setting');
+    const [dayName, setDayName] = useState("");
+    const [year, setYear] = useState("");
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [selectedTab, setSelectedTab] = useState('Default Settings');
 
     useEffect(() => {
         if (calendarRef.current) {
             const calendarApi = calendarRef.current.getApi();
             const title = calendarApi.view.title;
-            const newDate = new Date(title)
-            const dayName = new Date(title).toLocaleString('en-us', {weekday: 'long'})
+            const newDate = new Date(title);
+            const dayName = new Date(title).toLocaleString('en-us', {weekday: 'long'});
 
-            setDayName(dayName)
+            setDayName(dayName);
             const year = newDate.getFullYear();
-            setYear(year)
+            setYear(year);
         }
     }, []);
 
@@ -44,10 +44,10 @@ const Calendar = () => {
         <>
             <div className="calendar-container px-4">
                 <CalendarHeader calendarRef={calendarRef} dayName={dayName} selectedTab={selectedTab}
-                                setSelectedTab={setSelectedTab}/>
+                                setSelectedTab={setSelectedTab} sidebar={isSidebarOpen} setSidebar={setIsSidebarOpen}/>
 
                 <div className='flex'>
-                    <div className='w-[calc(100vw-300px)] overflow-auto'>
+                    <div className={`${isSidebarOpen ? 'w-[calc(100vw-304px)]' : "w-full"} overflow-auto`}>
                         <FullCalendar
                             ref={calendarRef}
                             plugins={[dayGridPlugin, interactionPlugin]}
@@ -55,62 +55,60 @@ const Calendar = () => {
                             dayCellClassNames="!bg-white !min-h-fit !max-h-fit"
                             dayCellContent={() => {
                                 return (
-                                    <>
-                                        <table
-                                            className="table-inner table-auto w-full !min-h-fit text-left whitespace-no-wrap !border !border-gray-medium">
-                                            <thead>
-                                            <tr>
-                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100 rounded-tl rounded-bl">1</th>
-                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">2</th>
-                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">3</th>
-                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">BR</th>
-                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">4</th>
-                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">5</th>
-                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">6</th>
-                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">BR</th>
-                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">7</th>
-                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">8</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            {data.map((row, rowIndex) => (
-                                                <tr key={rowIndex}>
-                                                    {row.map((cell, cellIndex) => {
-                                                        const colors = {
-                                                            CHE: "bg-[#997D6C]",
-                                                            BIO: "bg-[#898989]",
-                                                            ECO: "bg-[#9E69F4]",
-                                                            ISL: "bg-[#88DEDE]",
-                                                            ENG: "bg-[#A962A5]",
-                                                            PHY: "bg-[#DA86BB]",
-                                                            URD: "bg-[#E6886C]",
-                                                            MTH: "bg-[#BEAD2E]",
-                                                            PST: "bg-[#5BCB5A]",
-                                                            CS: "bg-[#E8C46A]",
-                                                            HQT: "bg-[#1FA9EF]",
-                                                            ACC: "bg-[#BFE324]",
-                                                            BS: "bg-[#F4F469]",
-                                                        }
-                                                        const cellColor = colors[cell] || 'bg-blue-dark2';
+                                    <table
+                                        className="table-inner table-auto w-full !min-h-fit text-left whitespace-no-wrap !border !border-gray-medium">
+                                        <thead>
+                                        <tr>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100 rounded-tl rounded-bl">1</th>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">2</th>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">3</th>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">BR</th>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">4</th>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">5</th>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">6</th>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">BR</th>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">7</th>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">8</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {data.map((row, rowIndex) => (
+                                            <tr key={rowIndex}>
+                                                {row.map((cell, cellIndex) => {
+                                                    const colors = {
+                                                        CHE: "bg-[#997D6C]",
+                                                        BIO: "bg-[#898989]",
+                                                        ECO: "bg-[#9E69F4]",
+                                                        ISL: "bg-[#88DEDE]",
+                                                        ENG: "bg-[#A962A5]",
+                                                        PHY: "bg-[#DA86BB]",
+                                                        URD: "bg-[#E6886C]",
+                                                        MTH: "bg-[#BEAD2E]",
+                                                        PST: "bg-[#5BCB5A]",
+                                                        CS: "bg-[#E8C46A]",
+                                                        HQT: "bg-[#1FA9EF]",
+                                                        ACC: "bg-[#BFE324]",
+                                                        BS: "bg-[#F4F469]",
+                                                    }
+                                                    const cellColor = colors[cell] || 'bg-blue-dark2';
 
-                                                        return (
-                                                            <td key={cellIndex}
-                                                                className='font-primary text-xs uppercase w-20 h-20 !text-center !align-middle'>
-                                                                <div
-                                                                    className={`flex flex-col ${cell === "" ? null : cellColor} rounded-sm py-1 text-white ${cell === "" ? null : "border"} border-blue-dark2`}>
+                                                    return (
+                                                        <td key={cellIndex}
+                                                            className='font-primary text-xs uppercase w-20 h-20 !text-center !align-middle'>
+                                                            <div
+                                                                className={`flex flex-col ${cell === "" ? null : cellColor} rounded-sm py-1 text-white ${cell === "" ? null : "border"} border-blue-dark2`}>
                                                                 <span className='text-[8px]'>
                                                                     {cell}
                                                                 </span>
-                                                                </div>
-                                                            </td>
-                                                        )
-                                                    })}
-                                                </tr>
-                                            ))}
+                                                            </div>
+                                                        </td>
+                                                    )
+                                                })}
+                                            </tr>
+                                        ))}
 
-                                            </tbody>
-                                        </table>
-                                    </>
+                                        </tbody>
+                                    </table>
                                 );
                             }}
 
@@ -126,6 +124,7 @@ const Calendar = () => {
                                 },
 
                             }}
+
                             dayHeaderContent={(info) => {
 
                                 const currentDate = info.date
@@ -161,26 +160,28 @@ const Calendar = () => {
                         />
                     </div>
 
-                    <div className='bg-white border-l border-t border-gray-dark2'>
-                        <div className='w-[300px]'>
-                            <div className='flex items-end h-10'>
-                                <div className='flex bg-blue-dark2 px-2 py-1 w-full'>
-                                    <p className='item-p'>New Lesson</p>
+                    <div className={`bg-white border border-gray-dark2 ${isSidebarOpen ? 'max-w-[301px] w-full' : 'w-0'}`}>
+                        {isSidebarOpen && (
+                            <div className='w-full h-full'>
+                                <div className='flex items-end w-full h-13'>
+                                    <div className='flex bg-blue-dark2 p-2 w-full'>
+                                        <p className='item-p'>New Lesson</p>
 
-                                    <p className='item-p'>Manage Lessons</p>
+                                        <p className='item-p'>Manage Lessons</p>
+                                    </div>
                                 </div>
+                                {/* Side Tabs Panels */}
+                                {selectedTab === "Default Setting" ? (
+                                    <DefaultSetting/>
+                                ) : selectedTab === "Control" ? (
+                                    <Control/>
+                                ) : selectedTab === "Workload" ? (
+                                    <Workload/>
+                                ) : selectedTab === "Timetable Options" ? (
+                                    <TimetableOptions/>
+                                ) : null}
                             </div>
-                            
-                            {selectedTab === "Default Setting" ? (
-                                <DefaultSetting/>
-                            ) : selectedTab === "Control" ? (
-                                <Control/>
-                            ) : selectedTab === "Workload" ? (
-                                <Workload/>
-                            ) : selectedTab === "Timetable Options" ? (
-                                <TimetableOptions/>
-                            ) : null}
-                        </div>
+                        )}
                     </div>
                 </div>
             </div>

@@ -1,3 +1,4 @@
+// Assets Imports
 import signIn from "./images/sign-in.png";
 import forgotPassword from "./images/forgot-password.png";
 import FAQs from "./images/faq.png";
@@ -47,7 +48,10 @@ import decisionMaking from "./images/decision-making.png";
 import relations from "./images/relations.png";
 import reportCard from "./images/report-card.png";
 import testing from "./images/testing.png";
+import large from "./images/large.png";
 
+
+// Assets Exports
 export const assets = {
     signIn,
     forgotPassword,
@@ -98,4 +102,5 @@ export const assets = {
     reportCard,
     testing,
     relations,
+    large,
 }

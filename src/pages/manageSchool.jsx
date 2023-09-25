@@ -5,8 +5,6 @@ import MainLayout from "../shared/mainLayout/mainLayout.jsx";
 import Team from "../shared/team/team.jsx";
 import MultiSelectionTeam from "../shared/multiSelectionTeam/multiSelectionTeam.jsx";
 import Button from "../shared/button/button.jsx";
-import SideModal from "../shared/sideModal/sideModal.jsx";
-import AddSection from "../components/addSection.jsx";
 
 const ManageSchool = () => {
     const navigate = useNavigate();
@@ -135,10 +133,6 @@ const ManageSchool = () => {
 
                 </div>
             </div>
-
-            {/*<SideModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} title="Manage School">*/}
-            {/*    <AddSection/>*/}
-            {/*</SideModal>*/}
 
         </MainLayout>
     );
