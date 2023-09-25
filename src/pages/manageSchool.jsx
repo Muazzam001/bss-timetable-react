@@ -71,7 +71,7 @@ const ManageSchool = () => {
 
             <div className='container min-h-[calc(100vh-175px)]'>
 
-                <div className='flex flex-col gap-10 pb-10 pt-6'>
+                <div className='flex flex-col gap-10 py-10'>
 
                     <div>
                         <h3 className='text-h3 font-primary text-center text-blue-dark1'>Welcome to Beaconhouse</h3>
@@ -119,7 +119,7 @@ const ManageSchool = () => {
 
                     </div>
 
-                    <div className='flex justify-end mt-9'>
+                    <div className='flex justify-end mt-6'>
                         <Button
                             rounded={true}
                             type="button"

@@ -77,7 +77,7 @@ export default function LoginForm({className}) {
                         value={form?.email}
                         error={error.email}
                         placeholder="example@gmail.com"
-                        className="w-full placeholder:text-lg"
+                        className="w-full"
                         onChange={(e) => handleChange(e.target.value, "email")}
                     />
 
@@ -89,7 +89,7 @@ export default function LoginForm({className}) {
                         value={form.password}
                         error={error.password}
                         placeholder="********"
-                        className="w-full placeholder:text-lg"
+                        className="w-full placeholder:relative  placeholder:top-0.5"
                         onChange={(e) => handleChange(e.target.value, "password")}
                     />
 
@@ -104,7 +104,7 @@ export default function LoginForm({className}) {
                             />
 
                             <span
-                                className="peer-checked:inline-block hidden w-[12px] h-[7px] border-t-2 border-r-2 rotate-[130deg] translate-x-[3px] -translate-y-[5px] border-blue-dark2 cursor-pointer"></span>
+                                className="peer-checked:inline-block hidden w-[12px] h-[7px] border-t-2 border-r-2 rotate-[130deg] translate-x-[3px] -translate-y-[6px] border-blue-dark2 cursor-pointer"></span>
                         </span>
 
                         <span
