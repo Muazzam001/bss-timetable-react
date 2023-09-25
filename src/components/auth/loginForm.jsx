@@ -28,8 +28,8 @@ export default function LoginForm({className}) {
 
     const handleLogin = () => {
         let hasError = false;
-        setError({email: "", password: ""});
         // Check Validations
+        setError({email: "", password: ""});
         if (validator.isEmpty(form.email)) {
             setError((prevError) => ({
                 ...prevError,

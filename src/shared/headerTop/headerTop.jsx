@@ -22,14 +22,14 @@ const HeaderTop = () => {
 
                 {headerIcons("FAQ's", assets.FAQs)}
 
-                <div className="flex items-center header-icon">
-                    <p className="text-white text-sm font-secondary font-medium">{'Emp 227'}</p>
+                {/*<div className="flex items-center header-icon">*/}
+                {/*    <p className="text-white text-sm font-secondary font-medium">{'Emp 227'}</p>*/}
 
-                    <div
-                        className="w-8 h-8 overflow-hidden border-2 border-solid border-white rounded-full flex items-center justify-center">
-                        <Image src={assets.forgotPassword} alt={'Emp 227'}/>
-                    </div>
-                </div>
+                {/*    <div*/}
+                {/*        className="w-8 h-8 overflow-hidden border-2 border-solid border-white rounded-full flex items-center justify-center">*/}
+                {/*        <Image src={assets.forgotPassword} alt={'Emp 227'}/>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
             </div>
         </div>
     );

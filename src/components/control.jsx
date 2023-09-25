@@ -14,7 +14,9 @@ const Control = () => {
         {src: assets.classBW, title: "Classes"},
         {src: assets.classroomBW, title: "Classrooms"},
         {src: assets.teacherBW, title: "Teachers"},
-    ]
+    ];
+
+    // Control Panel Data
     const [findSubjects, setFindSubjects] = useState([
         {
             id: 1,
@@ -276,6 +278,7 @@ const Control = () => {
         }
     ];
 
+    // Control Panel Subjects Details
     const subjects = subjectsData?.map((subject, index) => {
         const colors = {
             CHE: "bg-[#997D6C]",
@@ -287,26 +290,25 @@ const Control = () => {
         };
 
         const cellColor = colors[subject.subjectShort] || 'bg-blue-dark2';
-
         return (
             <span key={`${index}`}
                   className={`flex flex-auto items-center justify-center font-primary hover:bg-transparent font-semibold text-xs border border-black p-1 ${cellColor} cursor-pointer`}>
                 {subject.subjectShort}
             </span>
-        )
-    })
+        );
+    });
 
+    // Open/Change Control Popup
     const handleControls = (title) => {
         setControl((prevControl) => {
             if (prevControl === title) {
                 return "";
             }
-
             return title;
         });
     }
 
-
+    // Mapping Control Panel Popup Data
     const controls = controlsData?.map((module) => {
         const selectedItems = (findModules) => {
             return findModules?.filter((item) => item.check === true)
@@ -315,15 +317,16 @@ const Control = () => {
 
         return (
             <div>
-                <div
-                    className={`flex gap-1 items-center cursor-pointer group ${control === module?.title ? "bg-blue-dark2 hover:bg-blue-dark2" : "hover:bg-blue-light1"} p-2 rounded`}
-                    onClick={() => handleControls(module?.title)}>
+                <div onClick={() => handleControls(module?.title)}
+                    className={`flex gap-1 items-center cursor-pointer group ${control === module?.title ? "bg-blue-dark2 hover:bg-blue-dark2" : "hover:bg-blue-light1"} p-2 rounded`}>
                     <Image src={module?.src} alt={module.title}
                            className={`w-12 ${control === module?.title ? "invert" : ""}`}/>
+
                     <span
                         className={`font-primary text-xs font-semibold ${control === module?.title ? "text-white" : ""}`}>{`Find ${module.title}`}</span>
                 </div>
-                <div className="font-primary text-blue-dark2 text-xs font-semibold">
+
+                <div className="font-primary text-blue-dark2 text-xs font-semibold mt-1 ml-2">
                     {module?.title === "Subjects" ? (
                         selectedItems(findSubjects).join(", ")
                     ) : module?.title === "Classes" ? (
@@ -340,15 +343,15 @@ const Control = () => {
     });
 
     return (
-        <div>
+        <div className={'h-fit'}>
             <div>
-                <div className="flex py-5 bg-gray-medium">
+                <div className="flex p-4 bg-gray-medium">
                     <div className="w-[30%] flex justify-center">
                         <span
                             className={`flex h-8 w-12 mt-2 items-center justify-center font-primary text-sm border border-black p-1 bg-lime-200`}>MTH</span>
                     </div>
 
-                    <div className="w-[70%] pr-5">
+                    <div className="w-[70%]">
                         <p className="font-primary">
                             MTH - Mathematics
                             Muhammad Tauseef
@@ -357,13 +360,13 @@ const Control = () => {
                     </div>
                 </div>
 
-                <div className="flex gap-1 flex-auto px-2 py-1">{subjects}</div>
+                <div className="flex gap-1 flex-auto p-2">{subjects}</div>
             </div>
 
             <div className="relative">
-                <div className="flex flex-col gap-y-6 mt-10 px-4">{React.Children.toArray(controls)}</div>
+                <div className="flex flex-col gap-y-6 mt-6 p-4">{React.Children.toArray(controls)}</div>
 
-                <div className="absolute -top-18 right-full z-50">
+                <div className="absolute -top-16 right-full z-50">
                     {control === "Subjects" ? (
                             <>
                                 <SearchControls header="Subjects" data={findSubjects} setData={setFindSubjects}/>
@@ -391,7 +394,7 @@ const Control = () => {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default Control

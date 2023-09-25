@@ -1,3 +1,4 @@
+// Stop Scrollbar 
 export const stopScroll = (state) => {
     if (state) {
         document.body.style.overflow = 'hidden';

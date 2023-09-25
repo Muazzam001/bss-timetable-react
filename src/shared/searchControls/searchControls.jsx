@@ -10,37 +10,35 @@ const SearchControls = ({header, data, setData}) => {
                     return {...dataItem, check: !dataItem.check}
                 }
                 return dataItem
-            })
-        })
+            });
+        });
     }
+
     const tickboxes = data?.map((item, index) => {
         return (
-            <>
-                <div className='flex' key={`${index}`}>
-                    <div className='w-3/5 flex flex-col pl-4 gap-y-4 overflow-auto border-r border-gray-medium'>
-                        <div>
-                            <Tickbox
-                                htmlFor={item?.short}
-                                name={item?.short}
-                                id={item?.short}
-                                label={item?.label}
-                                isChecked={item?.check}
-                                handleTickboxChange={() => handleTickboxChange(item)}
-                            />
-                        </div>
-                    </div>
+            <div className='flex' key={`${index}`}>
+                <div className='w-3/5 flex flex-col p-2 gap-y-4 overflow-auto border-r border-gray-medium'>
+                    <Tickbox
+                        htmlFor={item?.short}
+                        name={item?.short}
+                        id={item?.short}
+                        label={item?.label}
+                        isChecked={item?.check}
+                        handleTickboxChange={() => handleTickboxChange(item)}
+                    />
+                </div>
 
-                    <div className='w-2/5 flex flex-col p-2 gap-y-4 overflow-auto'>
+                <div className='w-2/5 flex flex-col p-2 gap-y-4 overflow-auto'>
                         <span
                             className={`font-primary text-sm text-center ${item?.check ? "text-blue-dark2" : "text-gray-900"}`}>{item?.short}</span>
-                    </div>
                 </div>
-            </>
+            </div>
         );
-    })
+    });
+
     return (
         <>
-            <div className='bg-gray-light-yellowish w-90 rounded-sm border border-blue-dark2'>
+            <div className='bg-gray-light-yellowish w-90 rounded-sm border border-blue-dark2 overflow-y-auto'>
                 <div className='px-1 py-2 flex justify-end border-b border-gray-medium'>
                     <p className='text-xs text-blue-dark2 font-primary flex gap-2'>
                         <span className='cursor-pointer'>Select All</span>
@@ -63,4 +61,4 @@ const SearchControls = ({header, data, setData}) => {
     );
 }
 
-export default SearchControls
+export default SearchControls;

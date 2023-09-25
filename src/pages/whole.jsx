@@ -65,11 +65,11 @@ const Whole = () => {
 
     const Menus = [
         {title: "Home", src: assets.home},
-        {title: "Subjects", src: assets.subject},
-        {title: "Classes", src: assets.classes},
+        // {title: "Subjects", src: assets.subject},
+        // {title: "Classes", src: assets.classes},
         {title: "Classrooms", src: assets.classroom},
-        {title: "Teachers", src: assets.teacher2},
-        {title: "Modules", src: assets.modules},
+        // {title: "Teachers", src: assets.teacher2},
+        // {title: "Modules", src: assets.modules},
     ];
 
     useEffect(() => {
@@ -216,7 +216,7 @@ const Whole = () => {
                     onClick={() => setOpen(false)}
                 />
             </MainModal>
-
+            
             <SideModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} title="Manage Duplicate Timetable">
                 <section className='w-[500px]'>
                     <div className='flex flex-col gap-y-8'>

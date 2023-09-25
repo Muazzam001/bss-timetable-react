@@ -2,26 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/* width */
+// Vertical Scrollbar width
 ::-webkit-scrollbar {
   width: 10px;
 }
 
+// Horizontal Scrollbar height
 ::-webkit-scrollbar:horizontal {
   height: 6px;
 }
 
-/* Track */
+// Scrollbar Background
 ::-webkit-scrollbar-track {
   background: #e7e7e7;
 }
 
-/* Handle */
+// Movable Scrollbar
 ::-webkit-scrollbar-thumb {
   background: #4193e5;
 }
 
-/* Handle on hover */
+// Movable Scrollbar on Hover
 ::-webkit-scrollbar-thumb:hover {
   background: #175088;
 }

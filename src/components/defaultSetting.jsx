@@ -9,28 +9,30 @@ import ConfirmationModal from "../shared/confirmationModal/confirmationModal.jsx
 import Tooltips from '../shared/tooltips/tooltips.jsx';
 
 const DefaultSetting = () => {
-    const [lessonPerDay, setLessonPerDay] = useState(0)
-    const [hours, setHours] = useState(0)
-    const [minutes, setMinutes] = useState(0)
-    const [weekend, setWeekend] = useState("")
-    const [numDay, setNumDay] = useState(0)
-    const [break1, setBreak1] = useState(0)
-    const [break2, setBreak2] = useState(0)
-    const [breakLength1, setBreakLength1] = useState(0)
-    const [breakLength2, setBreakLength2] = useState(0)
-    const [length, setLength] = useState(0)
-    const [lessonLength, setLessonLength] = useState(0)
-    const [lessonModal, setLessonModal] = useState(false)
-    const [daysModal, setDaysModal] = useState(false)
-    const [newLessonValue, setNewLessonValue] = useState(0)
-    const [newDaysValue, setNewDaysValue] = useState(0)
-    const [lessonConfirm, setLessonConfirm] = useState(false)
-    const [daysConfirm, setDaysConfirm] = useState(false)
+    const [lessonPerDay, setLessonPerDay] = useState(0);
+    const [startHours, setStartHours] = useState(0);
+    const [endHours, setEndHours] = useState(0);
+    const [startMinutes, setStartMinutes] = useState(0);
+    const [endMinutes, setEndMinutes] = useState(0);
+    const [weekend, setWeekend] = useState("");
+    const [numDay, setNumDay] = useState(0);
+    const [break1, setBreak1] = useState(0);
+    const [break2, setBreak2] = useState(0);
+    const [breakLength1, setBreakLength1] = useState(0);
+    const [breakLength2, setBreakLength2] = useState(0);
+    const [length, setLength] = useState(0);
+    const [lessonLength, setLessonLength] = useState(0);
+    const [lessonModal, setLessonModal] = useState(false);
+    const [daysModal, setDaysModal] = useState(false);
+    const [newLessonValue, setNewLessonValue] = useState(0);
+    const [newDaysValue, setNewDaysValue] = useState(0);
+    const [lessonConfirm, setLessonConfirm] = useState(false);
+    const [daysConfirm, setDaysConfirm] = useState(false);
 
-    const lessonOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-    const numOfDays = [1, 2, 3, 4, 5, 6, 7]
-
-    const weekendOptions = ["Saturday - Sunday", "Friday - Saturday", "Sunday", "None"]
+    // Default Settings Inputs Data
+    const lessonOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    const numOfDays = [1, 2, 3, 4, 5, 6, 7];
+    const weekendOptions = ["Saturday - Sunday", "Friday - Saturday", "Sunday", "None"];
 
     const handleChange = (e) => {
         if (e.target.name === "lessonPerDay") {
@@ -90,8 +92,8 @@ const DefaultSetting = () => {
                             label="Start Time"
                             min={0}
                             max={12}
-                            value={hours}
-                            setState={setHours}
+                            value={startHours}
+                            setState={setStartHours}
                             className='text-gray-dark1'
                         />
 
@@ -99,8 +101,28 @@ const DefaultSetting = () => {
                             label=""
                             min={0}
                             max={60}
-                            value={minutes}
-                            setState={setMinutes}
+                            value={startMinutes}
+                            setState={setStartMinutes}
+                            className='text-gray-dark1'
+                        />
+                    </div>
+
+                    <div className='flex items-end gap-x-2'>
+                        <InputSpinner
+                            label="End Time"
+                            min={0}
+                            max={12}
+                            value={endHours}
+                            setState={setEndHours}
+                            className='text-gray-dark1'
+                        />
+
+                        <InputSpinner
+                            label=""
+                            min={0}
+                            max={60}
+                            value={endMinutes}
+                            setState={setEndMinutes}
                             className='text-gray-dark1'
                         />
                     </div>
@@ -147,76 +169,81 @@ const DefaultSetting = () => {
                     />
                 </div>
 
-                <div className='flex items-center gap-x-1'>
-                    <p className='text-sm font-medium font-primary'>Break Between Lesson</p>
+                <div className='flex flex-col gap-y-2'>
+                    <div className='flex items-center gap-x-1'>
+                        <p className='text-sm font-medium font-primary'>Break Between Lesson</p>
 
-                    <Tooltips title="Break between lesson">
-                        <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer"/>
-                    </Tooltips>
+                        <Tooltips title="Break between lesson">
+                            <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer"/>
+                        </Tooltips>
+                    </div>
+
+                    <div className='flex gap-x-2'>
+                        <InputSpinner
+                            min={0}
+                            value={break1}
+                            setState={setBreak1}
+                            label="Break After Lesson"
+                            className='text-gray-dark1'
+                        />
+
+                        <InputSpinner
+                            min={0}
+                            value={break2}
+                            setState={setBreak2}
+                            label="Break Length"
+                            className='text-gray-dark1'
+                        />
+                    </div>
+
+                    <div className='flex gap-x-2 mt-2'>
+                        <InputSpinner
+                            min={0}
+                            value={breakLength1}
+                            setState={setBreakLength1}
+                        />
+
+                        <InputSpinner
+                            min={0}
+                            value={breakLength2}
+                            setState={setBreakLength2}
+                        />
+                    </div>
                 </div>
 
-                <div className='flex gap-x-2'>
-                    <InputSpinner
-                        min={0}
-                        value={break1}
-                        setState={setBreak1}
-                        label="Break After Lesson"
-                        className='text-gray-dark1'
-                    />
+                <div className='flex flex-col gap-y-2'>
+                    <div className='flex items-center gap-x-2'>
+                        <p className='text-sm font-medium font-primary'>Work With Zero Lesson</p>
 
-                    <InputSpinner
-                        min={0}
-                        value={break2}
-                        setState={setBreak2}
-                        label="Break Length"
-                        className='text-gray-dark1'
-                    />
-                </div>
+                        <Tooltips title="Work with zero lesson">
+                            <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer"/>
+                        </Tooltips>
 
-                <div className='flex gap-x-2'>
-                    <InputSpinner
-                        min={0}
-                        value={breakLength1}
-                        setState={setBreakLength1}
-                    />
+                        <Checkbox/>
+                    </div>
 
-                    <InputSpinner
-                        min={0}
-                        value={breakLength2}
-                        setState={setBreakLength2}
-                    />
-                </div>
-
-                <div className='flex items-center gap-x-2'>
-                    <p className='text-sm font-medium font-primary'>Work With Zero Lesson</p>
-
-                    <Tooltips title="Work with zero lesson">
-                        <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer"/>
-                    </Tooltips>
-
-                    <Checkbox/>
-                </div>
-
-                <div>
-                    <InputSpinner
-                        label="Length"
-                        className="w-full text-gray-dark1"
-                        min={0}
-                        value={length}
-                        setState={setLength}
-                    />
+                    <div>
+                        <InputSpinner
+                            label="Length"
+                            className="w-full text-gray-dark1"
+                            min={0}
+                            value={length}
+                            setState={setLength}
+                        />
+                    </div>
                 </div>
 
                 <button
-                    className='bg-blue-dark2 text-white px-4 py-2 flex gap-2 items-center font-primary rounded-lg w-full'>
+                    className='bg-blue-dark2 text-white px-4 py-3 flex gap-2 items-center font-primary rounded-lg w-full'>
                     <Image src={assets.calendar2} alt="calendar icon"
                            className="w-4"/><span>Customize Default Setting</span>
                 </button>
 
+                {/* Lesson per Day Confirmation Modal */}
                 <ConfirmationModal open={lessonModal} setOpen={setLessonModal} newValue={newLessonValue}
-                                   oldValue={lessonPerDay}
-                                   confirm={setLessonConfirm}/>
+                                   oldValue={lessonPerDay} confirm={setLessonConfirm}/>
 
+                {/* Number of Days Confirmation Modal */}
                 <ConfirmationModal open={daysModal} setOpen={setDaysModal} newValue={newDaysValue} oldValue={numDay}
                                    confirm={setDaysConfirm}/>
 
