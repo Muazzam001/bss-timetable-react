@@ -318,12 +318,11 @@ const Control = () => {
         return (
             <div>
                 <div onClick={() => handleControls(module?.title)}
-                    className={`flex gap-1 items-center cursor-pointer group ${control === module?.title ? "bg-blue-dark2 hover:bg-blue-dark2" : "hover:bg-blue-light1"} p-2 rounded`}>
-                    <Image src={module?.src} alt={module.title}
-                           className={`w-12 ${control === module?.title ? "invert" : ""}`}/>
+                     className={`flex gap-1 items-center cursor-pointer group ${control === module?.title ? "bg-blue-light1 hover:bg-blue-light1 border-l-4 border-blue-dark2" : "hover:bg-blue-light1"} p-2 rounded`}>
+                    <Image src={module?.src} alt={module.title} className={`w-12`}/>
 
                     <span
-                        className={`font-primary text-xs font-semibold ${control === module?.title ? "text-white" : ""}`}>{`Find ${module.title}`}</span>
+                        className={`font-primary text-xs font-semibold`}>{`Find ${module.title}`}</span>
                 </div>
 
                 <div className="font-primary text-blue-dark2 text-xs font-semibold mt-1 ml-2">
@@ -352,10 +351,10 @@ const Control = () => {
                     </div>
 
                     <div className="w-[70%]">
-                        <p className="font-primary">
-                            MTH - Mathematics
-                            Muhammad Tauseef
-                            CA. 9M Blue
+                        <p className="text-md font-primary flex flex-col gap-y-[2px]">
+                            <span>MTH - Mathematics</span>
+                            <span>Muhammad Tauseef</span>
+                            <span>CA. 9M Blue</span>
                         </p>
                     </div>
                 </div>
@@ -365,28 +364,41 @@ const Control = () => {
 
             <div className="relative">
                 <div className="flex flex-col gap-y-6 mt-6 p-4">{React.Children.toArray(controls)}</div>
-
                 <div className="absolute -top-16 right-full z-50">
                     {control === "Subjects" ? (
                             <>
-                                <SearchControls header="Subjects" data={findSubjects} setData={setFindSubjects}/>
+                                <SearchControls
+                                    header="Subjects"
+                                    data={findSubjects}
+                                    setData={setFindSubjects}
+                                />
                             </>
                         )
                         : control === "Classes" ? (
                                 <>
-                                    <SearchControls header="Classes" data={findClasses} setData={setFindClasses}/>
+                                    <SearchControls
+                                        header="Classes"
+                                        data={findClasses}
+                                        setData={setFindClasses}
+                                    />
                                 </>
                             )
                             : control === "Classrooms" ? (
                                     <>
-                                        <SearchControls header="Classrooms" data={findClassrooms}
-                                                        setData={setFindClassrooms}/>
+                                        <SearchControls
+                                            header="Classrooms"
+                                            data={findClassrooms}
+                                            setData={setFindClassrooms}
+                                        />
                                     </>
                                 )
                                 : control === "Teachers" ? (
                                         <>
-                                            <SearchControls header="Teachers" data={findTeachers}
-                                                            setData={setFindTeachers}/>
+                                            <SearchControls
+                                                header="Teachers"
+                                                data={findTeachers}
+                                                setData={setFindTeachers}
+                                            />
                                         </>
                                     )
                                     : null

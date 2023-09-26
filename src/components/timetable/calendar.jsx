@@ -1,5 +1,5 @@
 import './calendar.scss';
-import {useEffect, useRef, useState} from 'react';
+import { useEffect, useRef, useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
@@ -14,14 +14,14 @@ const Calendar = () => {
     const [dayName, setDayName] = useState("");
     const [year, setYear] = useState("");
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-    const [selectedTab, setSelectedTab] = useState('Default Settings');
+    const [selectedTab, setSelectedTab] = useState("Default Settings");
 
     useEffect(() => {
         if (calendarRef.current) {
             const calendarApi = calendarRef.current.getApi();
             const title = calendarApi.view.title;
             const newDate = new Date(title);
-            const dayName = new Date(title).toLocaleString('en-us', {weekday: 'long'});
+            const dayName = new Date(title).toLocaleString('en-us', { weekday: 'long' });
 
             setDayName(dayName);
             const year = newDate.getFullYear();
@@ -43,8 +43,14 @@ const Calendar = () => {
     return (
         <>
             <div className="calendar-container px-4">
-                <CalendarHeader calendarRef={calendarRef} dayName={dayName} selectedTab={selectedTab}
-                                setSelectedTab={setSelectedTab} sidebar={isSidebarOpen} setSidebar={setIsSidebarOpen}/>
+                <CalendarHeader
+                    calendarRef={calendarRef}
+                    dayName={dayName}
+                    selectedTab={selectedTab}
+                    setSelectedTab={setSelectedTab}
+                    sidebar={isSidebarOpen}
+                    setSidebar={setIsSidebarOpen}
+                />
 
                 <div className='flex'>
                     <div className={`${isSidebarOpen ? 'w-[calc(100vw-304px)]' : "w-full"} overflow-auto`}>
@@ -58,54 +64,54 @@ const Calendar = () => {
                                     <table
                                         className="table-inner table-auto w-full !min-h-fit text-left whitespace-no-wrap !border !border-gray-medium">
                                         <thead>
-                                        <tr>
-                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100 rounded-tl rounded-bl">1</th>
-                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">2</th>
-                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">3</th>
-                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">BR</th>
-                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">4</th>
-                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">5</th>
-                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">6</th>
-                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">BR</th>
-                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">7</th>
-                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">8</th>
-                                        </tr>
+                                            <tr>
+                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100 rounded-tl rounded-bl">1</th>
+                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">2</th>
+                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">3</th>
+                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">BR</th>
+                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">4</th>
+                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">5</th>
+                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">6</th>
+                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">BR</th>
+                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">7</th>
+                                                <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">8</th>
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                        {data.map((row, rowIndex) => (
-                                            <tr key={rowIndex}>
-                                                {row.map((cell, cellIndex) => {
-                                                    const colors = {
-                                                        CHE: "bg-[#997D6C]",
-                                                        BIO: "bg-[#898989]",
-                                                        ECO: "bg-[#9E69F4]",
-                                                        ISL: "bg-[#88DEDE]",
-                                                        ENG: "bg-[#A962A5]",
-                                                        PHY: "bg-[#DA86BB]",
-                                                        URD: "bg-[#E6886C]",
-                                                        MTH: "bg-[#BEAD2E]",
-                                                        PST: "bg-[#5BCB5A]",
-                                                        CS: "bg-[#E8C46A]",
-                                                        HQT: "bg-[#1FA9EF]",
-                                                        ACC: "bg-[#BFE324]",
-                                                        BS: "bg-[#F4F469]",
-                                                    }
-                                                    const cellColor = colors[cell] || 'bg-blue-dark2';
+                                            {data.map((row, rowIndex) => (
+                                                <tr key={rowIndex}>
+                                                    {row.map((cell, cellIndex) => {
+                                                        const colors = {
+                                                            CHE: "bg-[#997D6C]",
+                                                            BIO: "bg-[#898989]",
+                                                            ECO: "bg-[#9E69F4]",
+                                                            ISL: "bg-[#88DEDE]",
+                                                            ENG: "bg-[#A962A5]",
+                                                            PHY: "bg-[#DA86BB]",
+                                                            URD: "bg-[#E6886C]",
+                                                            MTH: "bg-[#BEAD2E]",
+                                                            PST: "bg-[#5BCB5A]",
+                                                            CS: "bg-[#E8C46A]",
+                                                            HQT: "bg-[#1FA9EF]",
+                                                            ACC: "bg-[#BFE324]",
+                                                            BS: "bg-[#F4F469]",
+                                                        }
+                                                        const cellColor = colors[cell] || 'bg-blue-dark2';
 
-                                                    return (
-                                                        <td key={cellIndex}
-                                                            className='font-primary text-xs uppercase w-20 h-20 !text-center !align-middle'>
-                                                            <div
-                                                                className={`flex flex-col ${cell === "" ? null : cellColor} rounded-sm py-1 text-white ${cell === "" ? null : "border"} border-blue-dark2`}>
-                                                                <span className='text-[8px]'>
-                                                                    {cell}
-                                                                </span>
-                                                            </div>
-                                                        </td>
-                                                    )
-                                                })}
-                                            </tr>
-                                        ))}
+                                                        return (
+                                                            <td key={cellIndex}
+                                                                className='font-primary text-xs uppercase w-20 h-20 !text-center !align-middle'>
+                                                                <div
+                                                                    className={`flex flex-col ${cell === "" ? null : cellColor} rounded-sm py-1 text-white ${cell === "" ? null : "border"} border-blue-dark2`}>
+                                                                    <span className='text-[8px]'>
+                                                                        {cell}
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                        )
+                                                    })}
+                                                </tr>
+                                            ))}
 
                                         </tbody>
                                     </table>
@@ -128,7 +134,7 @@ const Calendar = () => {
                             dayHeaderContent={(info) => {
 
                                 const currentDate = info.date
-                                const options = {weekday: 'long'};
+                                const options = { weekday: 'long' };
 
                                 const dayName = currentDate.toLocaleDateString('en-US', options);
                                 return (
@@ -171,14 +177,14 @@ const Calendar = () => {
                                     </div>
                                 </div>
                                 {/* Side Tabs Panels */}
-                                {selectedTab === "Default Setting" ? (
-                                    <DefaultSetting/>
+                                {selectedTab === "Default Settings" ? (
+                                    <DefaultSetting />
                                 ) : selectedTab === "Control" ? (
-                                    <Control/>
+                                    <Control />
                                 ) : selectedTab === "Workload" ? (
-                                    <Workload/>
+                                    <Workload />
                                 ) : selectedTab === "Timetable Options" ? (
-                                    <TimetableOptions/>
+                                    <TimetableOptions />
                                 ) : null}
                             </div>
                         )}

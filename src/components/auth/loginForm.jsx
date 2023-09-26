@@ -119,7 +119,7 @@ export default function LoginForm({className}) {
                             title="Sign In"
                             className="p-3"
                             color="blue-medium1"
-                            onClick={() => navigate("/manage-school")}
+                            onClick={handleLogin}
                         />
 
                         {/*<Button*/}

@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import {assets} from "../assets/index.jsx";
 import Image from "../shared/image/image.jsx";
 import InputField from "../shared/input/inputField.jsx";
@@ -7,6 +7,7 @@ import InputSpinner from "../shared/inputSpinner/inputSpinner.jsx";
 import Checkbox from "../shared/checkbox/checkbox.jsx";
 import ConfirmationModal from "../shared/confirmationModal/confirmationModal.jsx";
 import Tooltips from '../shared/tooltips/tooltips.jsx';
+import { TimetableContext } from '../utils/timetableContext.js';
 
 const DefaultSetting = () => {
     const [lessonPerDay, setLessonPerDay] = useState(0);
@@ -28,6 +29,7 @@ const DefaultSetting = () => {
     const [newDaysValue, setNewDaysValue] = useState(0);
     const [lessonConfirm, setLessonConfirm] = useState(false);
     const [daysConfirm, setDaysConfirm] = useState(false);
+    const { defaultValue: lesson} = useContext(TimetableContext);
 
     // Default Settings Inputs Data
     const lessonOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -59,7 +61,7 @@ const DefaultSetting = () => {
     return (
         <>
             <div className='px-4 py-5 flex flex-col gap-y-5'>
-                <InputField placeholder="Default" className="h-10"/>
+                <InputField placeholder={lesson} className="h-10" readOnly/>
 
                 <div className='border-b-2 border-blue-dark2 mt-1'>
                     <p className='font-primary font-medium text-md text-gray-dark1 pb-2'>Lesson default settings</p>
