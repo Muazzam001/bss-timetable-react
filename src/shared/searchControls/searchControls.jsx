@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Tickbox from '../checkbox/tickbox'
 
 const SearchControls = ({header, data, setData}) => {
+    const [checked, setChecked] = useState('');
 
     const handleTickboxChange = (item) => {
         setData((prevData) => {
@@ -29,8 +30,8 @@ const SearchControls = ({header, data, setData}) => {
                 </div>
 
                 <div className='w-2/5 flex flex-col p-2 gap-y-4 overflow-auto'>
-                        <span
-                            className={`font-primary text-sm text-center ${item?.check ? "text-blue-dark2" : "text-gray-900"}`}>{item?.short}</span>
+                    <span
+                        className={`font-primary text-sm text-center ${item?.check ? "text-blue-dark2" : "text-gray-900"}`}>{item?.short}</span>
                 </div>
             </div>
         );
@@ -40,10 +41,24 @@ const SearchControls = ({header, data, setData}) => {
         <>
             <div className='bg-gray-light-yellowish w-90 rounded-sm border border-blue-dark2 overflow-y-auto'>
                 <div className='px-1 py-2 flex justify-end border-b border-gray-medium'>
-                    <p className='text-xs text-blue-dark2 font-primary flex gap-2'>
-                        <span className='cursor-pointer'>Select All</span>
+                    <p className='text-xs font-primary flex gap-2'>
+                        <span className={`cursor-pointer ${checked ? 'text-blue-dark2 ' : ''}`}
+                              onClick={() => {
+                                  setData((prevData) => prevData.map((dataItem) => ({
+                                      ...dataItem,
+                                      check: true
+                                  })));
+                                  setChecked(true);
+                              }}>Select All</span>
                         <span>|</span>
-                        <span className='cursor-pointer'>UnSelect All</span>
+                        <span className={`cursor-pointer ${!checked ? 'text-blue-dark2 ' : ''}`}
+                              onClick={() => {
+                                  setData((prevData) => prevData.map((dataItem) => ({
+                                      ...dataItem,
+                                      check: false
+                                  })));
+                                  setChecked(false);
+                              }}>UnSelect All</span>
                     </p>
                 </div>
 

@@ -12,6 +12,8 @@ import Processing from "../components/processing/processing.jsx";
 import MainModal from "../shared/mainModal/mainModal.jsx";
 import SideModal from "../shared/sideModal/sideModal.jsx";
 import Sidebar from '../shared/sidebar/sidebar.jsx';
+import { useContext } from 'react';
+import { TimetableContext } from "../utils/timetableContext.js"
 
 // import PropTypes from 'prop-types';
 // import Tabs from '@mui/material/Tabs';
@@ -51,13 +53,13 @@ import Sidebar from '../shared/sidebar/sidebar.jsx';
 // }
 
 const Whole = () => {
+    const { defaultValue:lesson, setDefaultVlaue:setLesson } = useContext(TimetableContext);
     const navigate = useNavigate();
     const [calendarDisplay, setCalendarDisplay] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [duplicateName, setDuplicateName] = useState("");
     const [open, setOpen] = useState(false)
     const [year, setYear] = useState("")
-    const [lesson, setLesson] = useState("")
     const [option, setOption] = useState("")
     const [type, setType] = useState("")
     // const cluster = ["Cluster 1", "Cluster 2", "Cluster 3", "Cluster 4", "Cluster 5", "Cluster 6", "Cluster 7", "Cluster 8", "Cluster 9"]

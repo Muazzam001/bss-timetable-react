@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import {styled} from '@mui/material/styles';
 
-const InputSelect = ({options, className, defaultValue, value, width, disabled, label, onChange, name}) => {
+const InputSelect = ({options, className, value, width, disabled, label, onChange, name}) => {
 
     const BootstrapInput = styled(InputBase)(({theme}) => ({
 
@@ -14,7 +14,7 @@ const InputSelect = ({options, className, defaultValue, value, width, disabled, 
         '& .MuiInputBase-input': {
             borderRadius: 6,
             position: 'relative',
-            backgroundColor: "#F7F7F6",
+            bgColor: "#F7F7F6 !important",
             border: `1px solid ${disabled && disabled ? "#D4D4D4" : "#1D5891"}`,
             fontSize: 16,
             padding: '0 26px 0 12px',
@@ -54,17 +54,17 @@ const InputSelect = ({options, className, defaultValue, value, width, disabled, 
                     input={<BootstrapInput/>}
                     IconComponent={ExpandMoreIcon}
                     disabled={disabled && disabled}
-                    defaultValue={defaultValue ? defaultValue : ""}
                     className={`bg-transparent z-50 border-0 h-10 text-xs ${className}`}
                     MenuProps={{
                         PaperProps: {
                             sx: {
-                                // bgcolor: 'transparent',
+                                bgcolor: 'transparent',
                                 boxShadow: "none",
                                 paddingX: 0,
                                 zIndex: 100000000,
                                 '& .MuiPaper-root': {
                                     left: "0px",
+                                    bgcolor: "#F7F7F6 !important",
                                 },
                                 '& .MuiList-root': {
                                     padding: 0,
@@ -75,7 +75,9 @@ const InputSelect = ({options, className, defaultValue, value, width, disabled, 
                                     whiteSpace: "normal",
                                 },
                                 '& .MuiMenuItem-root.Mui-selected': {
-                                    bgcolor: "#CEE8F5",
+                                    bgcolor: "#F7F7F6 !important",
+                                    borderColor: "#175088",
+                                    color: "#175088"
                                 },
                                 '& .MuiMenuItem-root': {
                                     fontSize: "14px",
@@ -85,14 +87,15 @@ const InputSelect = ({options, className, defaultValue, value, width, disabled, 
                                     paddingY: 1.5,
                                     marginTop: "5px",
                                     marginBottom: "5px",
-                                    bgcolor: "#F7F7F6",
+                                    bgcolor: "#F7F7F6 !important",
                                     border: 1,
                                     borderColor: "#E8E8E8",
                                     borderRadius: "6px",
                                     boxShadow: "1px 1px 4px #babac4",
                                     '&:hover': {
-                                        bgcolor: "#175088 !important",
-                                        color: "white"
+                                        bgcolor: "#F7F7F6 !important",
+                                        borderColor: "#175088",
+                                        color: "#175088"
                                     }
                                 },
                             },

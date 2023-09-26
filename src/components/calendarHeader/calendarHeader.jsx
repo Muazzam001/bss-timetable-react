@@ -15,7 +15,7 @@ const CalendarHeader = ({ calendarRef, dayName, selectedTab, setSelectedTab, sid
     // Tab Items Data
     const tabItems = [
         { name: 'Control', imageSrc: assets.control },
-        { name: 'Default Setting', imageSrc: assets.deadline },
+        { name: 'Default Settings', imageSrc: assets.deadline },
         { name: 'Workload', imageSrc: assets.choose },
         { name: 'Timetable Options', imageSrc: assets.calendar },
     ];
