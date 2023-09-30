@@ -4,7 +4,9 @@ import Tooltips from "../../shared/Tooltips"
 
 const LessonSlotTable = ({openRowUpdateModal, tableHeadData, tableData, setUpdatedRow}) => {
     return (
+
         <div className="h-[340px] 2xl:h-[450px] overflow-auto">
+
             <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
                 <thead className="ltr:text-left rtl:text-right">
                 <tr>
@@ -53,7 +55,7 @@ const LessonSlotTable = ({openRowUpdateModal, tableHeadData, tableData, setUpdat
                 </tbody>
             </table>
         </div>
-    )
+    );
 }
 
-export default LessonSlotTable
+export default LessonSlotTable;

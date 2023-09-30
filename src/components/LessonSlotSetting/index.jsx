@@ -82,6 +82,7 @@ const LessonSlotSetting = () => {
             short: "Day 10",
         },
     ]);
+  
     const [updatedLessonTabsData, setUpdatedLessonTabsData] = useState(lessonTabsData);
 
     const handleOnChange = (e) => {
@@ -120,6 +121,7 @@ const LessonSlotSetting = () => {
     return (
         <>
             <div className='flex gap-5 border-b'>
+
                 <Tabs tabs={lessonTabsData} selectedTab={selectedDay} setSelectedTab={setSelectedDay} />
 
                 <span className='border rounded-full border-gray-dark2 w-7 h-7 p-1 flex justify-end items-center'
@@ -128,6 +130,7 @@ const LessonSlotSetting = () => {
 
                     }}>
                     <Image src={assets.edit2} alt="edit icon" className="w-4 h-4 cursor-pointer" />
+
                 </span>
             </div>
 
@@ -139,8 +142,9 @@ const LessonSlotSetting = () => {
                 setDaysUpdateModal={setDaysUpdateModal}
             />
 
-            <div className='flex gap-5 justify-center border rounded mx-5 mt-4 p-4'>
-                <div className='flex flex-col items-center gap-6'>
+            <div className='flex max-lg:gap-y-6 max-lg:flex-col lg:gap-x-6 lg:flex-row lg:justify-center border rounded mx-4 mt-4 p-4'>
+                <div className='flex flex-col items-center gap-y-6'>
+
                     <span className='font-primary'>Manage Duplication Lesson Types</span>
 
                     <Button
@@ -152,7 +156,8 @@ const LessonSlotSetting = () => {
                     />
                 </div>
 
-                <div className='flex flex-col items-center gap-6'>
+                <div className='flex flex-col items-center gap-y-6'>
+
                     <span className='font-primary'>Manage Default Lessons & Breaks</span>
 
                     <Button
@@ -166,14 +171,15 @@ const LessonSlotSetting = () => {
             </div>
 
             <ConfirmationModal open={rowUpdateModal} close={() => setRowUpdateModal(false)} position="justify-end">
-                <div className={`flex flex-col items-center gap-y-6 w-[600px] p-5`}>
+                <div className='flex flex-col items-center gap-y-4 p-4 h-full max-h-[600px] max-w-[600px] overflow-auto'>
+
                     <div className='flex gap-5 justify-between w-full'>
                         <InputField
                             type={"number"}
                             placeholder={"Name"}
                             value={updatedRow?.name}
                             label="Name of lesson"
-                            className="h-10"
+                            className="w-full h-10"
                             name="name"
                             onChange={handleOnChange}
                         />
@@ -184,7 +190,7 @@ const LessonSlotSetting = () => {
                             value={updatedRow?.short}
                             onChange={handleOnChange}
                             label="Short"
-                            className="h-10"
+                            className="w-full h-10"
                             name="short"
                         />
                     </div>
@@ -205,7 +211,8 @@ const LessonSlotSetting = () => {
                     </div>
 
                     <div className='flex justify-center w-full'>
-                        <p className='font-primary text-sm px-5'>
+                        <p className='font-primary text-sm px-4'>
+
                             <span className='font-semibold font-primary'>Note: </span>
                             Before you change the lesson length, some other lessons/lessons
                             need to be shortened accordingly. If so, the system will not allow you to
@@ -213,42 +220,44 @@ const LessonSlotSetting = () => {
                         </p>
                     </div>
 
-                    <div className='flex gap-3 w-full justify-end mt-4 mr-20'>
-                        <Button
-                            title="No"
-                            rounded={true}
-                            hover={false}
-                            className="!px-8 !bg-gray-medium !text-black !text-sm"
-                            onClick={() => {
-                                setRowUpdateModal(false)
-                            }}
-                        />
-
-                        <Button
-                            rounded={true}
-                            type="button"
-                            title="Update"
-                            color={"blue-dark2"}
-                            className="font-medium text-sm h-10 px-8 justify-start"
-                            onClick={() => {
-                                setRowUpdateModal(false)
-                                setTableBodyData(prev => {
-                                    return prev.map(row => {
-                                        if (row.id === updatedRow.id) {
-                                            return updatedRow
-                                        } else {
-                                            return row
-                                        }
-                                    })
-                                })
-                            }}
-                        />
-                    </div>
                 </div>
+
+                <div className='flex gap-3 w-full justify-end mt-4 mr-20'>
+                    <Button
+                        title="No"
+                        rounded={true}
+                        hover={false}
+                        className="!px-8 !bg-gray-medium !text-black !text-sm"
+                        onClick={() => {
+                            setRowUpdateModal(false)
+                        }}
+                    />
+
+                    <Button
+                        rounded={true}
+                        type="button"
+                        title="Update"
+                        color={"blue-dark2"}
+                        className="font-medium text-sm h-10 px-8 justify-start"
+                        onClick={() => {
+                            setRowUpdateModal(false)
+                            setTableBodyData(prev => {
+                                return prev.map(row => {
+                                    if (row.id === updatedRow.id) {
+                                        return updatedRow
+                                    } else {
+                                        return row
+                                    }
+                                })
+                            })
+                        }}
+                    />
+                </div>
+
             </ConfirmationModal>
 
             <ConfirmationModal open={daysUpdateModal} close={() => setDaysUpdateModal(false)} position="justify-end">
-                <div className='h-[500px] overflow-auto flex flex-col gap-y-4 px-5'>
+                <div className='flex flex-col items-center gap-y-4 p-4 h-full max-h-[600px] max-w-[600px] overflow-auto'>
                     {updatedLessonTabsData?.map((tab) => {
                         return (
                             <div key={tab?.id} className='flex w-full justify-between gap-10'>
@@ -272,9 +281,10 @@ const LessonSlotSetting = () => {
                             </div>
                         )
                     })}
+
                 </div>
 
-                <div className='flex gap-3 w-full justify-end mt-4'>
+                <div className='flex gap-3 justify-end w-full mt-4'>
                     <Button
                         title="No"
                         rounded={true}
@@ -301,8 +311,9 @@ const LessonSlotSetting = () => {
             </ConfirmationModal>
 
             <ConfirmationModal open={lessonRenameModal} close={() => setLessonRenameModal(false)} position="justify-end">
-                <div className={`flex flex-col gap-y-5`}>
+                <div className='flex flex-col items-center gap-y-4 max-w-[600px]'>
                     <p className='font-primary font-semibold mb-3'>Duplicate Lesson Type Rename</p>
+
 
                     <div className='flex items-center gap-3'>
                         <InputField
@@ -323,6 +334,7 @@ const LessonSlotSetting = () => {
                             name="winter"
                             onChange={handleLessonRename}
                         />
+
                     </div>
 
                     <div className='flex items-center gap-3'>

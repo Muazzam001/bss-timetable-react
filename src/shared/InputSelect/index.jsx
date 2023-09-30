@@ -12,13 +12,15 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
             width: `${width}`,
         },
         '& .MuiInputBase-input': {
-            borderRadius: 6,
-            position: 'relative',
-            bgColor: "#F7F7F6 !important",
+            fontFamily: '\'Poppins\', \'Raleway\', \'Montserrat\', \'Open Sans\', \'sans-serif\'',
             border: `1px solid ${disabled && disabled ? "#D4D4D4" : "#1D5891"}`,
-            fontSize: 16,
+            backgroundColor: "#F7F7F6 !important",
             color: "#175088 !important",
             padding: '0 26px 0 12px',
+            position: 'relative',
+            fontWeight: "400",
+            fontSize: "14px",
+            borderRadius: 6,
             '&:focus': {
                 borderRadius: 6,
             },
@@ -34,6 +36,7 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
             alignItems: "center",
             height: "48px",
             fontSize: "14px",
+            fontWeight: "400",
         }
     }));
 
@@ -84,18 +87,19 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
                                     color: "#175088"
                                 },
                                 '& .MuiMenuItem-root': {
-                                    fontSize: "14px",
-                                    whiteSpace: 'normal',
-                                    color: "#7D7D92",
                                     paddingX: 2,
                                     paddingY: 1.5,
                                     marginTop: "5px",
                                     marginBottom: "5px",
-                                    backgroundColor: "#F7F7F6 !important",
+                                    color: "#7D7D92",
+                                    fontSize: "14px",
+                                    fontWeight: "400",
+                                    borderRadius: "6px",
+                                    whiteSpace: 'normal',
                                     border: 1,
                                     borderColor: "#E8E8E8",
-                                    borderRadius: "6px",
                                     boxShadow: "1px 1px 4px #babac4",
+                                    backgroundColor: "#F7F7F6 !important",
                                     '&:hover': {
                                         backgroundColor: "#175088 !important",
                                         borderColor: "#F7F7F6",
