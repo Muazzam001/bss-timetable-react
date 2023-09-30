@@ -1,4 +1,4 @@
-const Checkbox = ({label, checked}) => {
+const Checkbox = ({ label, checked, setChecked }) => {
 
     return (
         <label htmlFor="remember-me" className="flex items-center">
@@ -9,6 +9,7 @@ const Checkbox = ({label, checked}) => {
                     type="checkbox"
                     className="peer hidden"
                     checked={checked}
+                    onChange={(e) => setChecked(e.target.checked)}
                 />
 
                 <span

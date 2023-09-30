@@ -1,11 +1,11 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import Tabs from '../../shared/Tabs';
 import Image from '../../shared/Image';
-import {assets} from '../../assets';
+import { assets } from '../../assets';
 import Button from '../../shared/Button';
 import LessonSlotTable from '../LessonSlotTable';
 import ConfirmationModal from '../../shared/ConfirmationModal';
-import {tableData, tableHeadData} from '../LessonSlotTable/tableHead';
+import { tableData, tableHeadData } from '../LessonSlotTable/tableHead';
 import InputField from '../../shared/Input';
 import InputSpinner from '../../shared/InputSpinner';
 import Tooltips from '../../shared/Tooltips';
@@ -19,13 +19,73 @@ const LessonSlotSetting = () => {
     const [lessonRenameModal, setLessonRenameModal] = useState(false);
     const [daysUpdateModal, setDaysUpdateModal] = useState(false);
     const [lessonRename, setLessonRename] = useState({
-        default: "",
+        default: "Default",
         winter: "",
         summer: ""
     });
 
+    const [breakBetweenLesson, setBreakBetweenLesson] = useState({
+        default: "Default",
+        winter: "",
+        summer: ""
+    });
+
+    const [lessonTabsData, setLessonTabsData] = useState([
+        {
+            id: 1,
+            full: "Day 1",
+            short: "Day 1",
+        },
+        {
+            id: 2,
+            full: "Day 2",
+            short: "Day 2",
+        },
+        {
+            id: 3,
+            full: "Day 3",
+            short: "Day 3",
+        },
+        {
+            id: 4,
+            full: "Day 4",
+            short: "Day 4",
+        },
+        {
+            id: 5,
+            full: "Day 5",
+            short: "Day 5",
+        },
+        {
+            id: 6,
+            full: "Day 6",
+            short: "Day 6",
+        },
+        {
+            id: 7,
+            full: "Day 7",
+            short: "Day 7",
+        },
+        {
+            id: 8,
+            full: "Day 8",
+            short: "Day 8",
+        },
+        {
+            id: 9,
+            full: "Day 9",
+            short: "Day 9",
+        },
+        {
+            id: 10,
+            full: "Day 10",
+            short: "Day 10",
+        },
+    ]);
+    const [updatedLessonTabsData, setUpdatedLessonTabsData] = useState(lessonTabsData);
+
     const handleOnChange = (e) => {
-        const {name, value} = e.target;
+        const { name, value } = e.target;
         setUpdatedRow(prev => ({
             ...prev,
             [name]: value
@@ -33,22 +93,41 @@ const LessonSlotSetting = () => {
     }
 
     const handleLessonRename = (event) => {
-        const {name, value} = event.target;
+        const { name, value } = event.target;
         setLessonRename(prev => ({
             ...prev,
             [name]: value
         }))
     }
 
+    const handleInputChange = (id, e) => {
+        const { name, value } = e.target;
+
+        setUpdatedLessonTabsData((prevTabsData) => {
+            const updatedTabs = [...prevTabsData];
+            const index = updatedTabs.findIndex((tab) => tab.id === id);
+
+            if (index !== -1) {
+                updatedTabs[index] = {
+                    ...updatedTabs[index],
+                    [name]: value,
+                };
+            }
+            return updatedTabs;
+        });
+    };
+
     return (
         <>
             <div className='flex gap-5 border-b'>
-                <Tabs tabs={["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7", "Day 8", "Day 9", "Day 10"]}
-                      selectedTab={selectedDay} setSelectedTab={setSelectedDay}/>
+                <Tabs tabs={lessonTabsData} selectedTab={selectedDay} setSelectedTab={setSelectedDay} />
 
-                <span className='border rounded-full border-gray-dark2 w-7 h-7 p-1 flex justify-center items-center'
-                      onClick={() => setDaysUpdateModal(true)}>
-                    <Image src={assets.edit2} alt="edit icon" className="w-4 h-4 cursor-pointer"/>
+                <span className='border rounded-full border-gray-dark2 w-7 h-7 p-1 flex justify-end items-center'
+                    onClick={() => {
+                        setDaysUpdateModal(true)
+
+                    }}>
+                    <Image src={assets.edit2} alt="edit icon" className="w-4 h-4 cursor-pointer" />
                 </span>
             </div>
 
@@ -86,7 +165,7 @@ const LessonSlotSetting = () => {
                 </div>
             </div>
 
-            <ConfirmationModal open={rowUpdateModal} close={() => setRowUpdateModal(false)}>
+            <ConfirmationModal open={rowUpdateModal} close={() => setRowUpdateModal(false)} position="justify-end">
                 <div className={`flex flex-col items-center gap-y-6 w-[600px] p-5`}>
                     <div className='flex gap-5 justify-between w-full'>
                         <InputField
@@ -168,206 +247,31 @@ const LessonSlotSetting = () => {
                 </div>
             </ConfirmationModal>
 
-            <ConfirmationModal open={daysUpdateModal} close={() => setDaysUpdateModal(false)}>
+            <ConfirmationModal open={daysUpdateModal} close={() => setDaysUpdateModal(false)} position="justify-end">
                 <div className='h-[500px] overflow-auto flex flex-col gap-y-4 px-5'>
-                    <div className='flex w-full justify-between gap-10'>
-                        <InputField
-                            // value={}
-                            label="Day 1"
-                            placeholder="Day 1"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
+                    {updatedLessonTabsData?.map((tab) => {
+                        return (
+                            <div key={tab?.id} className='flex w-full justify-between gap-10'>
+                                <InputField
+                                    value={tab?.full}
+                                    label="Day 1"
+                                    placeholder="Day 1"
+                                    className="h-10"
+                                    name="full"
+                                    onChange={(e) => handleInputChange(tab?.id, e)}
+                                />
 
-                        <InputField
-                            // value={}
-                            label="Short"
-                            placeholder="Short"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
-                    </div>
-
-                    <div className='flex w-full justify-between gap-10'>
-                        <InputField
-                            // value={}
-                            label="Day 2"
-                            placeholder="Day 2"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
-
-                        <InputField
-                            // value={}
-                            label="Short"
-                            placeholder="Short"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
-                    </div>
-
-                    <div className='flex w-full justify-between gap-10'>
-                        <InputField
-                            // value={}
-                            label="Day 3"
-                            placeholder="Day 3"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
-
-                        <InputField
-                            // value={}
-                            label="Short"
-                            placeholder="Short"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
-                    </div>
-
-                    <div className='flex w-full justify-between gap-10'>
-                        <InputField
-                            // value={}
-                            label="Day 4"
-                            placeholder="Day 4"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
-
-                        <InputField
-                            // value={}
-                            label="Short"
-                            placeholder="Short"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
-                    </div>
-
-                    <div className='flex w-full justify-between gap-10'>
-                        <InputField
-                            // value={}
-                            label="Day 5"
-                            placeholder="Day 5"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
-                        <InputField
-                            // value={}
-                            label="Short"
-                            placeholder="Short"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
-                    </div>
-
-                    <div className='flex w-full justify-between gap-10'>
-                        <InputField
-                            // value={}
-                            label="Day 6"
-                            placeholder="Day 6"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
-
-                        <InputField
-                            // value={}
-                            label="Short"
-                            placeholder="Short"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
-                    </div>
-
-                    <div className='flex w-full justify-between gap-10'>
-                        <InputField
-                            // value={}
-                            label="Day 7"
-                            placeholder="Day 7"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
-
-                        <InputField
-                            // value={}
-                            label="Short"
-                            placeholder="Short"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
-                    </div>
-
-                    <div className='flex w-full justify-between gap-10'>
-                        <InputField
-                            // value={}
-                            label="Day 8"
-                            placeholder="Day 8"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
-
-                        <InputField
-                            // value={}
-                            label="Short"
-                            placeholder="Short"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
-                    </div>
-
-                    <div className='flex w-full justify-between gap-10'>
-                        <InputField
-                            // value={}
-                            label="Day 9"
-                            placeholder="Day 9"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
-
-                        <InputField
-                            // value={}
-                            label="Short"
-                            placeholder="Short"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
-                    </div>
-
-                    <div className='flex w-full justify-between gap-10'>
-                        <InputField
-                            // value={}
-                            label="Day 10"
-                            placeholder="Day 10"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
-
-                        <InputField
-                            // value={}
-                            label="Short"
-                            placeholder="Short"
-                            className="h-10"
-                            name="name"
-                            // onChange={handleOnChange}
-                        />
-                    </div>
+                                <InputField
+                                    value={tab?.short}
+                                    label="Short"
+                                    placeholder="Short"
+                                    className="h-10"
+                                    name="short"
+                                    onChange={(e) => handleInputChange(tab?.id, e)}
+                                />
+                            </div>
+                        )
+                    })}
                 </div>
 
                 <div className='flex gap-3 w-full justify-end mt-4'>
@@ -377,7 +281,7 @@ const LessonSlotSetting = () => {
                         hover={false}
                         className="!px-8 !bg-gray-medium !text-black !text-sm"
                         onClick={() => {
-                            setRowUpdateModal(false)
+                            setDaysUpdateModal(false)
                         }}
                     />
 
@@ -387,12 +291,16 @@ const LessonSlotSetting = () => {
                         title="Update"
                         color={"blue-dark2"}
                         className="font-medium text-sm h-10 px-8 justify-start"
-                        // onClick={}
+                        disabled={updatedLessonTabsData.some((tab) => !tab.full || !tab.short)}
+                        onClick={() => {
+                            setDaysUpdateModal(false);
+                            setLessonTabsData(updatedLessonTabsData);
+                        }}
                     />
                 </div>
             </ConfirmationModal>
 
-            <ConfirmationModal open={lessonRenameModal} close={() => setLessonRenameModal(false)}>
+            <ConfirmationModal open={lessonRenameModal} close={() => setLessonRenameModal(false)} position="justify-end">
                 <div className={`flex flex-col gap-y-5`}>
                     <p className='font-primary font-semibold mb-3'>Duplicate Lesson Type Rename</p>
 
@@ -402,7 +310,6 @@ const LessonSlotSetting = () => {
                             placeholder=""
                             className="h-10 w-80"
                             name="default"
-                            onChange={handleLessonRename}
                         />
 
                         <p className='font-primary font-semibold text-sm'>Default Timetable cannot be updated</p>
@@ -416,8 +323,6 @@ const LessonSlotSetting = () => {
                             name="winter"
                             onChange={handleLessonRename}
                         />
-
-                        <p className='font-primary font-semibold text-sm'>Default Timetable cannot be updated</p>
                     </div>
 
                     <div className='flex items-center gap-3'>
@@ -428,8 +333,6 @@ const LessonSlotSetting = () => {
                             name="summer"
                             onChange={handleLessonRename}
                         />
-
-                        <p className='font-primary font-semibold text-sm'>Duplicate Lesson Type Rename</p>
                     </div>
                 </div>
 
@@ -440,7 +343,7 @@ const LessonSlotSetting = () => {
                         hover={false}
                         className="!px-8 !bg-gray-medium !text-black !text-sm"
                         onClick={() => {
-                            setRowUpdateModal(false)
+                            setLessonRenameModal(false)
                         }}
                     />
 
@@ -579,14 +482,14 @@ const LessonSlotSetting = () => {
                 </div>
             </ConfirmationModal> */}
 
-            <ConfirmationModal open={breakbetweenModal} close={() => setBreakbetweenModal(false)}>
+            <ConfirmationModal open={breakbetweenModal} close={() => setBreakbetweenModal(false)} position="justify-end">
                 <div className='w-[700px] flex flex-col items-center'>
                     <div className='w-full justify-start my-5'>
                         <div className='flex gap-2 items-center'>
                             <span className='font-primary font-semibold text-sm'>Default Break Between Lessons</span>
 
                             <Tooltips title="Default Break Between Lesson">
-                                <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer"/>
+                                <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer" />
                             </Tooltips>
                         </div>
                     </div>
