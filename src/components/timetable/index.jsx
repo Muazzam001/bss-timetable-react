@@ -112,7 +112,6 @@ const Calendar = () => {
                                                 })}
                                             </tr>
                                         ))}
-
                                         </tbody>
                                     </table>
                                 );
@@ -140,7 +139,7 @@ const Calendar = () => {
                                 return (
                                     <span className='font-primary'>{dayName}</span>
 
-                                )
+                                );
                                 // return (
                                 //     <div className='flex justify-between items-center w-full !m-0'>
                                 //         <div className='flex items-center gap-5'>
@@ -177,6 +176,7 @@ const Calendar = () => {
                                         <p className='item-p'>Manage Lessons</p>
                                     </div>
                                 </div>
+
                                 {/* Side Tabs Panels */}
                                 {selectedTab === "Default Settings" ? (
                                     <DefaultSetting/>

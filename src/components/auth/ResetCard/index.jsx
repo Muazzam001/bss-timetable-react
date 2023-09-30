@@ -29,7 +29,7 @@ const ResetCard = ({className}) => {
                 </div>
             </div>
         </>
-    )
+    );
 }
 
 export default ResetCard;
