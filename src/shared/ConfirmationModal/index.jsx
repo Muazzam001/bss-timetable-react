@@ -7,7 +7,7 @@ const ConfirmationModal = ({open, close, children}) => {
         <Transition.Root show={open} as={Fragment}>
             <Dialog as="div" className="relative z-50 " onClose={close}>
                 <div className="fixed inset-0 z-10">
-                    <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                    <div className="flex min-h-full items-end justify-center text-center sm:items-center sm:p-0 p-4">
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-300"
@@ -19,7 +19,7 @@ const ConfirmationModal = ({open, close, children}) => {
                         >
 
                             <Dialog.Panel
-                                className={`relative transform rounded-lg bg-gray-light-bluish px-4 pt-5 pb-4 text-left transition-all sm:my-8 sm:p-6 border border-gray-dark2`}>
+                                className={`relative transform rounded-lg bg-gray-light-bluish sm:my-8 sm:p-6 p-4 text-left transition-all border border-gray-dark2`}>
                                 {children}
                             </Dialog.Panel>
                         </Transition.Child>

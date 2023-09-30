@@ -15,7 +15,7 @@ const Button = ({className, title, type, onClick, color, icon, rounded, hover, d
         buttonColor = darkBlue2
     } else if (color === "black") {
         buttonColor = black
-    } else if (color === "blue-medium2"){
+    } else if (color === "blue-medium2") {
         buttonColor = primaryBlue2;
     } else if (color === "blue-dark1") {
         buttonColor = darkBlue1;
@@ -29,7 +29,7 @@ const Button = ({className, title, type, onClick, color, icon, rounded, hover, d
 
             {title}
         </button>
-    )
+    );
 
 }
 
