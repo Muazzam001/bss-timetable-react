@@ -1,26 +1,30 @@
 export const tableHeadData = [
     {
         id: 1,
-        name: "Name",
+        name: "",
     },
     {
         id: 2,
-        name: "Short",
+        name: "Name",
     },
     {
         id: 3,
-        name: "Start Time",
+        name: "Short",
     },
     {
         id: 4,
-        name: "End time",
+        name: "Start Time",
     },
     {
         id: 5,
-        name: "Lesson Duration",
+        name: "End time",
     },
     {
         id: 6,
+        name: "Lesson Duration",
+    },
+    {
+        id: 7,
         name: "Actions",
     },
 ]
@@ -33,6 +37,7 @@ export const tableData = [
         startTime: "7:10",
         endTime: "7:55",
         lessonDuration: "45",
+        break: false,
     },
     {
         id: 2,
@@ -41,6 +46,7 @@ export const tableData = [
         startTime: "8:20",
         endTime: "9:00",
         lessonDuration: "40",
+        break: false,
     },
     {
         id: 3,
@@ -49,6 +55,7 @@ export const tableData = [
         startTime: "9:00",
         endTime: "9:40",
         lessonDuration: "40",
+        break: false,
     },
     {
         id: 4,
@@ -57,6 +64,7 @@ export const tableData = [
         startTime: "9:40",
         endTime: "10:20",
         lessonDuration: "40",
+        break: false,
     },
     {
         id: 5,
@@ -65,6 +73,7 @@ export const tableData = [
         startTime: "10:20",
         endTime: "10:35",
         lessonDuration: "15",
+        break: true,
     },
     {
         id: 6,
@@ -73,6 +82,7 @@ export const tableData = [
         startTime: "11:15",
         endTime: "11:55",
         lessonDuration: "40",
+        break: false,
     },
     {
         id: 7,
@@ -81,6 +91,7 @@ export const tableData = [
         startTime: "11:55",
         endTime: "12:35",
         lessonDuration: "40",
+        break: false,
     },
     {
         id: 8,
@@ -89,6 +100,7 @@ export const tableData = [
         startTime: "12:35",
         endTime: "13:15",
         lessonDuration: "40",
+        break: false,
     },
     {
         id: 9,
@@ -97,6 +109,7 @@ export const tableData = [
         startTime: "13:15",
         endTime: "13:25",
         lessonDuration: "10",
+        break: true,
     },
     {
         id: 10,
@@ -105,6 +118,7 @@ export const tableData = [
         startTime: "13:25",
         endTime: "15:05",
         lessonDuration: "40",
+        break: false,
     },
     {
         id: 11,
@@ -113,5 +127,6 @@ export const tableData = [
         startTime: "14:05",
         endTime: "14:45",
         lessonDuration: "40",
+        break: false,
     },
 ]

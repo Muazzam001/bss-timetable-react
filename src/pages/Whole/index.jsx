@@ -1,7 +1,7 @@
-import {useContext, useEffect, useState} from 'react';
-import {stopScroll} from "../../utils/utils.js";
-import {assets} from "../../assets";
-import {useNavigate} from "react-router-dom";
+import { useContext, useEffect, useState } from 'react';
+import { stopScroll } from "../../utils/utils.js";
+import { assets } from "../../assets";
+import { useNavigate } from "react-router-dom";
 import MainLayout from "../../shared/MainLayout";
 import InputField from "../../shared/Input";
 import InputSelect from "../../shared/InputSelect";
@@ -12,12 +12,13 @@ import Processing from "../../components/Processing";
 import MainModal from "../../shared/MainModal";
 import SideModal from "../../shared/SideModal";
 import Sidebar from '../../shared/Sidebar';
-import {TimetableContext} from "../../utils/timetableContext.js"
+import { TimetableContext } from "../../utils/timetableContext.js"
 import Tabs from '../../shared/Tabs';
 import LessonSlotSetting from '../../components/LessonSlotSetting';
+import LessonDaysSetting from '../../components/LessonDaysSetting/index.jsx';
 
 const Whole = () => {
-    const { defaultValue: lesson, setDefaultVlaue: setLesson } = useContext(TimetableContext);
+    const { defaultValue: lesson, setDefaultValue: setLesson } = useContext(TimetableContext);
     const navigate = useNavigate();
     const [calendarDisplay, setCalendarDisplay] = useState(false);
     const [isDuplicateModalOpen, setDuplicateModalOpen] = useState(false);
@@ -28,8 +29,19 @@ const Whole = () => {
     const [option, setOption] = useState("");
     const [type, setType] = useState("");
     const [selectedTab, setSelectedTab] = useState(1);
+    const [mainTabsData, setMainTabsData] = useState([
+        {
+            id: 1,
+            full: "Lesson Slot Settings",
+            short: "Lesson Slot Settings",
+        },
+        {
+            id: 2,
+            full: "Lesson Days Settings",
+            short: "Lesson Days Settings",
+        }
+    ]);
 
-    // const cluster = ["Cluster 1", "Cluster 2", "Cluster 3", "Cluster 4", "Cluster 5", "Cluster 6", "Cluster 7", "Cluster 8", "Cluster 9"]
     const level = ["Default", "Winter - Default"];
 
     const Menus = [
@@ -239,10 +251,14 @@ const Whole = () => {
             <SideModal isOpen={isSlotModalOpen} setIsOpen={setSlotModalOpen} title="Manage Lesson Slot">
                 <section >
                     <div className='border-b'>
-                        <Tabs tabs={["Lesson Slot Settings", "Lesson Days Settings"]} selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+                        <Tabs tabs={mainTabsData} selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
                     </div>
                     <div className='py-4 '>
-                        {selectedTab === 1 ? <LessonSlotSetting /> : null}
+                        {selectedTab === 1 ? (
+                            <LessonSlotSetting />
+                        ) : selectedTab === 2 ? (
+                            <LessonDaysSetting />
+                        ) : null}
                     </div>
                 </section>
             </SideModal>
