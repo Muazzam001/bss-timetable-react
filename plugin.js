@@ -172,9 +172,6 @@ export default plugin(
                     'accounting': "#88DEDE",
                     'bs': "#88DEDE",
                     'economics': "#88DEDE",
-                    
-
-
                 },
                 fontFamily: {
                     'primary': ['Poppins', 'Raleway', 'Montserrat', 'Open Sans', 'sans-serif'],

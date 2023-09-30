@@ -41,7 +41,7 @@ const InputField = (
                     disabled={disabled}
                     placeholder={placeholder}
                     readOnly={readOnly}
-                    className={`w-full h-13 inline-block font-primary border-gray-medium hover:outline-0 hover:ring-0 focus:outline-0 focus:ring-0 bg-gray-light pr-4 py-2 ${rounded ? "rounded-full" : "rounded-lg"} ${disabled ? "cursor-not-allowed placeholder:text-gray-dark1/70" : "hover:border-blue-medium1"} ${icon ? "pl-15" : "pl-4"} ${className}`}
+                    className={`w-full h-13 inline-block font-primary font-normal text-sm border-gray-medium hover:outline-0 hover:ring-0 focus:outline-0 focus:ring-0 bg-gray-light pr-4 py-2 ${rounded ? "rounded-full" : "rounded-lg"} ${disabled ? "cursor-not-allowed placeholder:text-gray-dark1/70" : "hover:border-blue-medium1"} ${icon ? "pl-15" : "pl-4"} ${className}`}
                 />
 
                 {error ? (<p className='ml-5 text-red-500 text-xs font-primary'>{error}</p>) : null}

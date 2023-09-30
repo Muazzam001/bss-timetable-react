@@ -36,7 +36,7 @@ const InputSpinner = ({ min, max, value, setState, className, label, name }) => 
             <div className='relative'>
                 <input onChange={handleAgeChange}
                     id="age" step="1" name={name} min={min} max={max} type="number" value={value}
-                    className={`w-full h-13 inline-block rounded-lg font-primary border-gray-medium hover:outline-0 hover:ring-0 focus:outline-0 focus:ring-0 bg-gray-light py-2`}
+                    className={`w-full h-13 inline-block rounded-lg font-primary border-gray-medium hover:text-blue-dark2 hover:outline-0 hover:ring-0 focus:outline-0 focus:ring-0 bg-gray-light py-2`}
                 />
 
                 <div className='absolute top-0 right-2 h-full w-4 flex flex-col justify-center'>
