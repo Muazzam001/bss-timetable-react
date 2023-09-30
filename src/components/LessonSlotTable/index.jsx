@@ -3,7 +3,7 @@ import {assets} from "../../assets"
 
 const LessonSlotTable = ({openRowUpdateModal, tableHeadData, tableData, setUpdatedRow}) => {
     return (
-        <div className="overflow-x-auto h-[450px] overflow-auto">
+        <div className="h-[300px] 2xl:h-[450px] overflow-auto">
             <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
                 <thead className="ltr:text-left rtl:text-right">
                 <tr>
