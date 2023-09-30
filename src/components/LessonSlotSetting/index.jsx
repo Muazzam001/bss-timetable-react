@@ -59,7 +59,7 @@ const LessonSlotSetting = () => {
                 setUpdatedRow={setUpdatedRow}
                 setDaysUpdateModal={setDaysUpdateModal}
             />
-            <div className='flex gap-5 justify-center border rounded mx-5 mt-4 px-4 py-6'>
+            <div className='flex gap-5 justify-center border rounded mx-5 mt-4 p-4'>
                 <div className='flex flex-col items-center gap-6'>
                     <span className='font-primary'>Manage Duplication Lesson Types</span>
                     <Button

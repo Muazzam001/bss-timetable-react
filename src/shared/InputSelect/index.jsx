@@ -62,13 +62,13 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
                     MenuProps={{
                         PaperProps: {
                             sx: {
-                                bgcolor: 'transparent',
+                                backgroundColor: 'transparent',
                                 boxShadow: "none",
                                 paddingX: 0,
                                 zIndex: 100000000,
                                 '& .MuiPaper-root': {
                                     left: "0px",
-                                    bgcolor: "#F7F7F6 !important",
+                                    backgroundColor: "#F7F7F6 !important",
                                 },
                                 '& .MuiList-root': {
                                     padding: 0,
@@ -79,7 +79,7 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
                                     whiteSpace: "normal",
                                 },
                                 '& .MuiMenuItem-root.Mui-selected': {
-                                    bgcolor: "#F7F7F6 !important",
+                                    backgroundColor: "#F7F7F6 !important",
                                     borderColor: "#175088",
                                     color: "#175088"
                                 },
@@ -91,15 +91,15 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
                                     paddingY: 1.5,
                                     marginTop: "5px",
                                     marginBottom: "5px",
-                                    bgcolor: "#F7F7F6 !important",
+                                    backgroundColor: "#F7F7F6 !important",
                                     border: 1,
                                     borderColor: "#E8E8E8",
                                     borderRadius: "6px",
                                     boxShadow: "1px 1px 4px #babac4",
                                     '&:hover': {
-                                        bgcolor: "#F7F7F6 !important",
-                                        borderColor: "#175088",
-                                        color: "#175088"
+                                        backgroundColor: "#175088 !important",
+                                        borderColor: "#F7F7F6",
+                                        color: "#F7F7F6"
                                     }
                                 },
                             },
