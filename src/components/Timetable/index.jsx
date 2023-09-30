@@ -103,9 +103,7 @@ const Calendar = () => {
                                                             className='font-primary text-xs uppercase w-20 h-20 !text-center !align-middle'>
                                                             <div
                                                                 className={`flex flex-col ${cell === "" ? null : cellColor} rounded-sm py-1 text-white ${cell === "" ? null : "border"} border-blue-dark2`}>
-                                                                    <span className='text-[8px]'>
-                                                                        {cell}
-                                                                    </span>
+                                                                    <span className='text-[8px]'>{cell}</span>
                                                             </div>
                                                         </td>
                                                     )
