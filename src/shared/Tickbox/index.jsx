@@ -1,4 +1,4 @@
-import { assets } from '../../assets'
+import {assets} from '../../assets'
 import Image from '../Image'
 
 const Tickbox = ({ htmlFor, label, id, name, isChecked, handleTickboxChange }) => {

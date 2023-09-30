@@ -1,7 +1,7 @@
-import { useState, useEffect, useContext } from 'react';
-import { stopScroll } from "../../utils/utils.js";
-import { assets } from "../../assets";
-import { useNavigate } from "react-router-dom";
+import {useContext, useEffect, useState} from 'react';
+import {stopScroll} from "../../utils/utils.js";
+import {assets} from "../../assets";
+import {useNavigate} from "react-router-dom";
 import MainLayout from "../../shared/MainLayout";
 import InputField from "../../shared/Input";
 import InputSelect from "../../shared/InputSelect";
@@ -12,7 +12,7 @@ import Processing from "../../components/Processing";
 import MainModal from "../../shared/MainModal";
 import SideModal from "../../shared/SideModal";
 import Sidebar from '../../shared/Sidebar';
-import { TimetableContext } from "../../utils/timetableContext.js"
+import {TimetableContext} from "../../utils/timetableContext.js"
 import Tabs from '../../shared/Tabs';
 import LessonSlotSetting from '../../components/LessonSlotSetting';
 
