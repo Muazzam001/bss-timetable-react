@@ -1,10 +1,10 @@
 import React from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import Login from './pages/login';
-import ForgotPassword from './pages/forgotPassword';
-import ResetPassword from './pages/resetPassword';
-import ManageSchool from './pages/manageSchool';
-import Whole from './pages/whole.jsx';
+import Login from './pages/Login';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
+import ManageSchool from './pages/ManageSchool';
+import Whole from './pages/Whole';
 
 class AppRoutes extends React.Component {
     render() {
