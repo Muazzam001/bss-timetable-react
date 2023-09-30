@@ -45,13 +45,13 @@ const LessonSlotSetting = () => {
             <div className='flex gap-5 border-b'>
                 <Tabs tabs={["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7", "Day 8", "Day 9", "Day 10"]}
                       selectedTab={selectedDay} setSelectedTab={setSelectedDay}/>
-                <span
-                    className='border rounded-full border-gray-dark2 w-7 h-7 flex justify-center items-center p-1'
-                    onClick={() => setDaysUpdateModal(true)}
-                >
+
+                <span className='rounded-full border border-gray-dark2 w-7 h-7 p-1 flex justify-center items-center ml-auto'
+                      onClick={() => setDaysUpdateModal(true)}>
                     <Image src={assets.edit2} alt="edit icon" className="w-4 h-4 cursor-pointer"/>
                 </span>
             </div>
+
             <LessonSlotTable
                 openRowUpdateModal={setRowUpdateModal}
                 tableData={tableBodyData}
@@ -59,9 +59,11 @@ const LessonSlotSetting = () => {
                 setUpdatedRow={setUpdatedRow}
                 setDaysUpdateModal={setDaysUpdateModal}
             />
-            <div className='flex gap-5 justify-center border rounded mx-5 mt-4 p-4'>
-                <div className='flex flex-col items-center gap-6'>
+
+            <div className='flex max-lg:gap-y-6 max-lg:flex-col lg:gap-x-6 lg:flex-row lg:justify-center border rounded mx-4 mt-4 p-4'>
+                <div className='flex flex-col items-center gap-y-6'>
                     <span className='font-primary'>Manage Duplication Lesson Types</span>
+
                     <Button
                         type="button"
                         title="Lesson Types Rename"
@@ -70,8 +72,10 @@ const LessonSlotSetting = () => {
                         onClick={() => setLessonRenameModal(true)}
                     />
                 </div>
-                <div className='flex flex-col items-center gap-6'>
+
+                <div className='flex flex-col items-center gap-y-6'>
                     <span className='font-primary'>Manage Default Lessons & Breaks</span>
+
                     <Button
                         type="button"
                         title="Lesson Types Rename"
@@ -81,30 +85,32 @@ const LessonSlotSetting = () => {
                     />
                 </div>
             </div>
+
             <ConfirmationModal open={rowUpdateModal} close={() => setRowUpdateModal(false)}>
-                <div className={`flex flex-col items-center w-[600px] p-5`}>
+                <div className='flex flex-col items-center gap-y-4 p-4 h-full max-h-[600px] max-w-[600px] overflow-auto'>
                     <div className='flex gap-5 justify-between w-full'>
                         <InputField
                             type={"number"}
                             placeholder={"Name"}
                             value={updatedRow?.name}
                             label="Name of lesson"
-                            className="h-10"
+                            className="w-full h-10"
                             name="name"
                             onChange={handleOnChange}
                         />
+
                         <InputField
                             type={"number"}
                             placeholder={"Short"}
                             value={updatedRow?.short}
                             onChange={handleOnChange}
                             label="Short"
-                            className="h-10"
+                            className="w-full h-10"
                             name="short"
                         />
                     </div>
 
-                    <div className='flex self-start mt-6'>
+                    <div className='flex self-start'>
                         <InputSpinner
                             label="Lesson Duration"
                             // min={0}
@@ -119,8 +125,8 @@ const LessonSlotSetting = () => {
                         />
                     </div>
 
-                    <div className='flex justify-center w-full mt-5'>
-                        <p className='font-primary text-sm px-5'>
+                    <div className='flex justify-center w-full'>
+                        <p className='font-primary text-sm px-4'>
                             <span className='font-semibold font-primary'>Note: </span>
                             Before you change the lesson length, some other lessons/lessons
                             need to be shortened accordingly. If so, the system will not allow you to
@@ -128,43 +134,45 @@ const LessonSlotSetting = () => {
                         </p>
                     </div>
 
-                    <div className='flex gap-3 w-full justify-end mt-10 mr-20'>
-                        <Button
-                            title="No"
-                            rounded={true}
-                            hover={false}
-                            className="!px-8 !bg-gray-medium !text-black !text-sm"
-                            onClick={() => {
-                                setRowUpdateModal(false)
-                            }}
-                        />
-
-                        <Button
-                            rounded={true}
-                            type="button"
-                            title="Update"
-                            color={"blue-dark2"}
-                            className="font-medium text-sm h-10 px-8 justify-start"
-                            onClick={() => {
-                                setRowUpdateModal(false)
-                                setTableBodyData(prev => {
-                                    return prev.map(row => {
-                                        if (row.id === updatedRow.id) {
-                                            return updatedRow
-                                        } else {
-                                            return row
-                                        }
-                                    })
-                                })
-                            }}
-                        />
-                    </div>
                 </div>
+
+                <div className='flex gap-3 w-full justify-end mt-4 mr-20'>
+                    <Button
+                        title="No"
+                        rounded={true}
+                        hover={false}
+                        className="!px-8 !bg-gray-medium !text-black !text-sm"
+                        onClick={() => {
+                            setRowUpdateModal(false)
+                        }}
+                    />
+
+                    <Button
+                        rounded={true}
+                        type="button"
+                        title="Update"
+                        color={"blue-dark2"}
+                        className="font-medium text-sm h-10 px-8 justify-start"
+                        onClick={() => {
+                            setRowUpdateModal(false)
+                            setTableBodyData(prev => {
+                                return prev.map(row => {
+                                    if (row.id === updatedRow.id) {
+                                        return updatedRow
+                                    } else {
+                                        return row
+                                    }
+                                })
+                            })
+                        }}
+                    />
+                </div>
+
             </ConfirmationModal>
 
             <ConfirmationModal open={daysUpdateModal} close={() => setDaysUpdateModal(false)}>
-                <div className='h-[500px] overflow-auto px-5'>
-                    <div className='flex w-full justify-between gap-10 mt-4'>
+                <div className='flex flex-col items-center gap-y-4 p-4 h-full max-h-[600px] max-w-[600px] overflow-auto'>
+                    <div className='flex justify-between gap-x-8 w-full'>
                         <InputField
                             // value={}
                             label="Day 1"
@@ -173,6 +181,7 @@ const LessonSlotSetting = () => {
                             name="name"
                             // onChange={handleOnChange}
                         />
+
                         <InputField
                             // value={}
                             label="Short"
@@ -182,7 +191,8 @@ const LessonSlotSetting = () => {
                             // onChange={handleOnChange}
                         />
                     </div>
-                    <div className='flex w-full justify-between gap-10 mt-4'>
+
+                    <div className='flex justify-between gap-x-8 w-full'>
                         <InputField
                             // value={}
                             label="Day 2"
@@ -191,6 +201,7 @@ const LessonSlotSetting = () => {
                             name="name"
                             // onChange={handleOnChange}
                         />
+
                         <InputField
                             // value={}
                             label="Short"
@@ -200,7 +211,8 @@ const LessonSlotSetting = () => {
                             // onChange={handleOnChange}
                         />
                     </div>
-                    <div className='flex w-full justify-between gap-10 mt-4'>
+
+                    <div className='flex justify-between gap-x-8 w-full'>
                         <InputField
                             // value={}
                             label="Day 3"
@@ -209,6 +221,7 @@ const LessonSlotSetting = () => {
                             name="name"
                             // onChange={handleOnChange}
                         />
+
                         <InputField
                             // value={}
                             label="Short"
@@ -218,7 +231,8 @@ const LessonSlotSetting = () => {
                             // onChange={handleOnChange}
                         />
                     </div>
-                    <div className='flex w-full justify-between gap-10 mt-4'>
+
+                    <div className='flex justify-between gap-x-8 w-full'>
                         <InputField
                             // value={}
                             label="Day 4"
@@ -227,6 +241,7 @@ const LessonSlotSetting = () => {
                             name="name"
                             // onChange={handleOnChange}
                         />
+
                         <InputField
                             // value={}
                             label="Short"
@@ -236,7 +251,8 @@ const LessonSlotSetting = () => {
                             // onChange={handleOnChange}
                         />
                     </div>
-                    <div className='flex w-full justify-between gap-10 mt-4'>
+
+                    <div className='flex justify-between gap-x-8 w-full'>
                         <InputField
                             // value={}
                             label="Day 5"
@@ -254,7 +270,8 @@ const LessonSlotSetting = () => {
                             // onChange={handleOnChange}
                         />
                     </div>
-                    <div className='flex w-full justify-between gap-10 mt-4'>
+
+                    <div className='flex justify-between gap-x-8 w-full'>
                         <InputField
                             // value={}
                             label="Day 6"
@@ -263,6 +280,7 @@ const LessonSlotSetting = () => {
                             name="name"
                             // onChange={handleOnChange}
                         />
+
                         <InputField
                             // value={}
                             label="Short"
@@ -272,7 +290,8 @@ const LessonSlotSetting = () => {
                             // onChange={handleOnChange}
                         />
                     </div>
-                    <div className='flex w-full justify-between gap-10 mt-4'>
+
+                    <div className='flex justify-between gap-x-8 w-full'>
                         <InputField
                             // value={}
                             label="Day 7"
@@ -281,6 +300,7 @@ const LessonSlotSetting = () => {
                             name="name"
                             // onChange={handleOnChange}
                         />
+
                         <InputField
                             // value={}
                             label="Short"
@@ -290,7 +310,8 @@ const LessonSlotSetting = () => {
                             // onChange={handleOnChange}
                         />
                     </div>
-                    <div className='flex w-full justify-between gap-10 mt-4'>
+
+                    <div className='flex justify-between gap-x-8 w-full'>
                         <InputField
                             // value={}
                             label="Day 8"
@@ -299,6 +320,7 @@ const LessonSlotSetting = () => {
                             name="name"
                             // onChange={handleOnChange}
                         />
+
                         <InputField
                             // value={}
                             label="Short"
@@ -308,7 +330,8 @@ const LessonSlotSetting = () => {
                             // onChange={handleOnChange}
                         />
                     </div>
-                    <div className='flex w-full justify-between gap-10 mt-4'>
+
+                    <div className='flex justify-between gap-x-8 w-full'>
                         <InputField
                             // value={}
                             label="Day 9"
@@ -317,6 +340,7 @@ const LessonSlotSetting = () => {
                             name="name"
                             // onChange={handleOnChange}
                         />
+
                         <InputField
                             // value={}
                             label="Short"
@@ -326,7 +350,8 @@ const LessonSlotSetting = () => {
                             // onChange={handleOnChange}
                         />
                     </div>
-                    <div className='flex w-full justify-between gap-10 mt-4'>
+
+                    <div className='flex justify-between gap-x-8 w-full'>
                         <InputField
                             // value={}
                             label="Day 10"
@@ -335,6 +360,7 @@ const LessonSlotSetting = () => {
                             name="name"
                             // onChange={handleOnChange}
                         />
+
                         <InputField
                             // value={}
                             label="Short"
@@ -346,7 +372,7 @@ const LessonSlotSetting = () => {
                     </div>
                 </div>
 
-                <div className='flex gap-3 w-full justify-end mt-4'>
+                <div className='flex gap-3 justify-end w-full mt-4'>
                     <Button
                         title="No"
                         rounded={true}
@@ -369,9 +395,10 @@ const LessonSlotSetting = () => {
             </ConfirmationModal>
 
             <ConfirmationModal open={lessonRenameModal} close={() => setLessonRenameModal(false)}>
-                <div>
-                    <p className='font-primary font-semibold mb-8'>Duplicate Lesson Type Rename</p>
-                    <div className='flex items-center mb-5 gap-3'>
+                <div className='flex flex-col items-center gap-y-4 max-w-[600px]'>
+                    <p className='font-primary font-semibold'>Duplicate Lesson Type Rename</p>
+
+                    <div className='flex items-center gap-3'>
                         <InputField
                             value={lessonRename?.default}
                             placeholder=""
@@ -379,9 +406,11 @@ const LessonSlotSetting = () => {
                             name="default"
                             onChange={handleLessonRename}
                         />
+
                         <p className='font-primary font-semibold text-sm'>Default Timetable cannot be updated</p>
                     </div>
-                    <div className='flex items-center mb-5 gap-3'>
+
+                    <div className='flex items-center gap-3'>
                         <InputField
                             value={lessonRename?.winter}
                             placeholder=""
@@ -389,9 +418,11 @@ const LessonSlotSetting = () => {
                             name="winter"
                             onChange={handleLessonRename}
                         />
+
                         <p className='font-primary font-semibold text-sm'>Default Timetable cannot be updated</p>
                     </div>
-                    <div className='flex items-center mb-5 gap-3'>
+
+                    <div className='flex items-center gap-3'>
                         <InputField
                             value={lessonRename?.summer}
                             placeholder=""
@@ -399,6 +430,7 @@ const LessonSlotSetting = () => {
                             name="summer"
                             onChange={handleLessonRename}
                         />
+
                         <p className='font-primary font-semibold text-sm'>Duplicate Lesson Type Rename</p>
                     </div>
                 </div>
@@ -554,6 +586,7 @@ const LessonSlotSetting = () => {
                     <div className='w-full justify-start my-5'>
                         <div className='flex gap-2 items-center'>
                             <span className='font-primary font-semibold text-sm'>Default Break Between Lessons</span>
+
                             <Tooltips title="Default Break Between Lesson">
                                 <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer"/>
                             </Tooltips>
@@ -571,6 +604,7 @@ const LessonSlotSetting = () => {
                                 name="afterLesson"
                                 className="w-full flex-auto"
                             />
+
                             <div className='flex gap-3 flex-col'>
                                 <div className='flex w-full gap-5'>
                                     <InputSpinner
@@ -582,6 +616,7 @@ const LessonSlotSetting = () => {
                                         name="afterLesson"
                                         className="w-30 flex-auto"
                                     />
+
                                     <InputSpinner
                                         label="Break length"
                                         // min={0}
@@ -592,6 +627,7 @@ const LessonSlotSetting = () => {
                                         className="w-30 flex-auto"
                                     />
                                 </div>
+
                                 <div className='flex w-full gap-5'>
                                     <InputSpinner
                                         // min={0}
@@ -601,6 +637,7 @@ const LessonSlotSetting = () => {
                                         name="afterLesson"
                                         className="w-30 flex-auto"
                                     />
+
                                     <InputSpinner
                                         // min={0}
                                         // max={12}
@@ -633,6 +670,7 @@ const LessonSlotSetting = () => {
                                 setBreakbetweenModal(false)
                             }}
                         />
+
                         <Button
                             rounded={true}
                             type="button"

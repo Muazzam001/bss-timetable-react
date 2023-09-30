@@ -10,20 +10,18 @@ const TimetableOptions = () => {
     ]
     const options = timetableData?.map((option, index) => {
         return (
-            <div className='flex justify-center items-center gap-2 flex-col p-1 hover:bg-blue-light1 rounded-md'
+            <div className='flex justify-center items-center flex-col gap-y-2 p-1 rounded-md hover:bg-blue-light1'
                  key={`${index}`}>
                 <span className='font-primary text-sm font-semibold'>{option.title}</span>
 
-                <Image src={option?.src} alt={option.title} className="w-18 h-18"/>
+                <Image src={option?.src} alt={option.title} className="w-15 h-15"/>
             </div>
         );
     });
 
     return (
         <>
-            <div className='grid grid-cols-2 gap-y-10 p-4'>
-                {options}
-            </div>
+            <div className='grid grid-cols-2 gap-y-10 p-4'>{options}</div>
         </>
     );
 }

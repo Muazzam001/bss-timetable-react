@@ -22,7 +22,7 @@ const ManageLesson = ({ options, icon, text, value, setState, onDuplicateClick, 
 
                 {calendarOpen ? (
                     <div className="flex items-center gap-x-2 cursor-pointer" onClick={onBreadcrumbClick}>
-                        <span className="font-primary text-md font-semibold">{text}</span>
+                        <span className="text-md font-primary font-medium hover:underline hover:text-blue-dark2">{text}</span>
 
                         <ArrowRight className="!w-4 !h-4"/>
 

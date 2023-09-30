@@ -17,11 +17,10 @@ const Header2 = ({headerItem}) => {
         headerItem?.map((navItem, index) => {
             return (
                 <NavLink to={''} key={`${index}`}
-                         className="flex flex-col items-center justify-center gap-y-1 hover:bg-blue-light2 w-20 h-20">
-                    <div className="w-6 h-6 flex justify-center items-center">
-                        <Image alt="" className="" src={navItem?.src}
-                               style={{objectFit: "contain", aspectRatio: 2 / 2}}/>
-                    </div>
+                         className="flex flex-col items-center justify-center gap-y-1 rounded-md px-2 py-1.5 hover:bg-blue-light2">
+                    <span className="w-6 h-6 flex justify-center items-center">
+                        <Image alt="" className="" src={navItem?.src}/>
+                    </span>
 
                     <span className="font-primary text-sm">{navItem?.title}</span>
                 </NavLink>
