@@ -1,0 +1,117 @@
+export const tableHeadData = [
+    {
+        id: 1,
+        name: "Name",
+    },
+    {
+        id: 2,
+        name: "Short",
+    },
+    {
+        id: 3,
+        name: "Start Time",
+    },
+    {
+        id: 4,
+        name: "End time",
+    },
+    {
+        id: 5,
+        name: "Lesson Duration",
+    },
+    {
+        id: 6,
+        name: "Actions",
+    },
+]
+
+export const tableData = [
+    {
+        id: 1,
+        name: "0",
+        short: "0",
+        startTime: "7:10",
+        endTime: "7:55",
+        lessonDuration: "45",
+    },
+    {
+        id: 2,
+        name: "1",
+        short: "1",
+        startTime: "8:20",
+        endTime: "9:00",
+        lessonDuration: "40",
+    },
+    {
+        id: 3,
+        name: "2",
+        short: "2",
+        startTime: "9:00",
+        endTime: "9:40",
+        lessonDuration: "40",
+    },
+    {
+        id: 4,
+        name: "3",
+        short: "3",
+        startTime: "9:40",
+        endTime: "10:20",
+        lessonDuration: "40",
+    },
+    {
+        id: 5,
+        name: "Break",
+        short: "B 1",
+        startTime: "10:20",
+        endTime: "10:35",
+        lessonDuration: "15",
+    },
+    {
+        id: 6,
+        name: "4",
+        short: "4",
+        startTime: "11:15",
+        endTime: "11:55",
+        lessonDuration: "40",
+    },
+    {
+        id: 7,
+        name: "5",
+        short: "5",
+        startTime: "11:55",
+        endTime: "12:35",
+        lessonDuration: "40",
+    },
+    {
+        id: 8,
+        name: "6",
+        short: "6",
+        startTime: "12:35",
+        endTime: "13:15",
+        lessonDuration: "40",
+    },
+    {
+        id: 9,
+        name: "Break",
+        short: "B 2",
+        startTime: "13:15",
+        endTime: "13:25",
+        lessonDuration: "10",
+    },
+    {
+        id: 10,
+        name: "7",
+        short: "7",
+        startTime: "13:25",
+        endTime: "15:05",
+        lessonDuration: "40",
+    },
+    {
+        id: 11,
+        name: "8",
+        short: "8",
+        startTime: "14:05",
+        endTime: "14:45",
+        lessonDuration: "40",
+    },
+]
