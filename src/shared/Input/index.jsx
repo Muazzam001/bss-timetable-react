@@ -41,7 +41,7 @@ const InputField = (
                     disabled={disabled}
                     placeholder={placeholder}
                     readOnly={readOnly}
-                    className={`w-full h-13 inline-block font-primary font-normal text-sm placeholder:text-sm border-gray-medium hover:border-blue-dark2 focus:border-blue-dark2 focus-visible:border-blue-dark2 text-secondary2 hover:text-blue-dark2 focus:text-blue-dark2 focus-visible:text-blue-dark2 hover:outline-0 focus:outline-0 focus-visible:outline-0 hover:ring-0 focus:ring-0 focus-visible:ring-0 bg-gray-light pr-4 py-2 ${rounded ? "rounded-full" : "rounded-lg"} ${disabled ? "cursor-not-allowed placeholder:text-gray-dark1/70" : "hover:border-blue-medium1"} ${icon ? "pl-15" : "pl-4"} ${className}`}
+                    className={`w-full h-13 inline-block font-primary font-normal text-sm placeholder:text-sm border-gray-medium read-only:!border-gray-medium disabled:!border-gray-medium hover:border-blue-dark2 focus:border-blue-dark2 focus-visible:border-blue-dark2 text-secondary2 hover:text-blue-dark2 focus:text-blue-dark2 focus-visible:text-blue-dark2 hover:outline-0 focus:outline-0 focus-visible:outline-0 hover:ring-0 focus:ring-0 focus-visible:ring-0 bg-gray-light pr-4 py-2 ${rounded ? "rounded-full" : "rounded-lg"} ${disabled ? "cursor-not-allowed placeholder:text-gray-dark1/70" : "hover:border-blue-medium1"} ${icon ? "pl-15" : "pl-4"} ${className}`}
                 />
 
                 {error ? (<p className='ml-5 text-red-500 text-xs font-primary'>{error}</p>) : null}

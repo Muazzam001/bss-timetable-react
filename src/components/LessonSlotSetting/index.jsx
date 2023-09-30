@@ -311,22 +311,21 @@ const LessonSlotSetting = () => {
             </ConfirmationModal>
 
             <ConfirmationModal open={lessonRenameModal} close={() => setLessonRenameModal(false)} position="justify-end">
-                <div className='flex flex-col items-center gap-y-4 max-w-[600px]'>
+                <div className='flex flex-col gap-y-4 lg:max-w-[600px] 2xl:max-w-[800px] w-full'>
                     <p className='font-primary font-semibold mb-3'>Duplicate Lesson Type Rename</p>
-
 
                     <div className='flex items-center gap-3'>
                         <InputField
                             value={lessonRename?.default}
                             placeholder=""
-                            className="h-10 w-80"
+                            className="h-10 w-full"
                             name="default"
                         />
 
                         <p className='font-primary font-semibold text-sm'>Default Timetable cannot be updated</p>
                     </div>
 
-                    <div className='flex items-center gap-3'>
+                    <div className='flex items-center justify-start gap-3'>
                         <InputField
                             value={lessonRename?.winter}
                             placeholder=""
@@ -337,7 +336,7 @@ const LessonSlotSetting = () => {
 
                     </div>
 
-                    <div className='flex items-center gap-3'>
+                    <div className='flex items-center justify-start gap-3'>
                         <InputField
                             value={lessonRename?.summer}
                             placeholder=""
