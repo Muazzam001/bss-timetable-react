@@ -1,8 +1,8 @@
 import Image from "../../shared/Image";
 import InputSelect from "../../shared/InputSelect";
 import Tabs from "../../shared/Tabs";
-import { useState } from "react";
-import { assets } from "../../assets";
+import {useState} from "react";
+import {assets} from "../../assets";
 import InputSpinner from "../../shared/InputSpinner";
 
 const Workload = () => {
@@ -61,7 +61,7 @@ const Workload = () => {
             <div className='mt-1 border-b border-gray-medium'>
                 {workloadSelectedTab === 1 ? (
                     <Tabs
-                        tabs={[{ id: 1, full: "Grade Workload Settings", short: "Grade Workload Settings" }]}
+                        tabs={[{id: 1, full: "Grade Workload Settings", short: "Grade Workload Settings"}]}
                         selectedTab={gradeSettingTabs}
                         setSelectedTab={setGradeSettingTabs}
                         fontSize='text-md'
@@ -69,7 +69,7 @@ const Workload = () => {
                     />
                 ) : (
                     <Tabs
-                        tabs={[{ id: 1, full: "Teaching Workload Settings", short: "Teaching Workload Settings" }]}
+                        tabs={[{id: 1, full: "Teaching Workload Settings", short: "Teaching Workload Settings"}]}
                         selectedTab={teachingSettingTabs}
                         setSelectedTab={setTeachingSettingTabs}
                         fontSize='text-md'
@@ -193,7 +193,7 @@ const Workload = () => {
                 <button
                     className='bg-blue-dark2 text-white px-4 py-3 flex gap-2 items-center font-primary rounded-lg w-full'>
                     <Image src={assets.calendar2} alt="calendar icon"
-                        className="w-4" /><span>Update Default Setting</span>
+                           className="w-4"/><span>Update Default Setting</span>
                 </button>
             </div>
         </div>

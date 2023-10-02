@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import Tabs from '../../shared/Tabs';
 import Image from '../../shared/Image';
-import { assets } from '../../assets';
+import {assets} from '../../assets';
 import Button from '../../shared/Button';
 import LessonSlotTable from '../LessonSlotTable';
 import ConfirmationModal from '../../shared/ConfirmationModal';
-import { tableData, tableHeadData } from '../LessonSlotTable/tableHead';
+import {tableData, tableHeadData} from '../LessonSlotTable/tableHead';
 import InputField from '../../shared/Input';
 import InputSpinner from '../../shared/InputSpinner';
 import Tooltips from '../../shared/Tooltips';
@@ -88,7 +88,7 @@ const LessonSlotSetting = () => {
     const [updatedLessonTabsData, setUpdatedLessonTabsData] = useState(lessonTabsData);
 
     const handleOnChange = (e) => {
-        const { name, value } = e.target;
+        const {name, value} = e.target;
         setUpdatedRow(prev => ({
             ...prev,
             [name]: value
@@ -96,7 +96,7 @@ const LessonSlotSetting = () => {
     }
 
     const handleLessonRename = (event) => {
-        const { name, value } = event.target;
+        const {name, value} = event.target;
         setLessonRename(prev => ({
             ...prev,
             [name]: value
@@ -104,7 +104,7 @@ const LessonSlotSetting = () => {
     }
 
     const handleInputChange = (id, e) => {
-        const { name, value } = e.target;
+        const {name, value} = e.target;
 
         setUpdatedLessonTabsData((prevTabsData) => {
             const updatedTabs = [...prevTabsData];
@@ -132,9 +132,11 @@ const LessonSlotSetting = () => {
 
                 <span
                     className='border border-gray-dark2 rounded-full w-7 h-7 p-1 flex items-center'
-                    onClick={() => { setDaysUpdateModal(true) }}>
+                    onClick={() => {
+                        setDaysUpdateModal(true)
+                    }}>
 
-                    <Image src={assets.edit2} alt="edit icon" className="w-4 h-4 cursor-pointer" />
+                    <Image src={assets.edit2} alt="edit icon" className="w-4 h-4 cursor-pointer"/>
 
                 </span>
             </div>
@@ -235,7 +237,9 @@ const LessonSlotSetting = () => {
                         rounded={true}
                         hover={false}
                         className="!px-8 !bg-gray-medium !text-black !text-sm"
-                        onClick={() => { setRowUpdateModal(false) }}
+                        onClick={() => {
+                            setRowUpdateModal(false)
+                        }}
                     />
 
                     <Button
@@ -316,7 +320,7 @@ const LessonSlotSetting = () => {
             </ConfirmationModal>
 
             <ConfirmationModal open={lessonRenameModal} close={() => setLessonRenameModal(false)}
-                position="justify-end">
+                               position="justify-end">
                 <div className='flex flex-col gap-y-4 lg:max-w-[600px] 2xl:max-w-[800px] w-full'>
                     <p className='font-primary font-semibold mb-3'>Duplicate Lesson Type Rename</p>
 
@@ -379,7 +383,7 @@ const LessonSlotSetting = () => {
                     <div className='w-full justify-start my-5'>
                         <div className='flex gap-2 items-center'>
                             <Tooltips title="Break Between Lesson">
-                                <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer" />
+                                <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer"/>
                             </Tooltips>
                             <span className='font-primary font-semibold text-sm'>Break Between Lessons</span>
                         </div>
@@ -394,7 +398,7 @@ const LessonSlotSetting = () => {
                                     label="Break Name"
                                     className="h-10 flex-auto"
                                     name="breakName"
-                                // onChange={}
+                                    // onChange={}
                                 />
                                 <InputField
                                     placeholder={"Short"}
@@ -402,7 +406,7 @@ const LessonSlotSetting = () => {
                                     label="Short"
                                     className="h-10 flex-auto"
                                     name="short"
-                                // onChange={}
+                                    // onChange={}
                                 />
                             </div>
                             <div className='flex w-full gap-5'>
@@ -435,7 +439,7 @@ const LessonSlotSetting = () => {
                                     label="Break Name"
                                     className="h-10 flex-auto"
                                     name="breakName"
-                                // onChange={}
+                                    // onChange={}
                                 />
                                 <InputField
                                     placeholder={"Short"}
@@ -443,7 +447,7 @@ const LessonSlotSetting = () => {
                                     label="Short"
                                     className="h-10 flex-auto"
                                     name="short"
-                                // onChange={}
+                                    // onChange={}
                                 />
                             </div>
                             <div className='flex w-full gap-5'>
@@ -500,14 +504,14 @@ const LessonSlotSetting = () => {
             </ConfirmationModal>
 
             <ConfirmationModal open={breakbetweenModal} close={() => setBreakbetweenModal(false)}
-                position="justify-end">
+                               position="justify-end">
                 <div className='w-[700px] flex flex-col items-center'>
                     <div className='w-full justify-start my-5'>
                         <div className='flex gap-2 items-center'>
                             <span className='font-primary font-semibold text-sm'>Default Break Between Lessons</span>
 
                             <Tooltips title="Default Break Between Lesson">
-                                <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer" />
+                                <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer"/>
                             </Tooltips>
                         </div>
                     </div>
@@ -553,7 +557,7 @@ const LessonSlotSetting = () => {
                                         // options={}
                                         name="lessonPerDay"
                                         // value={ }
-                                    // onChange={}
+                                        // onChange={}
                                     />
                                     <InputSelect
                                         width={"100%"}
@@ -561,7 +565,7 @@ const LessonSlotSetting = () => {
                                         // options={}
                                         name="lessonPerDay"
                                         // value={ }
-                                    // onChange={}
+                                        // onChange={}
                                     />
                                 </div>
                             </div>
@@ -599,7 +603,7 @@ const LessonSlotSetting = () => {
                 </div>
             </ConfirmationModal>
         </>
-    )
+    );
 }
 
-export default LessonSlotSetting
+export default LessonSlotSetting;

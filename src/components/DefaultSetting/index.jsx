@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from 'react'
-import { assets } from "../../assets";
+import {useContext, useEffect, useState} from 'react'
+import {assets} from "../../assets";
 import Image from "../../shared/Image";
 import InputField from "../../shared/Input";
 import InputSelect from "../../shared/InputSelect";
@@ -7,7 +7,7 @@ import InputSpinner from "../../shared/InputSpinner";
 import Checkbox from "../../shared/Checkbox";
 import ConfirmationModal from "../../shared/ConfirmationModal";
 import Tooltips from '../../shared/Tooltips';
-import { TimetableContext } from '../../utils/timetableContext.js';
+import {TimetableContext} from '../../utils/timetableContext.js';
 import Button from '../../shared/Button';
 import Tabs from '../../shared/Tabs';
 
@@ -32,7 +32,7 @@ const DefaultSetting = () => {
     const [daysConfirm, setDaysConfirm] = useState(false);
     const [zeroLessonCheck, setZeroLessonCheck] = useState(true);
     const [defaultSelectedTab, setDefaultSelectedTab] = useState(1);
-    const { defaultValue: lesson } = useContext(TimetableContext);
+    const {defaultValue: lesson} = useContext(TimetableContext);
 
     // Default Settings Inputs Data
     const lessonOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -63,23 +63,23 @@ const DefaultSetting = () => {
     }
 
     useEffect(() => {
-        if (lessonConfirm) {
-            setLessonPerDay(newLessonValue)
-            setLessonConfirm(false)
-        }
+            if (lessonConfirm) {
+                setLessonPerDay(newLessonValue)
+                setLessonConfirm(false)
+            }
 
-        if (daysConfirm) {
-            setNumDay(newDaysValue)
-            setDaysConfirm(false)
-        }
-    },
+            if (daysConfirm) {
+                setNumDay(newDaysValue)
+                setDaysConfirm(false)
+            }
+        },
         [lessonConfirm, daysConfirm]
     );
 
     return (
         <>
             <div className='px-4 pt-5 pb-18 flex flex-col gap-y-5 h-full'>
-                <InputField placeholder={lesson} readOnly />
+                <InputField placeholder={lesson} readOnly/>
 
                 <div className='mt-1 border-b border-gray-medium'>
                     <Tabs
@@ -156,7 +156,7 @@ const DefaultSetting = () => {
                                 <p className='text-md font-medium font-primary'>Weekend</p>
 
                                 <Tooltips title="Weekend">
-                                    <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer" />
+                                    <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer"/>
                                 </Tooltips>
                             </div>
 
@@ -184,7 +184,7 @@ const DefaultSetting = () => {
                                 <p className='text-md font-medium font-primary'>Break Between Lesson</p>
 
                                 <Tooltips title="Break between lesson">
-                                    <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer" />
+                                    <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer"/>
                                 </Tooltips>
                             </div>
 
@@ -231,10 +231,10 @@ const DefaultSetting = () => {
                                 <p className='text-md font-medium font-primary'>Work With Zero Lesson</p>
 
                                 <Tooltips title="Work with zero lesson">
-                                    <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer" />
+                                    <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer"/>
                                 </Tooltips>
 
-                                <Checkbox checked={zeroLessonCheck} setChecked={setZeroLessonCheck} />
+                                <Checkbox checked={zeroLessonCheck} setChecked={setZeroLessonCheck}/>
                             </div>
 
                             <div>
@@ -256,7 +256,7 @@ const DefaultSetting = () => {
                     <button
                         className='bg-blue-dark2 text-white px-4 py-3 flex gap-2 items-center font-primary rounded-lg w-full'>
                         <Image src={assets.calendar2} alt="calendar icon"
-                            className="w-4" /><span>Customize Default Setting</span>
+                               className="w-4"/><span>Customize Default Setting</span>
                     </button>
                 </div>
             </div>

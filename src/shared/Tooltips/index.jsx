@@ -1,7 +1,7 @@
 import "./tooltips.scss";
 import Tooltip from '@mui/material/Tooltip';
 
-const Tooltips = ({ title, children, position }) => {
+const Tooltips = ({title, children, position}) => {
     return (
         <>
             <Tooltip
