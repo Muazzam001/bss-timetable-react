@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from 'react';
-import { stopScroll } from "../../utils/utils.js";
-import { assets } from "../../assets";
-import { useNavigate } from "react-router-dom";
+import {useContext, useEffect, useState} from 'react';
+import {stopScroll} from "../../utils/utils.js";
+import {assets} from "../../assets";
+import {useNavigate} from "react-router-dom";
 import MainLayout from "../../shared/MainLayout";
 import InputField from "../../shared/Input";
 import InputSelect from "../../shared/InputSelect";
@@ -12,13 +12,13 @@ import Processing from "../../components/Processing";
 import MainModal from "../../shared/MainModal";
 import SideModal from "../../shared/SideModal";
 import Sidebar from '../../shared/Sidebar';
-import { TimetableContext } from "../../utils/timetableContext.js"
+import {TimetableContext} from "../../utils/timetableContext.js"
 import Tabs from '../../shared/Tabs';
 import LessonSlotSetting from '../../components/LessonSlotSetting';
 import LessonDaysSetting from '../../components/LessonDaysSetting/index.jsx';
 
 const Whole = () => {
-    const { defaultValue: lesson, setDefaultValue: setLesson } = useContext(TimetableContext);
+    const {defaultValue: lesson, setDefaultValue: setLesson} = useContext(TimetableContext);
     const navigate = useNavigate();
     const [calendarDisplay, setCalendarDisplay] = useState(false);
     const [duplicateModalOpen, setDuplicateModalOpen] = useState(false);
@@ -45,10 +45,10 @@ const Whole = () => {
     const level = ["Default", "Winter - Default"];
 
     const Menus = [
-        { title: "Home", src: assets.home },
+        {title: "Home", src: assets.home},
         // {title: "Subjects", src: assets.subject},
         // {title: "Classes", src: assets.classes},
-        { title: "Classrooms", src: assets.classroom },
+        {title: "Classrooms", src: assets.classroom},
         // {title: "Teachers", src: assets.teacher2},
         // {title: "Modules", src: assets.modules},
     ];
@@ -77,7 +77,8 @@ const Whole = () => {
 
             <div className='relative py-8 min-h-[calc(100vh-175px)]'>
                 <div className='container grid items-center max-xl:grid-cols-1 max-xl:gap-y-4 xl:grid-cols-12 xl:gap-3'>
-                    <div className='xl:col-span-11 grid max-lg:grid-cols-1 max-lg:gap-y-4 lg:grid-flow-col lg:grid-cols-12 lg:gap-3 lg:items-center'>
+                    <div
+                        className='xl:col-span-11 grid max-lg:grid-cols-1 max-lg:gap-y-4 lg:grid-flow-col lg:grid-cols-12 lg:gap-3 lg:items-center'>
                         <div className='xl:col-span-2'>
                             <InputField
                                 placeholder="ROC"
@@ -156,16 +157,16 @@ const Whole = () => {
                 {calendarDisplay ? (
                     <>
                         <div className='absolute top-4 -left-1 z-50'>
-                            <Sidebar />
+                            <Sidebar/>
                         </div>
 
-                        <Calendar />
+                        <Calendar/>
                     </>
                 ) : (
                     <>
                         <div className='flex justify-center'>
                             <Processing image={assets.loading} label="Please select timetable above option"
-                                btnColor="bg-warning" />
+                                        btnColor="bg-warning"/>
                         </div>
                     </>
                 )}
@@ -246,15 +247,20 @@ const Whole = () => {
             </SideModal>
 
             <SideModal isOpen={isSlotModalOpen} setIsOpen={setSlotModalOpen} title="Manage Lesson Slot">
-                <section >
+                <section>
                     <div className='border-b'>
-                        <Tabs tabs={mainTabsData} selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+                        <Tabs
+                            tabs={mainTabsData}
+                            selectedTab={selectedTab}
+                            setSelectedTab={setSelectedTab}
+                            tabWidth="w-fit"
+                        />
                     </div>
                     <div className='py-4'>
                         {selectedTab === 1 ? (
-                            <LessonSlotSetting />
+                            <LessonSlotSetting/>
                         ) : selectedTab === 2 ? (
-                            <LessonDaysSetting />
+                            <LessonDaysSetting/>
                         ) : null}
                     </div>
                 </section>

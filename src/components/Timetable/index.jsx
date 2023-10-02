@@ -8,13 +8,31 @@ import Control from "../Control";
 import Workload from "../Workload";
 import TimetableOptions from "../TimetableOptions";
 import CalendarHeader from '../CalendarHeader';
+import SideModal from '../../shared/SideModal';
+import Tabs from '../../shared/Tabs';
+import {assets} from '../../assets';
+import Image from '../../shared/Image';
 
 const Calendar = () => {
     const calendarRef = useRef(null);
     const [dayName, setDayName] = useState("");
     const [year, setYear] = useState("");
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [manageModal, setManageModal] = useState(false);
     const [selectedTab, setSelectedTab] = useState("Default Settings");
+    const [manageSelectedTab, setManageSelectedTab] = useState(1);
+    const manageLessonsTabs = [
+        {
+            id: 1,
+            full: "Manage Lessons",
+            short: "Manage Lessons",
+        },
+        {
+            id: 2,
+            full: "New Lessons",
+            short: "New Lessons",
+        },
+    ]
 
     useEffect(() => {
         if (calendarRef.current) {
@@ -103,7 +121,7 @@ const Calendar = () => {
                                                             className='font-primary text-xs uppercase w-20 h-20 !text-center !align-middle'>
                                                             <div
                                                                 className={`flex flex-col ${cell === "" ? null : cellColor} rounded-sm py-1 text-white ${cell === "" ? null : "border"} border-blue-dark2`}>
-                                                                    <span className='text-[8px]'>{cell}</span>
+                                                                <span className='text-[8px]'>{cell}</span>
                                                             </div>
                                                         </td>
                                                     )
@@ -169,9 +187,25 @@ const Calendar = () => {
                             <div className='w-full h-full'>
                                 <div className='flex items-end w-full h-13'>
                                     <div className='flex bg-blue-dark2 p-2 w-full'>
-                                        <p className='item-p'>New Lesson</p>
+                                        <p
+                                            className='item-p'
+                                            onClick={() => {
+                                                setManageSelectedTab(1)
+                                                setManageModal(true)
+                                            }
+                                            }>
+                                            New Lesson
+                                        </p>
 
-                                        <p className='item-p'>Manage Lessons</p>
+                                        <p
+                                            className='item-p'
+                                            onClick={() => {
+                                                setManageSelectedTab(2)
+                                                setManageModal(true)
+                                            }
+                                            }>
+                                            Manage Lessons
+                                        </p>
                                     </div>
                                 </div>
 
@@ -190,6 +224,30 @@ const Calendar = () => {
                     </div>
                 </div>
             </div>
+            <SideModal isOpen={manageModal} setIsOpen={setManageModal} title="Manage Lesson">
+                <div>
+                    <div className='mt-1 border-b border-gray-medium'>
+                        <Tabs
+                            tabs={manageLessonsTabs}
+                            selectedTab={manageSelectedTab}
+                            setSelectedTab={setManageSelectedTab}
+                            fontSize='text-md'
+                            gap="gap-x-3"
+                        />
+                    </div>
+                    {
+                        manageSelectedTab === 1 ? (
+                            <div>
+                                <div>
+                                    <Image src={assets.noData} alt="No Data" className="w-[400px]"/>
+                                </div>
+                            </div>
+                        ) : (
+                            <p>Manage</p>
+                        )
+                    }
+                </div>
+            </SideModal>
         </>
     );
 }

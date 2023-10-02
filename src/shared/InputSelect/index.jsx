@@ -6,13 +6,10 @@ import {styled} from '@mui/material/styles';
 
 const InputSelect = ({options, className, value, width, disabled, label, onChange, name}) => {
 
-    const BootstrapInput = styled(InputBase)(({theme}) => ({
+    const BootstrapInput = styled(InputBase)(() => ({
 
         'label + &': {
             width: `${width}`,
-        },
-        '& .MuiPaper-root': {
-            zIndex: 999,
         },
         '& .MuiSelect-icon': {
             color: "#175088 !important",
@@ -63,7 +60,6 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
                                 backgroundColor: 'transparent',
                                 boxShadow: "none",
                                 paddingX: 0,
-                                zIndex: 100000000,
                                 '& .MuiPaper-root': {
                                     left: 0,
                                     backgroundColor: "#F7F7F6 !important",

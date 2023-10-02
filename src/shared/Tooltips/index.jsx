@@ -1,7 +1,7 @@
 import "./tooltips.scss";
 import Tooltip from '@mui/material/Tooltip';
 
-const Tooltips = ({ title, children, position }) => {
+const Tooltips = ({title, children, position}) => {
     return (
         <>
             <Tooltip
@@ -23,7 +23,7 @@ const Tooltips = ({ title, children, position }) => {
                     }
                 }
             >
-                <span>{children}</span>
+                <span className="flex items-center justify-center">{children}</span>
             </Tooltip>
         </>
     );

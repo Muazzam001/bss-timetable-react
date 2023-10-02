@@ -1,8 +1,8 @@
-import Image from "../../shared/Image"
-import {assets} from "../../assets"
-import Tooltips from "../../shared/Tooltips"
+import Image from "../../shared/Image";
+import {assets} from "../../assets";
+import Tooltips from "../../shared/Tooltips";
 
-const LessonSlotTable = ({openRowUpdateModal, tableHeadData, tableData, setUpdatedRow}) => {
+const LessonSlotTable = ({openRowUpdateModal, tableHeadData, tableData, setUpdatedRow, openEditBreakModal}) => {
     return (
         <div className="h-[350px] 2xl:h-[450px] overflow-auto">
 
@@ -12,7 +12,7 @@ const LessonSlotTable = ({openRowUpdateModal, tableHeadData, tableData, setUpdat
                     {tableHeadData.map((item) => {
                         return (
                             <th key={`${item.id}`}
-                                className={`${item?.id == 1 ? "w-5" : item?.id == 2 ? "!text-left w-30" : "w-30"} whitespace-nowrap px-4 py-2 font-medium font-primary text-gray-900`}>
+                                className={`${item?.id == 1 ? "w-5 pl-8" : item?.id == 2 ? "!text-left w-36" : "w-36"} whitespace-nowrap px-4 py-2 font-medium font-primary text-gray-900`}>
                                 {item.name}
                             </th>
                         )
@@ -24,12 +24,12 @@ const LessonSlotTable = ({openRowUpdateModal, tableHeadData, tableData, setUpdat
                 {tableData.map((item) => {
                     return (
                         <tr key={`${item.id}`} className="even:bg-gray-light">
-                            <td className="whitespace-nowrap p-1 font-primary text-center text-gray-900">{item?.break ? (
-                                <Tooltips title="Break">
-                                    <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer" />
+                            <td className="whitespace-nowrap p-1 pl-4 font-primary text-center text-gray-900 !w-fit">{item?.break ? (
+                                <Tooltips title="Add break that will be between lessons">
+                                    <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer"/>
                                 </Tooltips>
-                            ) : null }</td>
-                            <td className="whitespace-nowrap px-4 py-2 font-primary  text-gray-900">{item.name}</td>
+                            ) : null}</td>
+                            <td className="whitespace-nowrap pr-4 py-2 font-primary  text-gray-900">{item.name}</td>
                             <td className="whitespace-nowrap px-4 py-2 font-primary text-center text-gray-700">{item.short}</td>
                             <td className="whitespace-nowrap px-4 py-2 font-primary text-center text-gray-700">{item.startTime}</td>
                             <td className="whitespace-nowrap px-4 py-2 font-primary text-center text-gray-700">{item.endTime}</td>
@@ -37,7 +37,7 @@ const LessonSlotTable = ({openRowUpdateModal, tableHeadData, tableData, setUpdat
                             <td className="whitespace-nowrap px-4 py-2 font-primary text-center text-gray-700 flex justify-center items-center">
                                     <span
                                         onClick={() => {
-                                            openRowUpdateModal(true);
+                                            item?.break ? openEditBreakModal(true) : openRowUpdateModal(true);
                                             setUpdatedRow(item);
                                         }}
                                     >

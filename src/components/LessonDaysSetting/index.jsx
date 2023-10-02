@@ -66,7 +66,12 @@ const LessonDaysSetting = () => {
     return (
         <>
             <div className='flex gap-x-5 border-b'>
-                <Tabs tabs={daysTabsData} selectedTab={selectedDay} setSelectedTab={setSelectedDay}/>
+                <Tabs
+                    tabs={daysTabsData}
+                    selectedTab={selectedDay}
+                    setSelectedTab={setSelectedDay}
+                    gap="gap-x-8"
+                />
 
                 <span
                     className='border border-gray-dark2 rounded-full w-7 h-7 p-1 flex justify-end items-center ml-auto'>
