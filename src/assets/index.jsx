@@ -50,6 +50,7 @@ import reportCard from "./images/report-card.png";
 import testing from "./images/testing.png";
 import large from "./images/large.png";
 import edit2 from "./images/edit.png";
+import noData from "./images/no-data.png";
 
 
 // Assets Exports
@@ -105,4 +106,5 @@ export const assets = {
     relations,
     large,
     edit2,
+    noData,
 }

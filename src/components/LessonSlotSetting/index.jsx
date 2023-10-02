@@ -1,14 +1,15 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import Tabs from '../../shared/Tabs';
 import Image from '../../shared/Image';
-import {assets} from '../../assets';
+import { assets } from '../../assets';
 import Button from '../../shared/Button';
 import LessonSlotTable from '../LessonSlotTable';
 import ConfirmationModal from '../../shared/ConfirmationModal';
-import {tableData, tableHeadData} from '../LessonSlotTable/tableHead';
+import { tableData, tableHeadData } from '../LessonSlotTable/tableHead';
 import InputField from '../../shared/Input';
 import InputSpinner from '../../shared/InputSpinner';
 import Tooltips from '../../shared/Tooltips';
+import InputSelect from '../../shared/InputSelect';
 
 const LessonSlotSetting = () => {
     const [selectedDay, setSelectedDay] = useState(1);
@@ -16,6 +17,7 @@ const LessonSlotSetting = () => {
     const [updatedRow, setUpdatedRow] = useState({});
     const [rowUpdateModal, setRowUpdateModal] = useState(false);
     const [breakbetweenModal, setBreakbetweenModal] = useState(false);
+    const [editBreakModal, setEditBreakModal] = useState(false);
     const [lessonRenameModal, setLessonRenameModal] = useState(false);
     const [daysUpdateModal, setDaysUpdateModal] = useState(false);
     const [lessonRename, setLessonRename] = useState({
@@ -86,7 +88,7 @@ const LessonSlotSetting = () => {
     const [updatedLessonTabsData, setUpdatedLessonTabsData] = useState(lessonTabsData);
 
     const handleOnChange = (e) => {
-        const {name, value} = e.target;
+        const { name, value } = e.target;
         setUpdatedRow(prev => ({
             ...prev,
             [name]: value
@@ -94,7 +96,7 @@ const LessonSlotSetting = () => {
     }
 
     const handleLessonRename = (event) => {
-        const {name, value} = event.target;
+        const { name, value } = event.target;
         setLessonRename(prev => ({
             ...prev,
             [name]: value
@@ -102,7 +104,7 @@ const LessonSlotSetting = () => {
     }
 
     const handleInputChange = (id, e) => {
-        const {name, value} = e.target;
+        const { name, value } = e.target;
 
         setUpdatedLessonTabsData((prevTabsData) => {
             const updatedTabs = [...prevTabsData];
@@ -121,19 +123,25 @@ const LessonSlotSetting = () => {
     return (
         <>
             <div className='flex gap-x-5 border-b'>
-                <Tabs tabs={lessonTabsData} selectedTab={selectedDay} setSelectedTab={setSelectedDay}/>
+                <Tabs
+                    tabs={lessonTabsData}
+                    selectedTab={selectedDay}
+                    setSelectedTab={setSelectedDay}
+                    gap="gap-x-8"
+                />
 
                 <span
-                    className='border border-gray-dark2 rounded-full w-7 h-7 p-1 flex justify-end items-center ml-auto'
-                    onClick={() => {setDaysUpdateModal(true)}}>
+                    className='border border-gray-dark2 rounded-full w-7 h-7 p-1 flex items-center'
+                    onClick={() => { setDaysUpdateModal(true) }}>
 
-                    <Image src={assets.edit2} alt="edit icon" className="w-4 h-4 cursor-pointer"/>
+                    <Image src={assets.edit2} alt="edit icon" className="w-4 h-4 cursor-pointer" />
 
                 </span>
             </div>
 
             <LessonSlotTable
                 openRowUpdateModal={setRowUpdateModal}
+                openEditBreakModal={setEditBreakModal}
                 tableData={tableBodyData}
                 tableHeadData={tableHeadData}
                 setUpdatedRow={setUpdatedRow}
@@ -223,11 +231,11 @@ const LessonSlotSetting = () => {
 
                 <div className='flex gap-3 w-full justify-end mt-4 mr-20'>
                     <Button
-                        title="No"
+                        title="Cancel"
                         rounded={true}
                         hover={false}
                         className="!px-8 !bg-gray-medium !text-black !text-sm"
-                        onClick={() => {setRowUpdateModal(false)}}
+                        onClick={() => { setRowUpdateModal(false) }}
                     />
 
                     <Button
@@ -283,7 +291,7 @@ const LessonSlotSetting = () => {
 
                 <div className='flex gap-3 justify-end w-full mt-4'>
                     <Button
-                        title="No"
+                        title="Cancel"
                         rounded={true}
                         hover={false}
                         className="!px-8 !bg-gray-medium !text-black !text-sm"
@@ -308,7 +316,7 @@ const LessonSlotSetting = () => {
             </ConfirmationModal>
 
             <ConfirmationModal open={lessonRenameModal} close={() => setLessonRenameModal(false)}
-                               position="justify-end">
+                position="justify-end">
                 <div className='flex flex-col gap-y-4 lg:max-w-[600px] 2xl:max-w-[800px] w-full'>
                     <p className='font-primary font-semibold mb-3'>Duplicate Lesson Type Rename</p>
 
@@ -366,7 +374,7 @@ const LessonSlotSetting = () => {
                 </div>
             </ConfirmationModal>
 
-            {/* <ConfirmationModal >
+            <ConfirmationModal open={editBreakModal} close={() => setEditBreakModal(false)} position="justify-end">
                 <div className='w-[700px] flex flex-col items-center'>
                     <div className='w-full justify-start my-5'>
                         <div className='flex gap-2 items-center'>
@@ -477,7 +485,7 @@ const LessonSlotSetting = () => {
                             hover={false}
                             className="!px-8 !bg-gray-medium !text-black !text-sm"
                             onClick={() => {
-                                setRowUpdateModal(false)
+                                setEditBreakModal(false)
                             }}
                         />
                         <Button
@@ -489,17 +497,17 @@ const LessonSlotSetting = () => {
                         />
                     </div>
                 </div>
-            </ConfirmationModal> */}
+            </ConfirmationModal>
 
             <ConfirmationModal open={breakbetweenModal} close={() => setBreakbetweenModal(false)}
-                               position="justify-end">
+                position="justify-end">
                 <div className='w-[700px] flex flex-col items-center'>
                     <div className='w-full justify-start my-5'>
                         <div className='flex gap-2 items-center'>
                             <span className='font-primary font-semibold text-sm'>Default Break Between Lessons</span>
 
                             <Tooltips title="Default Break Between Lesson">
-                                <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer"/>
+                                <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer" />
                             </Tooltips>
                         </div>
                     </div>
@@ -518,44 +526,42 @@ const LessonSlotSetting = () => {
 
                             <div className='flex gap-3 flex-col'>
                                 <div className='flex w-full gap-5'>
-                                    <InputSpinner
-                                        label="First Break after lesson"
-                                        // min={0}
-                                        // max={12}
-                                        // value={parseInt()}
-                                        // setState={}
-                                        name="afterLesson"
-                                        className="w-30 flex-auto"
+                                    <InputSelect
+                                        label="Lesson Per Day"
+                                        width={"100%"}
+                                        className="!w-[200px] !text-heading !font-medium !text-md"
+                                        // options={}
+                                        name="lessonPerDay"
+                                        // value={}
+                                        // onChange={}
                                     />
-
-                                    <InputSpinner
-                                        label="Break length"
-                                        // min={0}
-                                        // max={12}
-                                        // value={parseInt()}
-                                        // setState={}  
-                                        name="breakLength"
-                                        className="w-30 flex-auto"
+                                    <InputSelect
+                                        label="Lesson Per Day"
+                                        width={"100%"}
+                                        className="!w-[200px] !text-heading !font-medium !text-md"
+                                        // options={}
+                                        name="lessonPerDay"
+                                        // value={}
+                                        // onChange={}
                                     />
                                 </div>
 
                                 <div className='flex w-full gap-5'>
-                                    <InputSpinner
-                                        // min={0}
-                                        // max={12}
-                                        // value={parseInt()}
-                                        // setState={}
-                                        name="afterLesson"
-                                        className="w-30 flex-auto"
+                                    <InputSelect
+                                        width={"100%"}
+                                        className="!w-[200px] !text-heading !font-medium !text-md"
+                                        // options={}
+                                        name="lessonPerDay"
+                                        // value={ }
+                                    // onChange={}
                                     />
-
-                                    <InputSpinner
-                                        // min={0}
-                                        // max={12}
-                                        // value={parseInt()}
-                                        // setState={}  
-                                        name="breakLength"
-                                        className="w-30 flex-auto"
+                                    <InputSelect
+                                        width={"100%"}
+                                        className="!w-[200px] !text-heading !font-medium !text-md"
+                                        // options={}
+                                        name="lessonPerDay"
+                                        // value={ }
+                                    // onChange={}
                                     />
                                 </div>
                             </div>

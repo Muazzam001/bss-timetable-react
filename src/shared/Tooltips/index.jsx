@@ -23,7 +23,7 @@ const Tooltips = ({ title, children, position }) => {
                     }
                 }
             >
-                <span>{children}</span>
+                <span className="flex items-center justify-center">{children}</span>
             </Tooltip>
         </>
     );

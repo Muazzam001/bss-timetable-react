@@ -248,7 +248,12 @@ const Whole = () => {
             <SideModal isOpen={isSlotModalOpen} setIsOpen={setSlotModalOpen} title="Manage Lesson Slot">
                 <section >
                     <div className='border-b'>
-                        <Tabs tabs={mainTabsData} selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+                        <Tabs 
+                        tabs={mainTabsData} 
+                        selectedTab={selectedTab} 
+                        setSelectedTab={setSelectedTab} 
+                        tabWidth="w-fit"
+                        />
                     </div>
                     <div className='py-4'>
                         {selectedTab === 1 ? (

@@ -1,7 +1,7 @@
 import Image from '../../shared/Image';
-import {assets} from '../../assets';
+import { assets } from '../../assets';
 import Tabs from '../../shared/Tabs'
-import {useState} from 'react'
+import { useState } from 'react'
 import InputSpinner from '../../shared/InputSpinner';
 import Tooltips from '../../shared/Tooltips';
 import Button from '../../shared/Button';
@@ -66,11 +66,16 @@ const LessonDaysSetting = () => {
     return (
         <>
             <div className='flex gap-x-5 border-b'>
-                <Tabs tabs={daysTabsData} selectedTab={selectedDay} setSelectedTab={setSelectedDay}/>
+                <Tabs
+                    tabs={daysTabsData}
+                    selectedTab={selectedDay}
+                    setSelectedTab={setSelectedDay}
+                    gap="gap-x-8"
+                />
 
                 <span
                     className='border border-gray-dark2 rounded-full w-7 h-7 p-1 flex justify-end items-center ml-auto'>
-                    <Image src={assets.edit2} alt="edit icon" className="w-4 h-4 cursor-pointer"/>
+                    <Image src={assets.edit2} alt="edit icon" className="w-4 h-4 cursor-pointer" />
                 </span>
             </div>
 
@@ -81,7 +86,7 @@ const LessonDaysSetting = () => {
                             <span className='font-primary font-semibold text-sm'>Default Lessons Time</span>
 
                             <Tooltips title="Default Lessons Time">
-                                <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer"/>
+                                <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer" />
                             </Tooltips>
                         </div>
                         <div className='flex gap-3 flex-col'>
@@ -134,7 +139,7 @@ const LessonDaysSetting = () => {
                             <span className='font-primary font-semibold text-sm'>Break Between Lessons</span>
 
                             <Tooltips title="Break Between Lesson">
-                                <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer"/>
+                                <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer" />
                             </Tooltips>
                         </div>
 
@@ -198,7 +203,7 @@ const LessonDaysSetting = () => {
                                 rounded={true}
                                 hover={false}
                                 className="!px-8 !bg-gray-medium !text-black !text-sm"
-                                // onClick={}
+                            // onClick={}
                             />
 
                             <Button
