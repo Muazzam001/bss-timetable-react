@@ -11,37 +11,27 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
         'label + &': {
             width: `${width}`,
         },
-        '& .MuiInputBase-input': {
-            fontFamily: '\'Poppins\', \'Raleway\', \'Montserrat\', \'Open Sans\', \'sans-serif\'',
-            border: `1px solid ${disabled && disabled ? "#D4D4D4" : "#1D5891"}`,
-            backgroundColor: "#F7F7F6 !important",
-            color: "#175088 !important",
-            padding: '0 26px 0 12px',
-            position: 'relative',
-            fontWeight: "400",
-            fontSize: 14,
-            height: 50,
-            borderRadius: 6,
-            '&:focus': {
-                borderRadius: 6,
-            },
-        },
         '& .MuiPaper-root': {
             zIndex: 999,
-            height: 50,
         },
         '& .MuiSelect-icon': {
             color: "#175088 !important",
         },
         '& .MuiSelect-select': {
-            height: 50,
-            '&.css-1uwzc1h-MuiSelect-select-MuiInputBase-input': {
-            display: "flex",
-            alignItems: "center",
-            height: 50,
-            fontSize: 14,
-            fontWeight: "400",
-        }
+            '&.MuiInputBase-input': {
+                display: "flex",
+                alignItems: "center",
+                fontFamily: '\'Poppins\', \'Raleway\', \'Montserrat\', \'Open Sans\', \'sans-serif\'',
+                border: `1px solid ${disabled && disabled ? "#D4D4D4" : "#1D5891"}`,
+                backgroundColor: "#F7F7F6 !important",
+                color: "#175088 !important",
+                padding: '0 26px 0 12px',
+                position: 'relative',
+                fontWeight: "400",
+                borderRadius: 6,
+                fontSize: 14,
+                height: 50,
+            }
         }
     }));
 
@@ -49,7 +39,7 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
         return (
             <MenuItem key={`${index}`} sx={{width: `${width}`}} value={item}
                       className='z-50 whitespace-normal'>{item}</MenuItem>
-        )
+        );
     });
 
     return (

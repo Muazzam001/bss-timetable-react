@@ -17,7 +17,7 @@ const DefaultSetting = () => {
     const [startMinutes, setStartMinutes] = useState(0);
     const [endMinutes, setEndMinutes] = useState(0);
     const [weekend, setWeekend] = useState("");
-    const [numDay, setNumDay] = useState("");
+    const [numDay, setNumDay] = useState(1);
     const [break1, setBreak1] = useState(0);
     const [breakLength1, setBreakLength1] = useState(0);
     const [breakLengthUpper, setBreakLengthUpper] = useState(0);
