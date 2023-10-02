@@ -22,7 +22,6 @@ const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab, side
 
     return (
         <>
-
             <div className='flex justify-between items-center bg-white border border-gray-medium border-b-0 mt-5'>
 
                 <div className='flex items-center justify-between pl-10 pr-3 w-full'>

@@ -9,7 +9,7 @@ const Tabs = ({ tabs, selectedTab, setSelectedTab }) => {
   });
 
   return (
-    <div className='flex gap-5'>
+    <div className='flex gap-x-5'>
       {tabsList}
     </div>
   );

@@ -19,9 +19,9 @@ const InputField = (
 ) => {
     return (
         <>
-            <div className="relative flex flex-col gap-1">
+            <div className="relative max-lg:flex-auto flex flex-col gap-y-1">
                 {label ? (
-                    <label htmlFor={htmlFor} className="text-sm text-gray-dark1 font-primary">
+                    <label htmlFor={htmlFor} className="text-sm text-gray-dark1 font-primary font-normal">
                         {label}
                     </label>
                 ) : null}

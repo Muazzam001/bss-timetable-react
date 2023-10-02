@@ -10,19 +10,20 @@ const SideModal = ({isOpen, setIsOpen, children, title}) => {
 
             <div
                 className={`fixed top-0 right-0 min-h-screen overflow-y-auto border border-gray-medium transform transition-transform ease-in-out duration-700 bg-gray-light-bluish ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
-                <div className=' bg-white py-5 px-3 border-y border-slate-300 cursor-pointer'>
+                <div className='w-full bg-white py-5 px-3 border-y border-slate-300 cursor-pointer'>
                     <div className='flex items-center gap-2'>
                         <ArrowLeft className="!w-10 !h-10 text-blue-dark2" onClick={() => setIsOpen(false)}/>
 
-                        <h3 className='text-lg text-bold font-primary'>{title}</h3>
+                        <h5 className='text-h5 font-primary'>{title}</h5>
                     </div>
                 </div>
 
                 {children &&
-                    <div
-                        className="flex flex-col gap-y-14 bg-white lg:mx-8 mx-2 my-8 p-4 rounded-md border border-gray-300 overflow-y-auto">
-                        {children}
-                    </div>
+                    (
+                        <div className="flex flex-col gap-y-14 bg-white lg:mx-8 mx-2 my-8 p-4 rounded-md border border-gray-300 overflow-y-auto">
+                            {children}
+                        </div>
+                    )
                 }
             </div>
         </>

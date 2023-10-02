@@ -19,7 +19,8 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
             padding: '0 26px 0 12px',
             position: 'relative',
             fontWeight: "400",
-            fontSize: "14px",
+            fontSize: 14,
+            height: 50,
             borderRadius: 6,
             '&:focus': {
                 borderRadius: 6,
@@ -34,8 +35,8 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
         '& .MuiSelect-select.css-1uwzc1h-MuiSelect-select-MuiInputBase-input': {
             display: "flex",
             alignItems: "center",
-            height: "48px",
-            fontSize: "14px",
+            height: 50,
+            fontSize: 14,
             fontWeight: "400",
         }
     }));
@@ -49,9 +50,9 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
 
     return (
         <>
-            <div className="relative max-lg:flex-auto flex flex-col gap-2">
+            <div className="relative max-lg:flex-auto flex flex-col gap-y-1">
                 {label ? (
-                    <label className="text-sm font-medium leading-6 !text-dark-gray-200 font-primary">{label}</label>
+                    <label className={`${className} text-sm text-gray-dark1 font-primary font-normal`}>{label}</label>
                 ) : null}
                 <Select
                     name={name}
@@ -61,7 +62,7 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
                     input={<BootstrapInput/>}
                     IconComponent={ExpandMoreIcon}
                     disabled={disabled && disabled}
-                    className={`bg-transparent z-50 border-0 h-10 text-xs ${className}`}
+                    className={`bg-transparent z-50 border-0 text-xs ${className}`}
                     MenuProps={{
                         PaperProps: {
                             sx: {
@@ -70,7 +71,7 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
                                 paddingX: 0,
                                 zIndex: 100000000,
                                 '& .MuiPaper-root': {
-                                    left: "0px",
+                                    left: 0,
                                     backgroundColor: "#F7F7F6 !important",
                                 },
                                 '& .MuiList-root': {
@@ -92,7 +93,7 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
                                     marginTop: "5px",
                                     marginBottom: "5px",
                                     color: "#7D7D92",
-                                    fontSize: "14px",
+                                    fontSize: 14,
                                     fontWeight: "400",
                                     borderRadius: "6px",
                                     whiteSpace: 'normal',

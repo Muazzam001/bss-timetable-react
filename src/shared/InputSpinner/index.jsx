@@ -30,8 +30,8 @@ const InputSpinner = ({ min, max, value, setState, className, label, name }) => 
     }
 
     return (
-        <div className={`flex flex-col gap-1 ${className}`}>
-            {label ? (<label className="text-sm text-gray-dark1 font-primary">{label}</label>) : null}
+        <div className={`relative max-lg:flex-auto flex flex-col gap-y-1 ${className}`}>
+            {label ? (<label className="text-sm text-gray-dark1 font-primary font-normal">{label}</label>) : null}
 
             <div className='relative'>
                 <input onChange={handleAgeChange}
@@ -40,9 +40,9 @@ const InputSpinner = ({ min, max, value, setState, className, label, name }) => 
                 />
 
                 <div className='absolute top-0 right-2 h-full w-4 flex flex-col justify-center'>
-                    <ArrowUp className="w-[15px] h-[15px] cursor-pointer text-gray-dark1" onClick={increaseValue} />
+                    <ArrowUp className="w-[15px] h-[15px] cursor-pointer text-gray-dark1 hover:text-blue-dark2 focus:text-blue-dark2" onClick={increaseValue} />
 
-                    <ArrowDown className="w-[15px] h-[15px] cursor-pointer text-gray-dark1" onClick={decreaseValue} />
+                    <ArrowDown className="w-[15px] h-[15px] cursor-pointer text-gray-dark1 hover:text-blue-dark2 focus:text-blue-dark2" onClick={decreaseValue} />
                 </div>
             </div>
         </div>

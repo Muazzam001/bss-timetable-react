@@ -21,7 +21,7 @@ const Whole = () => {
     const { defaultValue: lesson, setDefaultValue: setLesson } = useContext(TimetableContext);
     const navigate = useNavigate();
     const [calendarDisplay, setCalendarDisplay] = useState(false);
-    const [isDuplicateModalOpen, setDuplicateModalOpen] = useState(false);
+    const [duplicateModalOpen, setDuplicateModalOpen] = useState(false);
     const [isSlotModalOpen, setSlotModalOpen] = useState(false);
     const [duplicateName, setDuplicateName] = useState("");
     const [open, setOpen] = useState(false);
@@ -54,8 +54,8 @@ const Whole = () => {
     ];
 
     useEffect(() => {
-        stopScroll(isDuplicateModalOpen || isSlotModalOpen)
-    }, [isDuplicateModalOpen, isSlotModalOpen])
+        stopScroll(duplicateModalOpen || isSlotModalOpen)
+    }, [duplicateModalOpen, isSlotModalOpen])
 
 
     const duplicateOption = ["Lesson Setting and Data", "Lesson Setting Only"];
@@ -81,7 +81,7 @@ const Whole = () => {
                         <div className='xl:col-span-2'>
                             <InputField
                                 placeholder="ROC"
-                                className="w-full"
+                                className=""
                                 disabled
                             />
                         </div>
@@ -89,7 +89,7 @@ const Whole = () => {
                         <div className='xl:col-span-2'>
                             <InputField
                                 placeholder="Cluster 5"
-                                className="w-full"
+                                className=""
                                 disabled
                             />
                         </div>
@@ -97,7 +97,7 @@ const Whole = () => {
                         <div className='xl:col-span-3'>
                             <InputField
                                 placeholder="TNS Defence, Lahore"
-                                className="w-full"
+                                className=""
                                 disabled
                             />
                         </div>
@@ -107,7 +107,6 @@ const Whole = () => {
                                 width={"100%"}
                                 className="min-w-[200px]"
                                 options={level}
-                                defaultValue="year"
                                 value={year}
                                 onChange={(e) => setYear(e.target.value)}
                             />
@@ -116,7 +115,7 @@ const Whole = () => {
                         <div className='xl:col-span-2'>
                             <InputField
                                 placeholder="Academic Year 2024"
-                                className="w-full"
+                                className=""
                                 disabled
                             />
                         </div>
@@ -125,7 +124,6 @@ const Whole = () => {
                         {/*    width={"100%"}*/}
                         {/*    className="min-w-[200px]"*/}
                         {/*    options={cluster}*/}
-                        {/*    defaultValue="year"*/}
                         {/*    value={teamLevel}*/}
                         {/* onChange={(e) => setTeamLevel(e.target.value)} */}
                         {/*/>*/}
@@ -191,13 +189,13 @@ const Whole = () => {
                 />
             </MainModal>
 
-            <SideModal isOpen={isDuplicateModalOpen} setIsOpen={setDuplicateModalOpen} title="Manage Duplicate Timetable">
+            <SideModal isOpen={duplicateModalOpen} setIsOpen={setDuplicateModalOpen} title="Manage Duplicate Timetable">
                 <section className='w-[500px]'>
                     <div className='flex flex-col gap-y-8'>
                         <InputField
                             label="Duplicate Name"
                             placeholder="Type Duplicate Name"
-                            className="h-10 w-full"
+                            className=""
                             value={duplicateName}
                             onChange={(e) => setDuplicateName(e.target.value)}
                         />
@@ -207,10 +205,9 @@ const Whole = () => {
                             width={"100%"}
                             className="min-w-[200px]"
                             options={duplicateOption}
-                            defaultValue="year"
                             value={option}
-                            onChange={(e) => setOption(e.target.value)}
                             setState={setOption}
+                            onChange={(e) => setOption(e.target.value)}
                         />
 
                         <InputSelect
@@ -218,7 +215,7 @@ const Whole = () => {
                             width={"100%"}
                             className="min-w-[200px]"
                             options={duplicateType}
-                            defaultValue="year"
+                            defaultValue=""
                             value={type}
                             onChange={(e) => setType(e.target.value)}
                         />
@@ -253,7 +250,7 @@ const Whole = () => {
                     <div className='border-b'>
                         <Tabs tabs={mainTabsData} selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
                     </div>
-                    <div className='py-4 '>
+                    <div className='py-4'>
                         {selectedTab === 1 ? (
                             <LessonSlotSetting />
                         ) : selectedTab === 2 ? (

@@ -17,7 +17,7 @@ const ManageLesson = ({ options, icon, text, value, setState, onDuplicateClick, 
                     </button>
                 ) : null}
 
-                <InputSelect value={value} width={"200px"} options={options} defaultValue="year"
+                <InputSelect value={value} width={"200px"} options={options}
                     onChange={(e) => setState(e.target.value)} />
 
                 {calendarOpen ? (

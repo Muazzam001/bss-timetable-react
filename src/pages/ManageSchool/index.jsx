@@ -72,7 +72,7 @@ const ManageSchool = () => {
 
             <div className='container min-h-[calc(100vh-175px)]'>
 
-                <div className='flex flex-col gap-10 py-10'>
+                <div className='flex flex-col gap-10 py-9'>
 
                     <div>
                         <h3 className='text-h3 font-primary text-center text-blue-dark1'>Welcome to Beaconhouse</h3>
