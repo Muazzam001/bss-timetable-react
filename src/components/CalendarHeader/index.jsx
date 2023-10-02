@@ -79,11 +79,11 @@ const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab, side
                 </div> */}
                 </div>
 
-                <div className={`flex items-center justify-between ${sidebar ? "max-w-[300px] w-full" : "hidden"}`}>
+                <div className={`flex items-center justify-between gap-x-1 ${sidebar ? "max-w-[351px] w-full" : "hidden"}`}>
 
                     {tabItems.map((tab, index) => (
                         <div onClick={() => handleTabClick(tab.name)} key={index}
-                             className={`relative h-full  min-h-[3.5rem] flex flex-col items-center justify-center font-primary font-semibold text-tny  cursor-pointer hover:bg-blue-light1 ${selectedTab === tab.name ? `!bg-blue-light1` : ''} `}>
+                             className={`relative flex-auto h-full min-h-[3.5rem] flex flex-col items-center justify-center font-primary font-semibold text-tny  cursor-pointer hover:bg-blue-light1 ${selectedTab === tab.name ? `!bg-blue-light1` : ''} `}>
                             <span
                                 className={`absolute -top-[0.25rem] w-full h-4 border-t-4 rounded border-gray-medium ${selectedTab === tab.name ? `!border-blue-dark2` : ''}`}>&nbsp;</span>
                             <span

@@ -71,7 +71,7 @@ const Calendar = () => {
                 />
 
                 <div className='flex'>
-                    <div className={`${isSidebarOpen ? 'w-[calc(100vw-304px)]' : "w-full"} overflow-auto`}>
+                    <div className={`${isSidebarOpen ? 'w-[calc(100vw-354px)]' : "w-full"} overflow-auto`}>
                         <FullCalendar
                             ref={calendarRef}
                             plugins={[dayGridPlugin, interactionPlugin]}
@@ -182,7 +182,7 @@ const Calendar = () => {
                     </div>
 
                     <div
-                        className={`bg-white border border-gray-dark2 ${isSidebarOpen ? 'max-w-[301px] w-full' : 'w-0'}`}>
+                        className={`bg-white border border-gray-dark2 ${isSidebarOpen ? 'max-w-[351px] w-full' : 'w-0'}`}>
                         {isSidebarOpen && (
                             <div className='w-full h-full'>
                                 <div className='flex items-end w-full h-13'>
