@@ -28,16 +28,20 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
         },
         '& .MuiPaper-root': {
             zIndex: 999,
+            height: 50,
         },
         '& .MuiSelect-icon': {
             color: "#175088 !important",
         },
-        '& .MuiSelect-select.css-1uwzc1h-MuiSelect-select-MuiInputBase-input': {
+        '& .MuiSelect-select': {
+            height: 50,
+            '&.css-1uwzc1h-MuiSelect-select-MuiInputBase-input': {
             display: "flex",
             alignItems: "center",
             height: 50,
             fontSize: 14,
             fontWeight: "400",
+        }
         }
     }));
 
@@ -90,11 +94,11 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
                                 '& .MuiMenuItem-root': {
                                     paddingX: 2,
                                     paddingY: 1.5,
-                                    marginTop: "5px",
-                                    marginBottom: "5px",
-                                    color: "#7D7D92",
                                     fontSize: 14,
                                     fontWeight: "400",
+                                    color: "#7D7D92",
+                                    marginTop: "5px",
+                                    marginBottom: "5px",
                                     borderRadius: "6px",
                                     whiteSpace: 'normal',
                                     border: 1,
