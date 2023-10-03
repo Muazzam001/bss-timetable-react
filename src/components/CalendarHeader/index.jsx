@@ -28,6 +28,7 @@ const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab, side
 
                     <div className='flex items-center gap-5'>
                         <Image src={assets.calendar1} alt="calendar icon" className="w-8"/>
+
                         <span className='font-primary font-semibold'>Timetable</span>
                     </div>
 
@@ -83,9 +84,11 @@ const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab, side
 
                     {tabItems.map((tab, index) => (
                         <div onClick={() => handleTabClick(tab.name)} key={index}
-                             className={`relative flex-auto h-full min-h-[3.5rem] flex flex-col items-center justify-center font-primary font-semibold text-tny  cursor-pointer hover:bg-blue-light1 ${selectedTab === tab.name ? `!bg-blue-light1` : ''} `}>
+                             className={`relative flex-auto h-full min-h-[3.5rem] flex flex-col items-center justify-center font-primary font-semibold text-tny cursor-pointer hover:bg-blue-light1 ${selectedTab === tab.name ? `!bg-blue-light1` : ''} `}>
+
                             <span
-                                className={`absolute -top-[0.25rem] w-full h-4 border-t-4 rounded border-gray-medium ${selectedTab === tab.name ? `!border-blue-dark2` : ''}`}>&nbsp;</span>
+                                className={`absolute -top-[0.25rem] w-full h-4 border-t-4 rounded ${selectedTab === tab.name ? `!border-blue-dark2` : 'border-gray-medium'}`}>&nbsp;</span>
+
                             <span
                                 className={`-translate-y-7 ${selectedTab === tab.name ? `text-blue-dark2` : ''}`}>{tab.name}</span>
 
