@@ -1,3 +1,19 @@
+.fc {
+    .fc-scrollgrid-section, .fc-scrollgrid-section table, .fc-scrollgrid-section > td,
+    .fc-view-harness,
+    .fc-scrollgrid-sync-table{
+        height: fit-content !important;
+    }
+
+    .fc-daygrid-day-frame {
+        max-height: unset !important;
+    }
+
+    .fc-scroller {
+        position: relative !important;
+    }
+}
+
 .fc-scrollgrid-sync-inner,
 .fc .fc-col-header-cell-cushion,
 .fc .fc-daygrid-day-number {
@@ -61,9 +77,6 @@
     @apply rounded-none;
 }
 
-.fc-scrollgrid-sync-inner {
-    max-height: 57px !important;
-}
 
 .table-inner {
     border: 2px solid !important;
