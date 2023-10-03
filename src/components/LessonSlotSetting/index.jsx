@@ -131,7 +131,7 @@ const LessonSlotSetting = () => {
                 />
 
                 <span
-                    className='border border-gray-dark2 rounded-full w-7 h-7 p-1 flex items-center'
+                    className='border border-gray-dark2 rounded-full w-7 h-7 p-1 flex items-center ml-auto'
                     onClick={() => {
                         setDaysUpdateModal(true)
                     }}>
@@ -180,7 +180,8 @@ const LessonSlotSetting = () => {
             </div>
 
             <ConfirmationModal open={rowUpdateModal} close={() => setRowUpdateModal(false)} position="justify-end">
-                <div className='flex flex-col items-center gap-y-4 h-full max-h-[600px] max-w-[600px] overflow-auto'>
+                <div
+                    className='flex flex-col items-center gap-y-4 w-full h-full max-h-[600px] max-w-[600px] overflow-auto pr-3'>
 
                     <div className='flex gap-5 justify-between w-full'>
                         <InputField
@@ -262,11 +263,11 @@ const LessonSlotSetting = () => {
                         }}
                     />
                 </div>
-
             </ConfirmationModal>
 
             <ConfirmationModal open={daysUpdateModal} close={() => setDaysUpdateModal(false)} position="justify-end">
-                <div className='flex flex-col items-center gap-y-4 h-full max-h-[600px] max-w-[600px] overflow-auto'>
+                <div
+                    className='flex flex-col items-center gap-y-4 w-full h-full max-w-[600px] max-h-[70vh] overflow-auto pr-3'>
                     {updatedLessonTabsData?.map((tab) => {
                         return (
                             <div key={tab?.id} className='flex w-full justify-between gap-10'>
@@ -321,7 +322,7 @@ const LessonSlotSetting = () => {
 
             <ConfirmationModal open={lessonRenameModal} close={() => setLessonRenameModal(false)}
                                position="justify-end">
-                <div className='flex flex-col gap-y-4 lg:max-w-[600px] 2xl:max-w-[800px] w-full'>
+                <div className='flex flex-col gap-y-4 w-full lg:max-w-[600px] 2xl:max-w-[800px]'>
                     <p className='font-primary font-semibold mb-3'>Duplicate Lesson Type Rename</p>
 
                     <div className='flex items-center gap-3'>
@@ -379,7 +380,7 @@ const LessonSlotSetting = () => {
             </ConfirmationModal>
 
             <ConfirmationModal open={editBreakModal} close={() => setEditBreakModal(false)} position="justify-end">
-                <div className='w-[700px] flex flex-col items-center'>
+                <div className='lg:max-w-[600px] xl:max-w-[700px] w-full flex flex-col items-center'>
                     <div className='w-full justify-start my-5'>
                         <div className='flex gap-2 items-center'>
                             <Tooltips title="Break Between Lesson">
@@ -505,7 +506,7 @@ const LessonSlotSetting = () => {
 
             <ConfirmationModal open={breakbetweenModal} close={() => setBreakbetweenModal(false)}
                                position="justify-end">
-                <div className='w-[700px] flex flex-col items-center'>
+                <div className='lg:max-w-[600px] xl:max-w-[700px] w-full flex flex-col items-center'>
                     <div className='w-full justify-start my-5'>
                         <div className='flex gap-2 items-center'>
                             <span className='font-primary font-semibold text-sm'>Default Break Between Lessons</span>

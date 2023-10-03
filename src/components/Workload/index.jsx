@@ -164,7 +164,7 @@ const Workload = () => {
                         />
                     </div>
                     <div className='w-full flex items-center justify-between'>
-                        <span className="font-primary text-sm select-none">islamiat</span>
+                        <span className="font-primary text-sm select-none">Islamiat</span>
                         <InputSpinner
                             className="text-gray-dark1 w-34"
                             min={0}
