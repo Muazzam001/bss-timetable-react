@@ -91,7 +91,6 @@ const DefaultSetting = () => {
                     />
                 </div>
 
-
                 <div className='flex flex-col gap-y-2'>
                     <div className='flex items-center gap-x-2'>
                         <p className='text-md font-medium font-primary'>Default Lesson time</p>
@@ -180,7 +179,7 @@ const DefaultSetting = () => {
                         </div>
 
                         <div className='flex flex-col gap-y-2'>
-                            <div className='flex items-center gap-x-1'>
+                            <div className='flex items-center gap-x-2'>
                                 <p className='text-md font-medium font-primary'>Break Between Lesson</p>
 
                                 <Tooltips title="Break between lesson">
@@ -249,16 +248,29 @@ const DefaultSetting = () => {
                                 ) : null}
                             </div>
                         </div>
+
+                        <div className='mt-8'>
+                            <button
+                                className='bg-blue-dark2 text-white px-4 py-3 flex gap-2 justify-center items-center font-primary rounded-lg w-full'>
+                                <Image src={assets.calendar2} alt="calendar icon"
+                                       className="w-4"/><span>Update Default Settings</span>
+                            </button>
+                        </div>
+
                     </>
                 ) : null}
-
-                <div className='mt-auto'>
-                    <button
-                        className='bg-blue-dark2 text-white px-4 py-3 flex gap-2 items-center font-primary rounded-lg w-full'>
-                        <Image src={assets.calendar2} alt="calendar icon"
-                               className="w-4"/><span>Customize Default Setting</span>
-                    </button>
-                </div>
+                
+                {defaultSelectedTab === 2 ? (
+                    <>
+                        <div className='mt-8'>
+                            <button
+                                className='bg-blue-dark2 text-white px-4 py-3 flex gap-2 justify-center items-center font-primary rounded-lg w-full'>
+                                <Image src={assets.calendar2} alt="calendar icon"
+                                       className="w-4"/><span>Update Advance Settings</span>
+                            </button>
+                        </div>
+                    </>
+                ) : null}
             </div>
 
             {/* Lesson per Day Confirmation Modal */}

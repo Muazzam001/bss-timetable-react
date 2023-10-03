@@ -64,7 +64,7 @@ const Whole = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setCalendarDisplay(true);
-        }, 4000);
+        }, 3000);
 
         return () => {
             clearTimeout(timer);
@@ -78,7 +78,7 @@ const Whole = () => {
             <div className='relative py-8 min-h-[calc(100vh-175px)]'>
                 <div className='container grid items-center max-xl:grid-cols-1 max-xl:gap-y-4 xl:grid-cols-12 xl:gap-3'>
                     <div
-                        className='xl:col-span-11 grid max-lg:grid-cols-1 max-lg:gap-y-4 lg:grid-flow-col lg:grid-cols-12 lg:gap-3 lg:items-center'>
+                        className='xl:col-span-11 grid max-lg:grid-cols-1 max-lg:gap-y-4 xl:grid-flow-col xl:grid-cols-12 lg:gap-3 lg:items-center'>
                         <div className='xl:col-span-2'>
                             <InputField
                                 placeholder="ROC"
@@ -156,7 +156,7 @@ const Whole = () => {
 
                 {calendarDisplay ? (
                     <>
-                        <div className='absolute top-4 -left-1 z-50'>
+                        <div className='absolute top-3 -left-1 z-50'>
                             <Sidebar/>
                         </div>
 
@@ -164,9 +164,9 @@ const Whole = () => {
                     </>
                 ) : (
                     <>
-                        <div className='flex justify-center'>
-                            <Processing image={assets.loading} label="Please select timetable above option"
-                                        btnColor="bg-warning"/>
+                        <div className='flex justify-center my-8'>
+                            <Processing image={assets.loading} btnColor="bg-warning"
+                                        label="Please select timetable above option"/>
                         </div>
                     </>
                 )}

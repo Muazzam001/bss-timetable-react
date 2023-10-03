@@ -22,9 +22,9 @@ const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab, side
 
     return (
         <>
-            <div className='flex justify-between items-center bg-white border border-gray-medium border-b-0 mt-5'>
+            <div className='flex flex-col lg:flex-row lg:justify-between lg:items-center bg-white border border-gray-medium border-b-0 mt-5'>
 
-                <div className='flex items-center justify-between pl-10 pr-3 w-full'>
+                <div className='flex items-center justify-between pl-10 pr-3 w-full '>
 
                     <div className='flex items-center gap-5'>
                         <Image src={assets.calendar1} alt="calendar icon" className="w-8"/>
@@ -79,7 +79,7 @@ const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab, side
                 </div> */}
                 </div>
 
-                <div className={`flex items-center justify-between gap-x-1 ${sidebar ? "max-w-[351px] w-full" : "hidden"}`}>
+                <div className={`flex items-center justify-between gap-x-1 md:gap-x-2 xl:gap-x-1 mt-8 lg:mt-0 ${sidebar ? "lg:max-w-[350px] w-full" : "hidden"}`}>
 
                     {tabItems.map((tab, index) => (
                         <div onClick={() => handleTabClick(tab.name)} key={index}
@@ -92,7 +92,7 @@ const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab, side
                             <Image src={tab.imageSrc} alt='' className={`w-8 -translate-y-2`}/>
 
                             {selectedTab === tab.name && (
-                                <div className='absolute -bottom-4 w-full text-center'>
+                                <div className='absolute z-50 -bottom-4 w-full text-center'>
                                     <PlayArrowIcon className='text-blue-dark2 rotate-90 !w-5'/>
                                 </div>
                             )}

@@ -32,14 +32,14 @@ const Sidebar = () => {
                     {Menus.map((menu, index) => (
                         (open || sideMenu === menu?.title) && (
                             <li
-                                className={`${open ? "px-2 w-60" : "w-0"} ${sideMenu === menu?.title ? "bg-blue-dark2 text-white !w-60 !px-2" : "bg-white"} flex duration-300 rounded-md py-2 cursor-pointer hover:bg-blue-dark2 hover:text-white font-primary text-sm items-center gap-x-4`}
+                                className={`${open ? "px-2 !w-10 lg:!w-60" : "w-0"} ${sideMenu === menu?.title ? "bg-blue-dark2 text-white !w-10 lg:!w-60 !px-2" : "bg-white"} flex duration-300 rounded-md py-2 cursor-pointer hover:bg-blue-dark2 hover:text-white font-primary text-sm items-center gap-x-4`}
                                 key={index}
                                 onClick={() => {
                                     setSideMenu(menu.title);
                                     handleSideBar();
                                 }}>
                                 <Image src={menu.src} className="w-6 h-6" alt={"sidebar icon"}/>
-                                <span className={`origin-left duration-100 inline-block`}>{menu.title}</span>
+                                <span className={`origin-left duration-100 hidden lg:inline-block`}>{menu.title}</span>
                             </li>
                         )
                     ))}

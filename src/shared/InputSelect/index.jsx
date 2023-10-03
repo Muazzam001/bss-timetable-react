@@ -28,14 +28,20 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
                 borderRadius: 6,
                 fontSize: 14,
                 height: 50,
+                minWidth: 150,
+                boxSizing:'border-box'
             }
         }
     }));
 
     const optionItems = options?.map((item, index) => {
         return (
-            <MenuItem key={`${index}`} sx={{width: `${width}`}} value={item}
-                      className='z-50 whitespace-normal'>{item}</MenuItem>
+            <MenuItem
+                key={`${index}`}
+                // sx={{width: `${width}`}}
+                value={item}
+                className='z-50 whitespace-normal'
+            >{item}</MenuItem>
         );
     });
 
@@ -49,7 +55,7 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
                     name={name}
                     value={value}
                     onChange={onChange}
-                    sx={{width: `${width}`}}
+                    // sx={{width: `${width}`}}
                     input={<BootstrapInput/>}
                     IconComponent={ExpandMoreIcon}
                     disabled={disabled && disabled}
@@ -67,7 +73,7 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
                                 '& .MuiList-root': {
                                     padding: 0,
                                     minWidth: "fit-content",
-                                    width: {width},
+                                    // width: {width},
                                 },
                                 '& .MuiButtonBase-root': {
                                     whiteSpace: "normal",
