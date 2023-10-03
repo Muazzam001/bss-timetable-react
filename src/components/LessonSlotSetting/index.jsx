@@ -268,6 +268,7 @@ const LessonSlotSetting = () => {
             <ConfirmationModal open={daysUpdateModal} close={() => setDaysUpdateModal(false)} position="justify-end">
                 <div
                     className='flex flex-col items-center gap-y-4 w-full h-full max-w-[600px] max-h-[70vh] overflow-auto pr-3'>
+
                     {updatedLessonTabsData?.map((tab) => {
                         return (
                             <div key={tab?.id} className='flex w-full justify-between gap-10'>

@@ -24,7 +24,7 @@ const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab, side
         <>
             <div className='flex flex-col lg:flex-row lg:justify-between lg:items-center bg-white border border-gray-medium border-b-0 mt-5'>
 
-                <div className='flex items-center justify-between pl-10 pr-3 w-full'>
+                <div className='flex items-center justify-between pl-10 pr-3 w-full '>
 
                     <div className='flex items-center gap-5'>
                         <Image src={assets.calendar1} alt="calendar icon" className="w-8"/>
@@ -85,6 +85,7 @@ const CalendarHeader = ({calendarRef, dayName, selectedTab, setSelectedTab, side
                     {tabItems.map((tab, index) => (
                         <div onClick={() => handleTabClick(tab.name)} key={index}
                              className={`relative flex-auto h-full min-h-[3.5rem] flex flex-col items-center justify-center font-primary font-semibold text-tny cursor-pointer hover:bg-blue-light1 ${selectedTab === tab.name ? `!bg-blue-light1` : ''} `}>
+
                             <span
                                 className={`absolute -top-[0.25rem] w-full h-4 border-t-4 rounded ${selectedTab === tab.name ? `!border-blue-dark2` : 'border-gray-medium'}`}>&nbsp;</span>
 

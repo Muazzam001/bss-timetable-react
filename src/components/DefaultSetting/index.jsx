@@ -37,7 +37,7 @@ const DefaultSetting = () => {
                     gap="gap-x-3"
                 />
 
-                {defaultSelectedTab === 1 ? (
+                { defaultSelectedTab === 1 ? (
                     <BasicSetting/>
                 ) : defaultSelectedTab === 2 ? (
                     <AdvanceSetting/>
