@@ -70,8 +70,8 @@ const Calendar = () => {
                     setSidebar={setIsSidebarOpen}
                 />
 
-                <div className=''>
-                    <div className={`${isSidebarOpen ? 'w-[calc(100vw-391px)]' : "w-full"} overflow-auto float-left`}>
+                <div className='flex'>
+                    <div className={`${isSidebarOpen ? 'w-[calc(100vw-354px)]' : "w-full"} overflow-auto`}>
                         <FullCalendar
                             ref={calendarRef}
                             plugins={[dayGridPlugin, interactionPlugin]}
@@ -83,16 +83,16 @@ const Calendar = () => {
                                         className="table-inner table-auto w-full !min-h-fit text-left whitespace-no-wrap !border !border-gray-medium">
                                         <thead>
                                         <tr>
-                                            <th className="!align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100 rounded-tl rounded-bl">1</th>
-                                            <th className="!align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">2</th>
-                                            <th className="!align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">3</th>
-                                            <th className="!align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">BR</th>
-                                            <th className="!align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">4</th>
-                                            <th className="!align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">5</th>
-                                            <th className="!align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">6</th>
-                                            <th className="!align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">BR</th>
-                                            <th className="!align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">7</th>
-                                            <th className="!align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">8</th>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100 rounded-tl rounded-bl">1</th>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">2</th>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">3</th>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">BR</th>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">4</th>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">5</th>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">6</th>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">BR</th>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">7</th>
+                                            <th className="!text-center !align-middle title-font font-medium text-gray-900 text-xs font-primary bg-gray-100">8</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -182,7 +182,7 @@ const Calendar = () => {
                     </div>
 
                     <div
-                        className={`bg-white border overflow-y-auto border-gray-dark2 float-right ${isSidebarOpen ? 'max-w-[351px] w-full' : 'w-0'}`}>
+                        className={`bg-white border border-gray-dark2 ${isSidebarOpen ? 'max-w-[351px] w-full' : 'w-0'}`}>
                         {isSidebarOpen && (
                             <div className='w-full h-full'>
                                 <div className='flex items-end w-full h-13'>
@@ -223,7 +223,6 @@ const Calendar = () => {
                         )}
                     </div>
                 </div>
-                <div className='clear-both'></div>
             </div>
             <SideModal isOpen={manageModal} setIsOpen={setManageModal} title="Manage Lesson">
                 <div>

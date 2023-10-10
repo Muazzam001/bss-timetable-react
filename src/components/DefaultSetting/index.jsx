@@ -1,6 +1,4 @@
 import {useContext, useState} from 'react';
-import {assets} from "../../assets";
-import Image from "../../shared/Image";
 import InputField from "../../shared/Input";
 import {TimetableContext} from '../../utils/timetableContext.js';
 import Tabs from '../../shared/Tabs';

@@ -164,10 +164,11 @@ const Whole = () => {
                     </>
                 ) : (
                     <>
-                        <div className='flex justify-center my-8'>
-                            <Processing image={assets.loading} btnColor="bg-warning"
-                                        label="Please select timetable above option"/>
-                        </div>
+                        <Processing
+                            image={assets.loading}
+                            btnColor="bg-warning"
+                            processClass={`my-8`}
+                            label="Please select timetable above option"/>
                     </>
                 )}
             </div>
