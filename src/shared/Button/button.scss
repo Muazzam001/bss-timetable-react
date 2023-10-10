@@ -1,10 +1,10 @@
 .button {
     @apply hover:bg-transparent font-bold text-white p-4 border-2 border-transparent rounded-full shadow-sm;
 }
-.masked {
-    background-color: #175088;
-    -webkit-mask-image: url("../../../assets/images/plus.png");
-    mask-image: url("../../../assets/images/plus.png");
-    mask-repeat: no-repeat;
-    mask-size: cover;
-}
+//.masked {
+//    background-color: #175088;
+//    -webkit-mask-image: url("../../../assets/images/plus.png");
+//    mask-image: url("../../../assets/images/plus.png");
+//    mask-repeat: no-repeat;
+//    mask-size: cover;
+//}

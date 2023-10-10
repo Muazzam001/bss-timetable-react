@@ -23,7 +23,7 @@ const Button = ({className, title, type, onClick, color, icon, rounded, hover, d
 
     return (
         <button
-            className={`group flex items-center gap-x-2 font-primary font-medium text-white text-base p-2 border-2 border-transparent ${rounded ? "rounded-full" : "rounded-lg"} shadow-sm ${className} ${!disabled ? hover === false ? null : buttonColor : ""} justify-center ${disabled ? "cursor-not-allowed bg-blue-dark2/40 text-gray-medium" : "cursor-pointer"}`}
+            className={`group flex items-center justify-center gap-x-2 text-white font-primary font-medium text-base p-2 border-2 border-transparent shadow-sm ${className} ${rounded ? "rounded-full" : "rounded-lg"} ${!disabled ? hover === false ? null : buttonColor : ""} ${disabled ? "cursor-not-allowed bg-blue-dark2/40 text-gray-medium" : "cursor-pointer"}`}
             type={type} onClick={!disabled && onClick}>
             {icon ? (<div className={`group-hover:bg-green-400 w-5 h-5 z-50`}></div>) : null}
 
