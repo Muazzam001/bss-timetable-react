@@ -2,38 +2,9 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import InputBase from '@mui/material/InputBase';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
-import {styled} from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 
-const InputSelect = ({options, className, value, width, disabled, label, onChange, name}) => {
-
-    const BootstrapInput = styled(InputBase)(() => ({
-
-        'label + &': {
-            width: `${width}`,
-        },
-        '& .MuiSelect-icon': {
-            color: "#175088 !important",
-        },
-        '& .MuiSelect-select': {
-            '&.MuiInputBase-input': {
-                display: "flex",
-                alignItems: "center",
-                fontFamily: '\'Poppins\', \'Raleway\', \'Montserrat\', \'Open Sans\', \'sans-serif\'',
-                border: `1px solid ${disabled && disabled ? "#D4D4D4" : "#1D5891"}`,
-                backgroundColor: "#F7F7F6 !important",
-                color: "#175088 !important",
-                padding: '0 26px 0 12px',
-                position: 'relative',
-                fontWeight: "400",
-                borderRadius: 6,
-                fontSize: 14,
-                height: 50,
-                minWidth: 150,
-                boxSizing:'border-box'
-            }
-        }
-    }));
-
+const InputSelect = ({ options, className, value, width, disabled, label, onChange, name }) => {
     const optionItems = options?.map((item, index) => {
         return (
             <MenuItem
@@ -55,8 +26,20 @@ const InputSelect = ({options, className, value, width, disabled, label, onChang
                     name={name}
                     value={value}
                     onChange={onChange}
-                    // sx={{width: `${width}`}}
-                    input={<BootstrapInput/>}
+                    sx={{
+                        border: `1px solid ${disabled && disabled ? "#D4D4D4" : "#1D5891"}`,
+                        backgroundColor: "#F7F7F6 !important",
+                        color: "#175088",
+                        borderRadius: "8px",
+                        '& .MuiOutlinedInput-notchedOutline': {
+                            border: "none !important",
+                        },
+                        '& .MuiSelect-select': {
+                            '&.MuiInputBase-input': {
+                                padding: "13px 14px",
+                            }
+                        }
+                    }}
                     IconComponent={ExpandMoreIcon}
                     disabled={disabled && disabled}
                     className={`bg-transparent z-50 border-0 text-xs ${className}`}

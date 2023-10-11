@@ -1,7 +1,7 @@
-import {useContext, useEffect, useState} from 'react';
-import {stopScroll} from "../../utils/utils.js";
-import {assets} from "../../assets";
-import {useNavigate} from "react-router-dom";
+import { useContext, useEffect, useState } from 'react';
+import { stopScroll } from "../../utils/utils.js";
+import { assets } from "../../assets";
+import { useNavigate } from "react-router-dom";
 import MainLayout from "../../shared/MainLayout";
 import InputField from "../../shared/Input";
 import InputSelect from "../../shared/InputSelect";
@@ -12,13 +12,13 @@ import Processing from "../../components/Processing";
 import MainModal from "../../shared/MainModal";
 import SideModal from "../../shared/SideModal";
 import Sidebar from '../../shared/Sidebar';
-import {TimetableContext} from "../../utils/timetableContext.js"
+import { TimetableContext } from "../../utils/timetableContext.js"
 import Tabs from '../../shared/Tabs';
 import LessonSlotSetting from '../../components/LessonSlotSetting';
 import LessonDaysSetting from '../../components/LessonDaysSetting/index.jsx';
 
 const Whole = () => {
-    const {defaultValue: lesson, setDefaultValue: setLesson} = useContext(TimetableContext);
+    const { defaultValue: lesson, setDefaultValue: setLesson } = useContext(TimetableContext);
     const navigate = useNavigate();
     const [calendarDisplay, setCalendarDisplay] = useState(false);
     const [duplicateModalOpen, setDuplicateModalOpen] = useState(false);
@@ -45,10 +45,10 @@ const Whole = () => {
     const level = ["Default", "Winter - Default"];
 
     const Menus = [
-        {title: "Home", src: assets.home},
+        { title: "Home", src: assets.home },
         // {title: "Subjects", src: assets.subject},
         // {title: "Classes", src: assets.classes},
-        {title: "Classrooms", src: assets.classroom},
+        { title: "Classrooms", src: assets.classroom },
         // {title: "Teachers", src: assets.teacher2},
         // {title: "Modules", src: assets.modules},
     ];
@@ -79,6 +79,7 @@ const Whole = () => {
                 <div className='container grid items-center max-xl:grid-cols-1 max-xl:gap-y-4 xl:grid-cols-12 xl:gap-3'>
                     <div
                         className='xl:col-span-11 grid max-lg:grid-cols-1 max-lg:gap-y-4 xl:grid-flow-col xl:grid-cols-12 lg:gap-3 lg:items-center'>
+
                         <div className='xl:col-span-2'>
                             <InputField
                                 placeholder="ROC"
@@ -157,115 +158,120 @@ const Whole = () => {
                 {calendarDisplay ? (
                     <>
                         <div className='absolute top-3 -left-1 z-50'>
-                            <Sidebar/>
+                            <Sidebar />
                         </div>
 
-                        <Calendar/>
+                        <Calendar />
                     </>
                 ) : (
                     <>
-                        <Processing
-                            image={assets.loading}
-                            btnColor="bg-warning"
-                            processClass={`my-8`}
-                            label="Please select timetable above option"/>
+                        <div className='flex justify-center my-8'>
+                            <Processing image={assets.loading} btnColor="bg-warning"
+                                label="Please select timetable above option" />
+                        </div>
                     </>
                 )}
             </div>
 
-            <MainModal
-                border
-                open={open}
-                setOpen={setOpen}
-                image={assets.okbro}
-                btnColor="bg-success"
-                label={`Duplicated timetable successfully has been created "Winter".`}
-            >
-                <Button
-                    rounded={true}
-                    type="button"
-                    title="Ok"
-                    color={"blue-dark2"}
-                    className="px-10 py-3"
-                    onClick={() => setOpen(false)}
-                />
-            </MainModal>
+            {open && (
+                <MainModal
+                    border
+                    open={open}
+                    setOpen={setOpen}
+                    image={assets.okbro}
+                    btnColor="bg-success"
+                    label={`Duplicated timetable successfully has been created "Winter".`}
+                >
+                    <Button
+                        rounded={true}
+                        type="button"
+                        title="Ok"
+                        color={"blue-dark2"}
+                        className="px-10 py-3"
+                        onClick={() => setOpen(false)}
+                    />
+                </MainModal>
+            )}
 
-            <SideModal isOpen={duplicateModalOpen} setIsOpen={setDuplicateModalOpen} title="Manage Duplicate Timetable">
-                <section className='w-[500px]'>
-                    <div className='flex flex-col gap-y-8'>
-                        <InputField
-                            label="Duplicate Name"
-                            placeholder="Type Duplicate Name"
-                            className=""
-                            value={duplicateName}
-                            onChange={(e) => setDuplicateName(e.target.value)}
-                        />
+            {duplicateModalOpen ? (
+                <SideModal isOpen={duplicateModalOpen} setIsOpen={setDuplicateModalOpen} title="Manage Duplicate Timetable">
+                    <section className='w-[500px]'>
+                        <div className='flex flex-col gap-y-8'>
+                            <InputField
+                                label="Duplicate Name"
+                                placeholder="Type Duplicate Name"
+                                className=""
+                                value={duplicateName}
+                                onChange={(e) => setDuplicateName(e.target.value)}
+                            />
 
-                        <InputSelect
-                            label="Duplicate Option"
-                            width={"100%"}
-                            className="min-w-[200px]"
-                            options={duplicateOption}
-                            value={option}
-                            setState={setOption}
-                            onChange={(e) => setOption(e.target.value)}
-                        />
+                            <InputSelect
+                                label="Duplicate Option"
+                                width={"100%"}
+                                className="min-w-[200px]"
+                                options={duplicateOption}
+                                value={option}
+                                setState={setOption}
+                                onChange={(e) => setOption(e.target.value)}
+                            />
 
-                        <InputSelect
-                            label="Duplicate Type"
-                            width={"100%"}
-                            className="min-w-[200px]"
-                            options={duplicateType}
-                            defaultValue=""
-                            value={type}
-                            onChange={(e) => setType(e.target.value)}
-                        />
+                            <InputSelect
+                                label="Duplicate Type"
+                                width={"100%"}
+                                className="min-w-[200px]"
+                                options={duplicateType}
+                                defaultValue=""
+                                value={type}
+                                onChange={(e) => setType(e.target.value)}
+                            />
 
-                    </div>
+                        </div>
 
-                    <div className='flex gap-x-5 justify-end mt-10'>
-                        <Button
-                            title="Cancel"
-                            rounded={true}
-                            hover={false}
-                            className="!px-8 !bg-gray-medium !text-black !text-sm"
-                        />
+                        <div className='flex gap-x-5 justify-end mt-10'>
+                            <Button
+                                title="Cancel"
+                                rounded={true}
+                                hover={false}
+                                className="!px-8 !bg-gray-medium !text-black !text-sm"
+                            />
 
-                        <Button
-                            rounded={true}
-                            type="button"
-                            title="Generate Clone"
-                            color={"blue-dark2"}
-                            className="px-18 py-3"
-                            onClick={() => {
-                                setDuplicateModalOpen(false)
-                                setOpen(true)
-                            }}
-                        />
-                    </div>
-                </section>
-            </SideModal>
+                            <Button
+                                rounded={true}
+                                type="button"
+                                title="Generate Clone"
+                                color={"blue-dark2"}
+                                className="px-18 py-3"
+                                onClick={() => {
+                                    setDuplicateModalOpen(false)
+                                    setOpen(true)
+                                }}
+                            />
+                        </div>
+                    </section>
+                </SideModal>
+            ) : null}
 
-            <SideModal isOpen={isSlotModalOpen} setIsOpen={setSlotModalOpen} title="Manage Lesson Slot">
-                <section>
-                    <div className='border-b'>
-                        <Tabs
-                            tabs={mainTabsData}
-                            selectedTab={selectedTab}
-                            setSelectedTab={setSelectedTab}
-                            tabWidth="w-fit"
-                        />
-                    </div>
-                    <div className='py-4'>
-                        {selectedTab === 1 ? (
-                            <LessonSlotSetting/>
-                        ) : selectedTab === 2 ? (
-                            <LessonDaysSetting/>
-                        ) : null}
-                    </div>
-                </section>
-            </SideModal>
+            {isSlotModalOpen ? (
+                <SideModal isOpen={isSlotModalOpen} setIsOpen={setSlotModalOpen} title="Manage Lesson Slot">
+                    <section>
+                        <div className='border-b'>
+                            <Tabs
+                                tabs={mainTabsData}
+                                selectedTab={selectedTab}
+                                setSelectedTab={setSelectedTab}
+                                tabWidth="w-fit"
+                            />
+                        </div>
+                        <div className='py-4'>
+                            {selectedTab === 1 ? (
+                                <LessonSlotSetting />
+                            ) : selectedTab === 2 ? (
+                                <LessonDaysSetting />
+                            ) : null}
+                        </div>
+                    </section>
+                </SideModal>
+            ) : null}
         </MainLayout>
     );
 }
