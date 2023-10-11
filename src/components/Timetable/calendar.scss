@@ -1,95 +1,96 @@
 .fc {
-    .fc-scrollgrid-section, .fc-scrollgrid-section table, .fc-scrollgrid-section > td,
-    .fc-view-harness,
-    .fc-scrollgrid-sync-table{
-        height: fit-content !important;
-    }
+  .fc-scrollgrid-section, .fc-scrollgrid-section table, .fc-scrollgrid-section > td,
+  .fc-view-harness,
+  .fc-scrollgrid-sync-table {
+    height: fit-content !important;
+  }
 
-    .fc-daygrid-day-frame {
-        max-height: unset !important;
-    }
+  .fc-daygrid-day-frame {
+    max-height: unset !important;
+  }
 
-    .fc-scroller {
-        position: relative !important;
-    }
+  .fc-view-harness-active > .fc-view,
+  .fc-scroller {
+    position: relative !important;
+  }
 }
 
 .fc-scrollgrid-sync-inner,
 .fc .fc-col-header-cell-cushion,
 .fc .fc-daygrid-day-number {
-    @apply p-0;
+  @apply p-0;
 }
 
 .fc-col-header-cell-cushion {
-    @apply w-full h-full;
+  @apply w-full h-full;
 }
 
 .fc-dayGridDay-button.fc-button.fc-button-primary {
-    @apply rounded-none;
+  @apply rounded-none;
 }
 
 .fc-customDay-button.fc-button.fc-button-primary {
-    @apply bg-transparent border-0 text-black font-primary font-semibold;
+  @apply bg-transparent border-0 text-black font-primary font-semibold;
 }
 
 .fc-customYear-button.fc-button.fc-button-primary {
-    @apply bg-transparent border-0 text-black font-primary ml-0;
+  @apply bg-transparent border-0 text-black font-primary ml-0;
 }
 
 .fc-prev-button.fc-button.fc-button-primary,
 .fc-next-button.fc-button.fc-button-primary {
-    @apply bg-transparent border-0 text-black font-primary font-semibold p-0;
+  @apply bg-transparent border-0 text-black font-primary font-semibold p-0;
 }
 
 .centered-text {
-    @apply text-center align-middle bg-lime-300;
+  @apply text-center align-middle bg-lime-300;
 }
 
 .fc-scrollgrid-sync-inner {
-    @apply bg-white border-b-2 border-blue-dark2;
+  @apply bg-white border-b-2 border-blue-dark2;
 }
 
 .fc-header-toolbar.fc-toolbar.fc-toolbar-ltr {
-    @apply bg-white mb-0 py-2 px-10 border border-gray-300 border-b-0;
+  @apply bg-white mb-0 py-2 px-10 border border-gray-300 border-b-0;
 }
 
 .fc-dayGridDay-button.fc-button.fc-button-primary {
-    @apply bg-blue-dark2;
+  @apply bg-blue-dark2;
 }
 
 .fc.fc-media-screen.fc-direction-ltr.fc-theme-standard {
-    @apply w-[calc(100vw-32px)];
+  @apply w-[calc(100vw-32px)];
 }
 
 .fc-col-header-cell-cushion {
-    @apply py-3;
+  @apply py-3;
 }
 
 .fc-dayGridDay-button.fc-button.fc-button-primary,
 .fc-customCalenderButton-button.fc-button.fc-button-primary {
-    background-color: #175088 !important;
-    border: 1px solid rgb(92, 89, 89);
-    @apply capitalize py-0.5 px-7;
+  background-color: #175088 !important;
+  border: 1px solid rgb(92, 89, 89);
+  @apply capitalize py-0.5 px-7;
 
 }
 
 .fc-dayGridDay-button.fc-button.fc-button-primary {
-    @apply rounded-none;
+  @apply rounded-none;
 }
 
 
 .table-inner {
-    border: 2px solid !important;
+  border: 2px solid !important;
 }
 
 .fc-col-header-cell-cushion {
-    padding-block: 14px !important;
+  padding-block: 14px !important;
 }
 
 .item-p {
-    @apply text-xs font-primary font-normal text-white px-4 border-r border-white text-center w-full cursor-pointer;
+  @apply text-xs font-primary font-normal text-white px-4 border-r border-white text-center w-full cursor-pointer;
 
-    &:last-child {
-        @apply  border-r-0;
-    }
+  &:last-child {
+    @apply border-r-0;
+  }
 }

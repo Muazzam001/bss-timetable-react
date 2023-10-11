@@ -51,6 +51,7 @@ import testing from "./images/testing.png";
 import large from "./images/large.png";
 import edit2 from "./images/edit.png";
 import noData from "./images/no-data.png";
+import collapse from "./images/collapse.png";
 
 
 // Assets Exports
@@ -107,4 +108,5 @@ export const assets = {
     large,
     edit2,
     noData,
+    collapse
 }
