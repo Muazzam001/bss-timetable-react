@@ -78,6 +78,9 @@
   @apply rounded-none;
 }
 
+.fc-scrollgrid-sync-inner {
+    max-height: 57px !important;
+}
 
 .table-inner {
   border: 2px solid !important;

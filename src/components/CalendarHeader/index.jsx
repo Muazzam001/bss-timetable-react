@@ -85,8 +85,7 @@ const CalendarHeader = ({ calendarRef, dayName, selectedTab, setSelectedTab, sid
                 </div> */}
                 </div>
 
-                <div className={`flex items-center justify-between gap-x-1 md:gap-x-2 xl:gap-x-1 mt-8 lg:mt-0 ${sidebar ? "lg:max-w-[350px] w-full" : "hidden"}`}>
-
+                <div className={`flex items-center justify-between gap-x-1 md:gap-x-2 xl:gap-x-1 ${sidebar ? "lg:max-w-[350px] w-full" : "hidden"}`}>
                     {tabItems.map((tab, index) => (
                         <div onClick={() => handleTabClick(tab.name)} key={index}
                             className={`relative flex-auto h-full min-h-[3.5rem] flex flex-col items-center justify-center font-primary font-semibold text-tny cursor-pointer hover:bg-blue-light1 ${selectedTab === tab.name ? `!bg-blue-light1` : ''} `}>
@@ -131,7 +130,7 @@ const CalendarHeader = ({ calendarRef, dayName, selectedTab, setSelectedTab, sid
 
             </div>
         </>
-    )
+    );
 }
 
 export default CalendarHeader;
