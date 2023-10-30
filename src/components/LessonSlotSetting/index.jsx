@@ -534,7 +534,7 @@ const LessonSlotSetting = () => {
                                 <div className='flex w-full gap-5'>
                                     <InputSelect
                                         label="Lesson Per Day"
-                                        width={"100%"}
+                                        width={"w-full"}
                                         className="!w-[200px] !text-heading !font-medium !text-md"
                                         // options={}
                                         name="lessonPerDay"
@@ -543,7 +543,7 @@ const LessonSlotSetting = () => {
                                     />
                                     <InputSelect
                                         label="Lesson Per Day"
-                                        width={"100%"}
+                                        width={"w-full"}
                                         className="!w-[200px] !text-heading !font-medium !text-md"
                                         // options={}
                                         name="lessonPerDay"
@@ -554,7 +554,7 @@ const LessonSlotSetting = () => {
 
                                 <div className='flex w-full gap-5'>
                                     <InputSelect
-                                        width={"100%"}
+                                        width={"w-full"}
                                         className="!w-[200px] !text-heading !font-medium !text-md"
                                         // options={}
                                         name="lessonPerDay"
@@ -562,7 +562,7 @@ const LessonSlotSetting = () => {
                                         // onChange={}
                                     />
                                     <InputSelect
-                                        width={"100%"}
+                                        width={"w-full"}
                                         className="!w-[200px] !text-heading !font-medium !text-md"
                                         // options={}
                                         name="lessonPerDay"

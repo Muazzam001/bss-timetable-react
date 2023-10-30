@@ -100,7 +100,7 @@ const AdvanceSetting = () => {
             <div className='w-full'>
                 <InputSelect
                     label="Lesson Per Day"
-                    width={"100%"}
+                    width={"w-full"}
                     className="min-w-[200px] !text-heading !font-medium !text-md"
                     options={lessonOptions}
                     name="lessonPerDay"
@@ -119,7 +119,7 @@ const AdvanceSetting = () => {
                 </div>
 
                 <InputSelect
-                    width={"100%"}
+                    width={"w-full"}
                     value={weekend}
                     options={weekendOptions}
                     onChange={(e) => setWeekend(e.target.value)}

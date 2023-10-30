@@ -1,15 +1,12 @@
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import InputBase from '@mui/material/InputBase';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
-import { styled } from '@mui/material/styles';
 
 const InputSelect = ({ options, className, value, width, disabled, label, onChange, name }) => {
     const optionItems = options?.map((item, index) => {
         return (
             <MenuItem
                 key={`${index}`}
-                // sx={{width: `${width}`}}
                 value={item}
                 className='z-50 whitespace-normal'
             >{item}</MenuItem>
@@ -18,7 +15,7 @@ const InputSelect = ({ options, className, value, width, disabled, label, onChan
 
     return (
         <>
-            <div className="relative max-lg:flex-auto flex flex-col gap-y-1">
+            <div className={`relative max-lg:flex-auto flex flex-col gap-y-1 ${width}`}>
                 {label ? (
                     <label className={`${className} text-sm text-gray-dark1 font-primary font-normal`}>{label}</label>
                 ) : null}

@@ -15,10 +15,22 @@ const BasicSetting = () => {
     const [newDaysValue, setNewDaysValue] = useState(0);
     const [lessonConfirm, setLessonConfirm] = useState(false);
     const [daysConfirm, setDaysConfirm] = useState(false);
-    const [startHours, setStartHours] = useState(0);
-    const [endHours, setEndHours] = useState(0);
-    const [startMinutes, setStartMinutes] = useState(0);
-    const [endMinutes, setEndMinutes] = useState(0);
+    const [startTime, setStartTime] = useState({
+        hour: 0,
+        minute: 0
+    });
+    const [endTime, setEndTime] = useState({
+        hour: 0,
+        minute: 0
+    });
+    const [startTimeFriday, setStartTimeFriday] = useState({
+        hour: 0,
+        minute: 0
+    });
+    const [endTimeFriday, setEndTimeFriday] = useState({
+        hour: 0,
+        minute: 0
+    });
     const [break1, setBreak1] = useState(0);
     const [breakLength1, setBreakLength1] = useState(0);
     const [breakLengthUpper, setBreakLengthUpper] = useState(0);
@@ -29,6 +41,8 @@ const BasicSetting = () => {
     const [lessonModal, setLessonModal] = useState(false);
     const [daysModal, setDaysModal] = useState(false);
 
+    const hoursOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    const minutesOptions = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60];
     const lessonOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     const numOfDays = [1, 2, 3, 4, 5, 6, 7];
     const breakLength = [0, 10, 15, 20, 30, 40, 50, 60, 80, 100, 120];
@@ -63,44 +77,89 @@ const BasicSetting = () => {
         <>
             <div className='flex flex-col gap-y-2'>
                 <div className='flex items-center gap-x-2'>
-                    <p className='text-md font-medium font-primary'>Default Lesson time</p>
+                    <p className='text-md font-medium font-primary'>Default Timing (Mon - Thu)</p>
                 </div>
 
-                <div className='flex items-end gap-x-2'>
-                    <InputSpinner
+                <div className='flex items-end gap-x-2 w-full'>
+                    <InputSelect
                         label="Start Time"
-                        min={0}
-                        max={12}
-                        value={startHours}
-                        setState={setStartHours}
-                        className='text-gray-dark1 w-full'
+                        width={"w-1/2"}
+                        options={hoursOptions}
+                        name="starthour"
+                        value={lessonPerDay}
+                        onChange={(e) => setStartTime((startTime) => ({ ...startTime, hour: e.target.value }))}
                     />
-
-                    <InputSpinner
-                        min={0}
-                        max={60}
-                        value={startMinutes}
-                        setState={setStartMinutes}
-                        className='text-gray-dark1 w-full'
+                    <InputSelect
+                        label=""
+                        width={"w-1/2"}
+                        options={minutesOptions}
+                        name="startminute"
+                        value={lessonPerDay}
+                        onChange={(e) => setStartTime((startTime) => ({ ...startTime, minute: e.target.value }))}
                     />
                 </div>
 
                 <div className='flex items-end gap-x-2'>
-                    <InputSpinner
+                    <InputSelect
                         label="End Time"
-                        min={0}
-                        max={12}
-                        value={endHours}
-                        setState={setEndHours}
-                        className='text-gray-dark1 w-full'
+                        width={"w-1/2"}
+                        options={hoursOptions}
+                        name="endhour"
+                        value={lessonPerDay}
+                        onChange={(e) => setEndTime((endTime) => ({ ...endTime, hour: e.target.value }))}
                     />
+                    <InputSelect
+                        label=""
+                        width={"w-1/2"}
+                        options={minutesOptions}
+                        name="endminute"
+                        value={lessonPerDay}
+                        onChange={(e) => setEndTime((endTime) => ({ ...endTime, minute: e.target.value }))}
+                    />
+                </div>
 
-                    <InputSpinner
-                        min={0}
-                        max={60}
-                        value={endMinutes}
-                        setState={setEndMinutes}
-                        className='text-gray-dark1 w-full'
+            </div>
+
+            <div className='flex flex-col gap-y-2'>
+                <div className='flex items-center gap-x-2'>
+                    <p className='text-md font-medium font-primary'>Friday Default Timing</p>
+                </div>
+
+                <div className='flex items-end gap-x-2 w-full'>
+                    <InputSelect
+                        label="Start Time"
+                        width={"w-1/2"}
+                        options={hoursOptions}
+                        name="starthour"
+                        value={lessonPerDay}
+                        onChange={(e) => setStartTimeFriday((startTime) => ({ ...startTime, hour: e.target.value }))}
+                    />
+                    <InputSelect
+                        label=""
+                        width={"w-1/2"}
+                        options={minutesOptions}
+                        name="startminute"
+                        value={lessonPerDay}
+                        onChange={(e) => setStartTimeFriday((startTime) => ({ ...startTime, minute: e.target.value }))}
+                    />
+                </div>
+
+                <div className='flex items-end gap-x-2'>
+                    <InputSelect
+                        label="End Time"
+                        width={"w-1/2"}
+                        options={hoursOptions}
+                        name="endhour"
+                        value={lessonPerDay}
+                        onChange={(e) => setEndTimeFriday((endTime) => ({ ...endTime, hour: e.target.value }))}
+                    />
+                    <InputSelect
+                        label=""
+                        width={"w-1/2"}
+                        options={minutesOptions}
+                        name="endminute"
+                        value={lessonPerDay}
+                        onChange={(e) => setEndTimeFriday((endTime) => ({ ...endTime, minute: e.target.value }))}
                     />
                 </div>
 
@@ -109,8 +168,7 @@ const BasicSetting = () => {
             <div className='w-full'>
                 <InputSelect
                     label="Lesson Per Day"
-                    width={"100%"}
-                    className="min-w-[200px] !text-heading !font-medium !text-md"
+                    width={"w-full"}
                     options={lessonOptions}
                     name="lessonPerDay"
                     value={lessonPerDay}
@@ -119,16 +177,9 @@ const BasicSetting = () => {
             </div>
 
             <div className='flex flex-col gap-y-3'>
-                <div className='flex items-center gap-x-2'>
-                    <p className='text-md font-medium font-primary'>Weekend</p>
-
-                    <Tooltips title="Weekend">
-                        <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer"/>
-                    </Tooltips>
-                </div>
-
                 <InputSelect
-                    width={"100%"}
+                    label={"Weekend"}
+                    width={"w-full"}
                     value={weekend}
                     options={weekendOptions}
                     onChange={(e) => setWeekend(e.target.value)}
@@ -140,7 +191,6 @@ const BasicSetting = () => {
                     value={numDay}
                     options={numOfDays}
                     label="Number of Days"
-                    className="min-w-[200px] !text-heading !font-medium !text-md"
                     name="numberOfDays"
                     onChange={(e) => handleChange(e)}
                 />
@@ -149,10 +199,6 @@ const BasicSetting = () => {
             <div className='flex flex-col gap-y-2'>
                 <div className='flex items-center gap-x-2'>
                     <p className='text-md font-medium font-primary'>Break Between Lesson</p>
-
-                    <Tooltips title="Break between lesson">
-                        <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer"/>
-                    </Tooltips>
                 </div>
 
                 <div className='flex items-center gap-x-2'>
@@ -161,8 +207,7 @@ const BasicSetting = () => {
                             min={0}
                             value={break1}
                             setState={setBreak1}
-                            label="Break After Lesson"
-                            className='text-gray-dark1'
+                            label="After Lesson"
                         />
 
                         <InputSpinner
@@ -175,7 +220,6 @@ const BasicSetting = () => {
                     <div className='flex flex-col gap-y-2 w-[50%] -mt-0.5'>
                         <InputSelect
                             value={breakLengthUpper}
-                            className="text-gray-dark1"
                             options={breakLength}
                             label="Break Length"
                             name="breakLength2"
@@ -184,7 +228,6 @@ const BasicSetting = () => {
 
                         <InputSelect
                             value={breakLengthLower}
-                            className="w-full"
                             options={breakLength}
                             name="breakLength2"
                             onChange={(e) => setBreakLengthLower(e.target.value)}
@@ -196,19 +239,13 @@ const BasicSetting = () => {
             <div className='flex flex-col gap-y-2'>
                 <div className='flex items-center gap-x-2'>
                     <p className='text-md font-medium font-primary'>Work With Zero Lesson</p>
-
-                    <Tooltips title="Work with zero lesson">
-                        <Image src={assets.tooltip} className="w-4 h-4 cursor-pointer"/>
-                    </Tooltips>
-
-                    <Checkbox checked={zeroLessonCheck} setChecked={setZeroLessonCheck}/>
+                    <Checkbox checked={zeroLessonCheck} setChecked={setZeroLessonCheck} />
                 </div>
 
                 <div>
                     {zeroLessonCheck ? (
                         <InputSpinner
-                            label="Length"
-                            className="text-gray-dark1"
+                            label="Duration of Zero Lesspn"
                             min={0}
                             value={length}
                             setState={setLength}

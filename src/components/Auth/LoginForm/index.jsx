@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom";
 import {assets} from "../../../assets";
 import InputField from "../../../shared/Input";
 import Button from "../../../shared/Button";
+import Image from '../../../shared/Image';
 
 export default function LoginForm({className}) {
     const navigate = useNavigate();
@@ -122,14 +123,12 @@ export default function LoginForm({className}) {
                             onClick={handleLogin}
                         />
 
-                        {/*<Button*/}
-                        {/*    rounded={true}*/}
-                        {/*    type="button"*/}
-                        {/*    title="Forgot Password?"*/}
-                        {/*    color="blue-dark2"*/}
-                        {/*    className="p-3"*/}
-                        {/*    onClick={() => navigate("/forgot-password")}*/}
-                        {/*/>*/}
+                        <button
+                            className="p-3 bg-gray-light font-primary rounded-full border-2 font-bold border-gray-medium flex justify-center items-center gap-2"
+                        >
+                            <Image src={assets.google} alt="google logo" className="w-6 h-6" />
+                            <span>Sign In wtih Gmail</span>
+                            </button>
                     </div>
                 </div>
             </div>

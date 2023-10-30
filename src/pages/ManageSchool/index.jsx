@@ -15,7 +15,6 @@ const ManageSchool = () => {
     const [team, setTeam] = useState({
         region: "",
         cluster: "",
-        // city: "",
         branch: "",
         teamLevel: [],
     });
@@ -37,11 +36,6 @@ const ManageSchool = () => {
             setTeam((prevTeam) => ({...prevTeam, teamLevel: prevTeam.teamLevel.filter((item) => item !== value)}));
         }
     }
-
-    // Open/Close Modal
-    const openModal = () => {
-        setIsModalOpen(true);
-    };
 
     // Handle Change team value
     const handleChange = (target) => {
@@ -75,9 +69,7 @@ const ManageSchool = () => {
                 <div className='flex flex-col gap-10 py-9'>
 
                     <div>
-                        <h3 className='text-h3 font-primary text-center text-blue-dark1'>Welcome to Beaconhouse</h3>
-                        <p className='text-center font-primary text-sm text-blue-dark1'>Please provide content from
-                            Beaconhouse team</p>
+                        <h3 className='text-h3 font-primary text-center text-blue-dark1'>Welcome to Beaconhouse Timetable</h3>
                     </div>
 
                     <div
@@ -85,35 +77,28 @@ const ManageSchool = () => {
 
                         <Team
                             items={region}
-                            title="Select Region"
+                            title="Region"
                             name="region"
                             onChange={handleChange}
                         />
 
                         <Team
                             items={cluster}
-                            title="Select Cluster"
+                            title="Cluster"
                             name="cluster"
                             onChange={handleChange}
                         />
 
-                        {/*<Team*/}
-                        {/*    items={city}*/}
-                        {/*    title="Select City"*/}
-                        {/*    name="city"*/}
-                        {/*    onChange={handleChange}*/}
-                        {/*/>*/}
-
                         <Team
                             items={branch}
-                            title="Select Branch"
+                            title="Branch"
                             name="branch"
                             onChange={handleChange}
                         />
 
                         <MultiSelectionTeam
                             items={level}
-                            title="Select Level"
+                            title="School Level"
                             name="level"
                             onChange={handleLevelChange}
                         />
