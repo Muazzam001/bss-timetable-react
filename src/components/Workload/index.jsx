@@ -49,7 +49,7 @@ const Workload = () => {
 
             <div className='w-full'>
                 <InputSelect
-                    width={"100%"}
+                    width={"w-full"}
                     className="min-w-[200px] !text-heading !font-medium !text-md"
                     options={gradesOptions}
                     name="grades"

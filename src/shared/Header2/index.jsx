@@ -3,14 +3,6 @@ import Image from "../Image";
 import {assets} from "../../assets";
 
 const Header2 = ({headerItem}) => {
-    // const Menus = [
-    //     { title: "Home", src: assets.home },
-    //     { title: "Subjects", src: assets.subject },
-    //     { title: "Classes", src: assets.classes },
-    //     { title: "Classrooms", src: assets.classroom },
-    //     { title: "Teachers", src: assets.teacher2 },
-    //     { title: "Modules", src: assets.modules },
-    // ];
 
     const navigation =
         headerItem &&
@@ -22,7 +14,7 @@ const Header2 = ({headerItem}) => {
                         <Image alt="" className="" src={navItem?.src}/>
                     </span>
 
-                    <span className="font-primary text-sm">{navItem?.title}</span>
+                    <span className="font-primary text-xs text-center">{navItem?.title}</span>
                 </NavLink>
             );
         });
@@ -34,7 +26,7 @@ const Header2 = ({headerItem}) => {
                     <Image src={assets.logo} alt="" className="w-16"/>
                 </NavLink>
 
-                <nav className="md:ml-auto flex flex-wrap gap-x-10 items-center text-base justify-center">
+                <nav className="md:ml-auto flex flex-wrap gap-x-2 items-center text-base justify-center">
                     {navigation}
                 </nav>
             </div>

@@ -5,8 +5,6 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import DefaultSetting from "../DefaultSetting";
 import Control from "../Control";
-import Workload from "../Workload";
-import TimetableOptions from "../TimetableOptions";
 import CalendarHeader from '../CalendarHeader';
 import SideModal from '../../shared/SideModal';
 import Tabs from '../../shared/Tabs';
@@ -19,7 +17,8 @@ const Calendar = () => {
     const [year, setYear] = useState("");
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const [manageModal, setManageModal] = useState(false);
-    const [selectedTab, setSelectedTab] = useState("Default Settings");
+    const [selectedTab, setSelectedTab] = useState("Lesson Default Settings");
+    const [selectedSetting, setSelectedSetting] = useState("Default Timetable");
     const [manageSelectedTab, setManageSelectedTab] = useState(1);
     const manageLessonsTabs = [
         {
@@ -66,17 +65,20 @@ const Calendar = () => {
                     dayName={dayName}
                     selectedTab={selectedTab}
                     setSelectedTab={setSelectedTab}
+                    selectedSetting={selectedSetting}
+                    setSelectedSetting={setSelectedSetting}
                     sidebar={isSidebarOpen}
                     setSidebar={setIsSidebarOpen}
                 />
 
                 <div className='flex'>
-                    <div className={`${isSidebarOpen ? 'w-[calc(100vw-354px)]' : "w-full"} overflow-auto`}>
+                    <div className={`${isSidebarOpen ? 'w-[calc(100vw-300px)]' : "w-full"} overflow-auto`}>
                         <FullCalendar
                             ref={calendarRef}
                             plugins={[dayGridPlugin, interactionPlugin]}
                             initialView="dayGridWeek"
                             dayCellClassNames="!bg-white !min-h-fit !max-h-fit"
+                            weekends= {false}
                             dayCellContent={() => {
                                 return (
                                     <table
@@ -156,33 +158,12 @@ const Calendar = () => {
                                     <span className='font-primary'>{dayName}</span>
 
                                 );
-                                // return (
-                                //     <div className='flex justify-between items-center w-full !m-0'>
-                                //         <div className='flex items-center gap-5'>
-                                //             <div className='!bg-blue-dark2'>
-                                //                 <Image src={assets.recent} alt="recent icon" className="w-14 p-2" />
-                                //             </div>
-                                //             <div>
-                                //                 <span className='font-primary flex items-center'>
-                                //                     <LockIcon className='!w-4' />
-                                //                     {info.text}
-                                //                 </span>
-                                //             </div>
-                                //         </div>
-                                //         <div className='flex bg-blue-dark2 p-2 mr-2'>
-                                //             <p className='border-r border-white text-sm font-primary font-normal text-white px-5'>New
-                                //                 Lesson</p>
-                                //             <p className='text-sm font-primary font-normal text-white px-5'>Manage Lessons</p>
-                                //         </div>
-                                //     </div>
-                                // )
-
                             }}
                         />
                     </div>
 
                     <div
-                        className={`bg-white border border-gray-dark2 ${isSidebarOpen ? 'max-w-[351px] w-full' : 'w-0'}`}>
+                        className={`bg-white border border-gray-dark2 ${isSidebarOpen ? 'max-w-[300px] w-full' : 'w-0'}`}>
                         {isSidebarOpen && (
                             <div className='w-full h-full'>
                                 <div className='flex items-end w-full h-13'>
@@ -210,14 +191,10 @@ const Calendar = () => {
                                 </div>
 
                                 {/* Side Tabs Panels */}
-                                {selectedTab === "Default Settings" ? (
+                                {selectedTab === "Lesson Default Settings" ? (
                                     <DefaultSetting/>
-                                ) : selectedTab === "Control" ? (
+                                ) : selectedTab === "Control Options" ? (
                                     <Control/>
-                                ) : selectedTab === "Workload" ? (
-                                    <Workload/>
-                                ) : selectedTab === "Timetable Options" ? (
-                                    <TimetableOptions/>
                                 ) : null}
                             </div>
                         )}

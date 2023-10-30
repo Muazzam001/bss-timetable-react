@@ -9,26 +9,19 @@ const DefaultSetting = () => {
     const [defaultSelectedTab, setDefaultSelectedTab] = useState(1);
     const {defaultValue: lesson} = useContext(TimetableContext);
 
-    const defaultSettingTabs = [
-        {
-            id: 1,
-            full: "Lesson Basic Settings",
-            short: "Lesson Basic Settings",
-        },
-        {
-            id: 2,
-            full: "Lesson Advance Settings",
-            short: "Lesson Advance Settings",
-        },
-    ]
-
     return (
         <>
             <div className='px-4 pt-5 pb-18 flex flex-col gap-y-5 h-full'>
                 <InputField placeholder={lesson} readOnly/>
 
                 <Tabs
-                    tabs={defaultSettingTabs}
+                    tabs={[
+                        {
+                            id: 1,
+                            full: "Basic Lesson Settings",
+                            short: "Basic Lesson Settings",
+                        },
+                    ]}
                     selectedTab={defaultSelectedTab}
                     setSelectedTab={setDefaultSelectedTab}
                     fontSize='text-xs'

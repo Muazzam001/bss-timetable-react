@@ -52,6 +52,11 @@ import large from "./images/large.png";
 import edit2 from "./images/edit.png";
 import noData from "./images/no-data.png";
 import collapse from "./images/collapse.png";
+import google from "./images/google.png";
+import availableslot from "./images/availableslot.png";
+import timetablereport from "./images/timetable-reports.png";
+import substitution from "./images/substitution.png";
+import managelesson from "./images/managelesson.png";
 
 
 // Assets Exports
@@ -108,5 +113,10 @@ export const assets = {
     large,
     edit2,
     noData,
-    collapse
+    collapse,
+    google,
+    availableslot,
+    substitution,
+    timetablereport,
+    managelesson,
 }

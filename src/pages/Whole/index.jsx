@@ -46,11 +46,11 @@ const Whole = () => {
 
     const Menus = [
         { title: "Home", src: assets.home },
-        // {title: "Subjects", src: assets.subject},
-        // {title: "Classes", src: assets.classes},
-        { title: "Classrooms", src: assets.classroom },
-        // {title: "Teachers", src: assets.teacher2},
-        // {title: "Modules", src: assets.modules},
+        {title: "Manage Available Slot", src: assets.subject},
+        { title: "Manage Lessons", src: assets.classes},
+        { title: "Manage Substitution", src: assets.classroom },
+        {title: "Timetable Reports", src: assets.teacher2},
+        {title: "Worklaod Settings", src: assets.modules},
     ];
 
     useEffect(() => {
@@ -64,7 +64,7 @@ const Whole = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setCalendarDisplay(true);
-        }, 3000);
+        }, 2000);
 
         return () => {
             clearTimeout(timer);
@@ -74,204 +74,187 @@ const Whole = () => {
 
     return (
         <MainLayout headerItem={calendarDisplay && Menus}>
+            {calendarDisplay ? (
+                <>
+                    <div className='relative py-8 min-h-[calc(100vh-175px)]'>
 
-            <div className='relative py-8 min-h-[calc(100vh-175px)]'>
-                <div className='container grid items-center max-xl:grid-cols-1 max-xl:gap-y-4 xl:grid-cols-12 xl:gap-3'>
-                    <div
-                        className='xl:col-span-11 grid max-lg:grid-cols-1 max-lg:gap-y-4 xl:grid-flow-col xl:grid-cols-12 lg:gap-3 lg:items-center'>
+                        <div className='container grid items-center max-xl:grid-cols-1 max-xl:gap-y-4 xl:grid-cols-12 xl:gap-3'>
+                            <div
+                                className='xl:col-span-11 grid max-lg:grid-cols-1 max-lg:gap-y-4 xl:grid-flow-col xl:grid-cols-12 lg:gap-3 lg:items-center'>
 
-                        <div className='xl:col-span-2'>
-                            <InputField
-                                placeholder="ROC"
-                                className=""
-                                disabled
-                            />
+                                <div className='xl:col-span-2'>
+                                    <InputField
+                                        placeholder="ROC"
+                                        className=""
+                                        disabled
+                                    />
+                                </div>
+
+                                <div className='xl:col-span-2'>
+                                    <InputField
+                                        placeholder="Cluster 5"
+                                        className=""
+                                        disabled
+                                    />
+                                </div>
+
+                                <div className='xl:col-span-3'>
+                                    <InputField
+                                        placeholder="TNS Defence, Lahore"
+                                        className=""
+                                        disabled
+                                    />
+                                </div>
+
+                                <div className='xl:col-span-3'>
+                                    <InputSelect
+                                        className="min-w-[200px]"
+                                        options={level}
+                                        value={year}
+                                        onChange={(e) => setYear(e.target.value)}
+                                    />
+                                </div>
+
+                                <div className='xl:col-span-2'>
+                                    <InputField
+                                        placeholder="Academic Year 2024"
+                                        className=""
+                                        disabled
+                                    />
+                                </div>
+                            </div>
+
+                            <div className='xl:col-span-1 flex items-center max-xl:ml-auto'>
+                                <Button
+                                    rounded={false}
+                                    type="button"
+                                    title="Reset & Manage"
+                                    color={"blue-dark2"}
+                                    className="font-medium text-sm h-12 min-w-[150px] justify-start"
+                                    onClick={() => navigate("/manage-school")}
+                                />
+                            </div>
                         </div>
 
-                        <div className='xl:col-span-2'>
-                            <InputField
-                                placeholder="Cluster 5"
-                                className=""
-                                disabled
-                            />
-                        </div>
-
-                        <div className='xl:col-span-3'>
-                            <InputField
-                                placeholder="TNS Defence, Lahore"
-                                className=""
-                                disabled
-                            />
-                        </div>
-
-                        <div className='xl:col-span-3'>
-                            <InputSelect
-                                width={"100%"}
-                                className="min-w-[200px]"
-                                options={level}
-                                value={year}
-                                onChange={(e) => setYear(e.target.value)}
-                            />
-                        </div>
-
-                        <div className='xl:col-span-2'>
-                            <InputField
-                                placeholder="Academic Year 2024"
-                                className=""
-                                disabled
-                            />
-                        </div>
-
-                        {/*<InputSelect*/}
-                        {/*    width={"100%"}*/}
-                        {/*    className="min-w-[200px]"*/}
-                        {/*    options={cluster}*/}
-                        {/*    value={teamLevel}*/}
-                        {/* onChange={(e) => setTeamLevel(e.target.value)} */}
-                        {/*/>*/}
-
-                    </div>
-
-                    <div className='xl:col-span-1 flex items-center max-xl:ml-auto'>
-                        <Button
-                            rounded={false}
-                            type="button"
-                            title="Reset & Manage"
-                            color={"blue-dark2"}
-                            className="font-medium text-sm h-12 min-w-[150px] justify-start"
-                            onClick={() => navigate("/manage-school")}
+                        <ManageLesson
+                            options={level}
+                            icon={assets.settings}
+                            text={"Manage Lesson Slots"}
+                            value={lesson}
+                            setState={setLesson}
+                            onDuplicateClick={() => setDuplicateModalOpen(true)}
+                            onBreadcrumbClick={() => setSlotModalOpen(true)}
+                            calendarOpen={calendarDisplay}
                         />
-                    </div>
-                </div>
-
-                <ManageLesson
-                    options={level}
-                    icon={assets.settings}
-                    text={"Manage Lesson Slots"}
-                    value={lesson}
-                    setState={setLesson}
-                    onDuplicateClick={() => setDuplicateModalOpen(true)}
-                    onBreadcrumbClick={() => setSlotModalOpen(true)}
-                    calendarOpen={calendarDisplay}
-                />
-
-                {calendarDisplay ? (
-                    <>
                         <div className='absolute top-3 -left-1 z-50'>
                             <Sidebar />
                         </div>
-
                         <Calendar />
-                    </>
-                ) : (
-                    <>
-                        <div className='flex justify-center my-8'>
-                            <Processing image={assets.loading} btnColor="bg-warning"
-                                label="Please select timetable above option" />
-                        </div>
-                    </>
-                )}
-            </div>
-
-            {open && (
-                <MainModal
-                    border
-                    open={open}
-                    setOpen={setOpen}
-                    image={assets.okbro}
-                    btnColor="bg-success"
-                    label={`Duplicated timetable successfully has been created "Winter".`}
-                >
-                    <Button
-                        rounded={true}
-                        type="button"
-                        title="Ok"
-                        color={"blue-dark2"}
-                        className="px-10 py-3"
-                        onClick={() => setOpen(false)}
-                    />
-                </MainModal>
-            )}
-
-            {duplicateModalOpen ? (
-                <SideModal isOpen={duplicateModalOpen} setIsOpen={setDuplicateModalOpen} title="Manage Duplicate Timetable">
-                    <section className='w-[500px]'>
-                        <div className='flex flex-col gap-y-8'>
-                            <InputField
-                                label="Duplicate Name"
-                                placeholder="Type Duplicate Name"
-                                className=""
-                                value={duplicateName}
-                                onChange={(e) => setDuplicateName(e.target.value)}
-                            />
-
-                            <InputSelect
-                                label="Duplicate Option"
-                                width={"100%"}
-                                className="min-w-[200px]"
-                                options={duplicateOption}
-                                value={option}
-                                setState={setOption}
-                                onChange={(e) => setOption(e.target.value)}
-                            />
-
-                            <InputSelect
-                                label="Duplicate Type"
-                                width={"100%"}
-                                className="min-w-[200px]"
-                                options={duplicateType}
-                                defaultValue=""
-                                value={type}
-                                onChange={(e) => setType(e.target.value)}
-                            />
-
-                        </div>
-
-                        <div className='flex gap-x-5 justify-end mt-10'>
-                            <Button
-                                title="Cancel"
-                                rounded={true}
-                                hover={false}
-                                className="!px-8 !bg-gray-medium !text-black !text-sm"
-                            />
-
+                    </div>
+                    {open && (
+                        <MainModal
+                            border
+                            open={open}
+                            setOpen={setOpen}
+                            image={assets.okbro}
+                            btnColor="bg-success"
+                            label={`Duplicated timetable successfully has been created "Winter".`}
+                        >
                             <Button
                                 rounded={true}
                                 type="button"
-                                title="Generate Clone"
+                                title="Ok"
                                 color={"blue-dark2"}
-                                className="px-18 py-3"
-                                onClick={() => {
-                                    setDuplicateModalOpen(false)
-                                    setOpen(true)
-                                }}
+                                className="px-10 py-3"
+                                onClick={() => setOpen(false)}
                             />
-                        </div>
-                    </section>
-                </SideModal>
-            ) : null}
+                        </MainModal>
+                    )}
+                    {duplicateModalOpen ? (
+                        <SideModal isOpen={duplicateModalOpen} setIsOpen={setDuplicateModalOpen} title="Manage Duplicate Timetable">
+                            <section className='w-[500px]'>
+                                <div className='flex flex-col gap-y-8'>
+                                    <InputField
+                                        label="Duplicate Name"
+                                        placeholder="Type Duplicate Name"
+                                        className=""
+                                        value={duplicateName}
+                                        onChange={(e) => setDuplicateName(e.target.value)}
+                                    />
 
-            {isSlotModalOpen ? (
-                <SideModal isOpen={isSlotModalOpen} setIsOpen={setSlotModalOpen} title="Manage Lesson Slot">
-                    <section>
-                        <div className='border-b'>
-                            <Tabs
-                                tabs={mainTabsData}
-                                selectedTab={selectedTab}
-                                setSelectedTab={setSelectedTab}
-                                tabWidth="w-fit"
-                            />
-                        </div>
-                        <div className='py-4'>
-                            {selectedTab === 1 ? (
-                                <LessonSlotSetting />
-                            ) : selectedTab === 2 ? (
-                                <LessonDaysSetting />
-                            ) : null}
-                        </div>
-                    </section>
-                </SideModal>
-            ) : null}
+                                    <InputSelect
+                                        label="Duplicate Option"
+                                        className="min-w-[200px]"
+                                        options={duplicateOption}
+                                        value={option}
+                                        setState={setOption}
+                                        onChange={(e) => setOption(e.target.value)}
+                                    />
+
+                                    <InputSelect
+                                        label="Duplicate Type"
+                                        className="min-w-[200px]"
+                                        options={duplicateType}
+                                        defaultValue=""
+                                        value={type}
+                                        onChange={(e) => setType(e.target.value)}
+                                    />
+
+                                </div>
+
+                                <div className='flex gap-x-5 justify-end mt-10'>
+                                    <Button
+                                        title="Cancel"
+                                        rounded={true}
+                                        hover={false}
+                                        className="!px-8 !bg-gray-medium !text-black !text-sm"
+                                    />
+
+                                    <Button
+                                        rounded={true}
+                                        type="button"
+                                        title="Generate Clone"
+                                        color={"blue-dark2"}
+                                        className="px-18 py-3"
+                                        onClick={() => {
+                                            setDuplicateModalOpen(false)
+                                            setOpen(true)
+                                        }}
+                                    />
+                                </div>
+                            </section>
+                        </SideModal>
+                    ) : null}
+                    {isSlotModalOpen ? (
+                        <SideModal isOpen={isSlotModalOpen} setIsOpen={setSlotModalOpen} title="Manage Lesson Slot">
+                            <section>
+                                <div className='border-b'>
+                                    <Tabs
+                                        tabs={mainTabsData}
+                                        selectedTab={selectedTab}
+                                        setSelectedTab={setSelectedTab}
+                                        tabWidth="w-fit"
+                                    />
+                                </div>
+                                <div className='py-4'>
+                                    {selectedTab === 1 ? (
+                                        <LessonSlotSetting />
+                                    ) : selectedTab === 2 ? (
+                                        <LessonDaysSetting />
+                                    ) : null}
+                                </div>
+                            </section>
+                        </SideModal>
+                    ) : null}
+                </>
+            ) : (
+                <>
+                    <div className='flex justify-center my-8'>
+                        <Processing image={assets.loading} btnColor="bg-warning"
+                            label="Please select timetable above option" />
+                    </div>
+                </>
+            )}
         </MainLayout>
     );
 }
