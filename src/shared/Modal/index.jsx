@@ -1,5 +1,5 @@
 import {assets} from "../../assets";
-import ArrowLeft from "../../assets/icons/arrowLeft.jsx";
+import ArrowRight from "../../assets/icons/arrowRight.jsx";
 import Image from "../Image";
 import Button from "../Button";
 import InputField from "../Input";
@@ -16,7 +16,8 @@ const Modal = ({isOpen, onClose, team}) => {
                 className={`z-50 fixed top-0 right-0 min-h-screen overflow-y-auto w-[55%] border border-gray-medium transform transition-transform ease-in-out duration-700 bg-gray-light-bluish ${
                     isOpen ? "translate-x-0" : "translate-x-full"} `}>
                 <div onClick={onClose} className="bg-white py-5 px-3 border-y border-slate-300 cursor-pointer">
-                    <ArrowLeft className="!w-6 !h-6"/>
+                    {/*<ArrowLeft className="!w-6 !h-6"/>*/}
+                    <ArrowRight className="!w-6 !h-6"/>
                 </div>
 
                 <div className="my-5 ml-16">

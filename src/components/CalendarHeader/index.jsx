@@ -46,7 +46,7 @@ const CalendarHeader = ({ calendarRef, dayName, selectedTab, setSelectedTab, sid
                         ))}
                     </div>
 
-                    <div className='flex items-center gap-5'>
+                    <div className='flex items-center gap-5 mr-auto'>
                         <Image src={assets.calendar1} alt="calendar icon" className="w-8" />
 
                         <span className='font-primary font-semibold'>Timetable</span>
@@ -56,7 +56,7 @@ const CalendarHeader = ({ calendarRef, dayName, selectedTab, setSelectedTab, sid
                     <div className='relative py-1'>
                         <div className='absolute flex items-center gap-1 -top-5 -left-2 cursor-pointer' onClick={toggleSidebar}>
                             <span className='font-primary font-semibold text-tny'>Collapse</span>
-                            <Image src={assets.collapse} alt="Collapse Icon" className={`w-3 cursor-pointer transition duration-300  ${!sidebar ? "rotate-180" : ""}`} />
+                            <Image src={assets.collapse} alt="Collapse Icon" className={`w-3 cursor-pointer transition duration-300  ${!sidebar ? "rotate-90" : "-rotate-90"}`} />
                         </div>
                         <Image src={assets.large} alt="Collapse Icon" className="w-12 cursor-pointer" />
                     </div>

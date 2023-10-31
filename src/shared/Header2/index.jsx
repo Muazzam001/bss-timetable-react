@@ -8,7 +8,7 @@ const Header2 = ({headerItem}) => {
         headerItem &&
         headerItem?.map((navItem, index) => {
             return (
-                <NavLink to={''} key={`${index}`}
+                <NavLink to={navItem?.url} key={`${index}`}
                          className="flex flex-col items-center justify-center gap-y-1 rounded-md px-2 py-1.5 hover:bg-blue-light2">
                     <span className="w-6 h-6 flex justify-center items-center">
                         <Image alt="" className="" src={navItem?.src}/>

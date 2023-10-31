@@ -45,12 +45,12 @@ const Whole = () => {
     const level = ["Default", "Winter - Default"];
 
     const Menus = [
-        { title: "Home", src: assets.home },
-        {title: "Manage Available Slot", src: assets.subject},
-        { title: "Manage Lessons", src: assets.classes},
-        { title: "Manage Substitution", src: assets.classroom },
-        {title: "Timetable Reports", src: assets.teacher2},
-        {title: "Worklaod Settings", src: assets.modules},
+        { title: "Home", src: assets.home, url: '/manage-school' },
+        { title: "Manage Available Slot", src: assets.subject, url: '' },
+        { title: "Manage Lessons", src: assets.classes, url: '' },
+        { title: "Manage Substitution", src: assets.classroom, url: '' },
+        { title: "Timetable Reports", src: assets.teacher2, url: '' },
+        { title: "Workload Settings", src: assets.modules, url: '' },
     ];
 
     useEffect(() => {
@@ -64,7 +64,7 @@ const Whole = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setCalendarDisplay(true);
-        }, 2000);
+        }, 2500);
 
         return () => {
             clearTimeout(timer);
@@ -249,7 +249,7 @@ const Whole = () => {
                 </>
             ) : (
                 <>
-                    <div className='flex justify-center my-8'>
+                    <div className='flex justify-center items-center min-h-[calc(100vh-170px)] py-8'>
                         <Processing image={assets.loading} btnColor="bg-warning"
                             label="Please select timetable above option" />
                     </div>

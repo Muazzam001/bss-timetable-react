@@ -1,7 +1,7 @@
-const Image = ({src, alt, className, style}) => {
+const Image = ({src, alt, className, style, loading}) => {
     return (
         <>
-            <img loading="lazy" src={src} alt={alt} className={className} style={style}/>
+            <img src={src} alt={alt} className={className} style={style}/>
         </>
     )
 }

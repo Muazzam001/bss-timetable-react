@@ -318,14 +318,14 @@ const Control = () => {
         return (
             <div>
                 <div onClick={() => handleControls(module?.title)}
-                     className={`flex gap-1 items-center cursor-pointer group ${control === module?.title ? "bg-blue-light1 hover:bg-blue-light1 border-l-4 border-blue-dark2" : "hover:bg-blue-light1"} p-2 rounded`}>
+                     className={`flex gap-1 items-center cursor-pointer p-2 rounded group ${control === module?.title ? "bg-blue-light1 hover:bg-blue-light1 border-l-4 border-blue-dark2" : "border-l-4 border-transparent hover:bg-blue-light1 hover:border-blue-light1 focus:bg-blue-light1 focus:border-blue-light1"}`}>
                     <Image src={module?.src} alt={module.title} className={`w-12`}/>
 
                     <span
                         className={`font-primary text-xs font-semibold`}>{`Find ${module.title}`}</span>
                 </div>
 
-                <div className="font-primary text-blue-dark2 text-xs font-semibold mt-1 ml-2">
+                <div className="font-primary text-blue-dark2 text-xs font-semibold mt-1 ml-3">
                     {module?.title === "Subjects" ? (
                         selectedItems(findSubjects).join(", ")
                     ) : module?.title === "Classes" ? (
