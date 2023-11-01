@@ -66,7 +66,7 @@ const InputSelect = ({ options, className, value, width, disabled, label, onChan
                                 '& .MuiMenuItem-root': {
                                     paddingX: 2,
                                     paddingY: 1.5,
-                                    fontSize: 14,
+                                    fontSize: 16,
                                     fontWeight: "400",
                                     color: "#7D7D92",
                                     marginTop: "5px",

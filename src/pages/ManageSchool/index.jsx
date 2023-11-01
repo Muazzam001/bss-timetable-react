@@ -64,7 +64,7 @@ const ManageSchool = () => {
     return (
         <MainLayout>
 
-            <div className='container min-h-[calc(100vh-175px)]'>
+            <div className='container min-h-[calc(100vh-167px)]'>
 
                 <div className='flex flex-col gap-10 py-9'>
 

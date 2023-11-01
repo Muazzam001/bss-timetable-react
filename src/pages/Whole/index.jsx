@@ -76,7 +76,7 @@ const Whole = () => {
         <MainLayout headerItem={calendarDisplay && Menus}>
             {calendarDisplay ? (
                 <>
-                    <div className='relative py-8 min-h-[calc(100vh-175px)]'>
+                    <div className='relative py-8 min-h-[calc(100vh-167px)]'>
 
                         <div className='container grid items-center max-xl:grid-cols-1 max-xl:gap-y-4 xl:grid-cols-12 xl:gap-3'>
                             <div
@@ -249,7 +249,7 @@ const Whole = () => {
                 </>
             ) : (
                 <>
-                    <div className='flex justify-center items-center min-h-[calc(100vh-170px)] py-8'>
+                    <div className='flex justify-center items-center min-h-[calc(100vh-167px)] py-8'>
                         <Processing image={assets.loading} btnColor="bg-warning"
                             label="Please select timetable above option" />
                     </div>
